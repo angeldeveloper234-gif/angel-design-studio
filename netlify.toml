@@ -1,0 +1,11 @@
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NEXT_PUBLIC_SANITY_PROJECT_ID = ""
+  SANITY_API_TOKEN = ""
+  RESEND_API_KEY = ""
