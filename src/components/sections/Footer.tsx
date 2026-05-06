@@ -108,12 +108,20 @@ export default function Footer() {
                 <p className="text-sm text-secondary mb-4">
                   ¿Tienes un proyecto en mente? Hablemos hoy mismo.
                 </p>
-                <Link 
-                  href="#contact"
-                  className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wider text-accent hover:gap-3 transition-all"
-                >
-                  Agendar llamada <ArrowUpRight size={16} />
-                </Link>
+                <div className="flex flex-col gap-4">
+                  <Link 
+                    href="#contact"
+                    className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wider text-accent hover:gap-3 transition-all"
+                  >
+                    Agendar llamada <ArrowUpRight size={16} />
+                  </Link>
+                  <a 
+                    href="mailto:hola@angelstudio.design" 
+                    className="text-sm font-medium text-secondary hover:text-accent transition-colors flex items-center gap-2"
+                  >
+                    hola@angelstudio.design
+                  </a>
+                </div>
               </li>
             </ul>
           </div>
@@ -149,9 +157,7 @@ export default function Footer() {
             © {currentYear} Angel Design Studio. Todos los derechos reservados.
           </p>
           <div className="flex gap-8 text-xs font-medium text-secondary/60 uppercase tracking-widest">
-            <Link href="#" className="hover:text-foreground transition-colors">Privacidad</Link>
-            <Link href="#" className="hover:text-foreground transition-colors">Términos</Link>
-            <Link href="#" className="hover:text-foreground transition-colors">Cookies</Link>
+            <Link href="#" className="hover:text-foreground transition-colors">Términos y Condiciones</Link>
           </div>
         </div>
       </div>
