@@ -86,7 +86,7 @@ export default function Services() {
                   </div>
                   <motion.div 
                     whileHover={{ scale: 1.1, rotate: 15 }}
-                    whileActive={{ scale: 0.95 }}
+                    whileTap={{ scale: 0.95 }}
                     className={`p-5 rounded-full cursor-pointer transition-all shadow-xl ${
                       service.highlight ? "bg-white text-accent" : "bg-accent text-white"
                     }`}
