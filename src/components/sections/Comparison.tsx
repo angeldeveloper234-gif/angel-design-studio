@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Layout, Bot, XCircle, CheckCircle2 } from "lucide-react";
+import { XCircle, CheckCircle2 } from "lucide-react";
 
 export default function Comparison() {
   return (

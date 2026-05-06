@@ -2,8 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Mail, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { FaInstagram, FaFacebookF } from "react-icons/fa6";
 
@@ -105,17 +104,6 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-8 uppercase tracking-widest text-accent">Contacto</h4>
             <ul className="space-y-6">
-              <li className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-surface flex items-center justify-center shrink-0 border border-border-custom/10">
-                  <Mail size={20} className="text-accent" />
-                </div>
-                <div>
-                  <p className="text-secondary/60 text-xs uppercase font-black tracking-widest mb-1">Email</p>
-                  <a href="mailto:hola@angeldesignstudio.com" className="text-foreground hover:text-accent transition-colors break-all">
-                    hola@angeldesignstudio.com
-                  </a>
-                </div>
-              </li>
               <li className="p-6 rounded-[2rem] bg-surface/50 border border-border-custom/10">
                 <p className="text-sm text-secondary mb-4">
                   ¿Tienes un proyecto en mente? Hablemos hoy mismo.
