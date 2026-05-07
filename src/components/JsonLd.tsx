@@ -12,16 +12,16 @@ export default function JsonLd() {
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Salta, Argentina",
-      "addressLocality": "Salta",
-      "addressRegion": "Salta",
-      "postalCode": "4400",
-      "addressCountry": "AR"
+      "streetAddress": "Ciudad de México",
+      "addressLocality": "CDMX",
+      "addressRegion": "CDMX",
+      "postalCode": "01000",
+      "addressCountry": "MX"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": -24.7821,
-      "longitude": -65.4232
+      "latitude": 19.4326,
+      "longitude": -99.1332
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -33,7 +33,7 @@ export default function JsonLd() {
         "Friday"
       ],
       "opens": "09:00",
-      "closes": "18:00"
+      "closes": "19:00"
     },
     "sameAs": [
       "https://www.instagram.com/angeldesignstudio",
@@ -45,23 +45,23 @@ export default function JsonLd() {
       "itemOffered": [
         {
           "@type": "Service",
-          "name": "Diseño Web Premium",
-          "description": "Sitios web de alto impacto diseñados para convertir."
+          "name": "Diseño Web Profesional",
+          "description": "Sitios web de alto impacto diseñados para convertir y posicionar en Google."
         },
         {
           "@type": "Service",
-          "name": "Branding & Identidad Visual",
-          "description": "Creación de marcas memorables y profesionales."
+          "name": "Graphic Design & Branding",
+          "description": "Creación de marcas memorables, logotipos y sistemas de identidad visual."
         },
         {
           "@type": "Service",
-          "name": "Desarrollo E-commerce",
-          "description": "Tiendas online optimizadas para ventas."
+          "name": "Digital Marketing",
+          "description": "Estrategias de marketing digital para escalar negocios."
         },
         {
           "@type": "Service",
           "name": "SEO & Optimización",
-          "description": "Mejoramos tu visibilidad en buscadores."
+          "description": "Mejoramos tu visibilidad en buscadores para que aparezcas cerca de tus clientes."
         }
       ]
     }

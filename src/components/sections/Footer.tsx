@@ -26,8 +26,8 @@ export default function Footer() {
   React.useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const formatter = new Intl.DateTimeFormat("es-AR", {
-        timeZone: "America/Argentina/Salta",
+      const formatter = new Intl.DateTimeFormat("es-MX", {
+        timeZone: "America/Mexico_City",
         hour: "numeric",
         minute: "2-digit",
         hour12: true,
@@ -130,14 +130,14 @@ export default function Footer() {
           <div className="lg:pl-8">
             <h4 className="font-bold text-lg mb-8 uppercase tracking-widest text-accent">Ubicación</h4>
             <div className="mb-8">
-              <p className="text-foreground font-bold mb-1">Salta, Argentina.</p>
+              <p className="text-foreground font-bold mb-1">Ciudad de México.</p>
               <p className="text-secondary leading-relaxed">
-                Desde Salta-Argentina, disponible en todo el mundo.
+                Estrategias de <strong>diseño web</strong> y <strong>branding</strong> para todo México.
               </p>
             </div>
             
             <div className="mb-8 p-4 rounded-2xl bg-surface border border-border-custom/10 inline-flex flex-col">
-              <p className="text-[10px] text-secondary/40 uppercase font-black tracking-[0.2em] mb-1">Hora Local (ART)</p>
+              <p className="text-[10px] text-secondary/40 uppercase font-black tracking-[0.2em] mb-1">Hora Local (CDMX)</p>
               <p className="text-2xl font-black text-accent tracking-tighter tabular-nums">
                 {currentTime || "00:00"}
               </p>

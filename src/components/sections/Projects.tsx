@@ -96,7 +96,7 @@ export default function Projects({ projects: sanityProjects }: ProjectProps) {
                 {project.mainImage ? (
                   <Image 
                     src={urlForImage(project.mainImage).url() || ''} 
-                    alt={`Proyecto ${project.title} desarrollado por Angel Design Studio`}
+                    alt={`Diseño web para ${project.industry || 'negocios'} - ${project.title} | Angel Design Studio`}
                     fill
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"

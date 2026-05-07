@@ -23,6 +23,10 @@ const faqData = [
     answer: "¡Sí! El primer año de dominio (.com o .mx) y hosting premium de alta velocidad están incluidos en todos nuestros planes. Nos encargamos de toda la configuración técnica por ti.",
   },
   {
+    question: "¿Buscas diseño web cerca de mi?",
+    answer: "Aunque estamos en Ciudad de México, trabajamos de forma remota para todo el país y el mundo. Al ser un estudio digital, podemos ofrecerte la misma calidad y atención personalizada sin importar tu ubicación física.",
+  },
+  {
     question: "¿Cómo cobran?",
     answer: "Solicitamos un 50% de anticipo para iniciar el proyecto y el 50% restante al finalizar, una vez que estés totalmente satisfecho con el resultado y antes del lanzamiento oficial.",
   },

@@ -14,41 +14,41 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="font-heading text-4xl md:text-6xl lg:text-7xl font-black leading-[1] tracking-[-0.04em] text-foreground mb-16 max-w-[15ch] lg:max-w-[25ch] mx-auto"
+            className="font-heading text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-[-0.02em] text-foreground mb-8 md:mb-16 max-w-full lg:max-w-[25ch] mx-auto break-words"
           >
-            Sitios web que hacen <span className="text-accent">crecer</span> negocios en México
+            Agencia de <span className="text-accent">diseño web</span> & branding de alto impacto en México
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-lg md:text-xl text-foreground/80 mb-12 max-w-2xl"
+            className="text-base md:text-xl text-foreground/80 mb-8 md:mb-12 max-w-2xl px-2"
           >
-            Diseño moderno, entrega rápida y resultados reales. <br className="hidden md:block" />
-            Sin plantillas genéricas. Sin esperas de semanas.
+            Expertos en <strong>diseño web</strong>, <strong>graphic design</strong> y <strong>marketing digital</strong>. <br className="hidden md:block" />
+            Diseño moderno, entrega rápida y resultados reales en México.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-4 mb-8 md:mb-16"
+            className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 md:mb-16 w-full px-4 md:px-0 max-w-[320px] md:max-w-none mx-auto"
           >
             <a
               href="https://wa.me/543873529421"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center bg-accent text-background pl-8 pr-2 py-2 rounded-full font-heading font-black text-xl transition-all hover:brightness-110 active:scale-95 shadow-lg shadow-accent/20 cursor-pointer border border-accent"
+              className="group relative flex items-center bg-accent text-background pl-6 pr-2 py-2 md:pl-8 rounded-full font-heading font-black text-base md:text-xl transition-all hover:brightness-110 active:scale-95 shadow-lg shadow-accent/20 cursor-pointer border border-accent w-full md:w-auto justify-between md:justify-start"
             >
-              <span className="mr-6">Quiero mi sitio web</span>
-              <div className="bg-background rounded-full w-12 h-12 flex items-center justify-center text-accent border border-accent/20">
-                <ArrowRight size={24} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+              <span className="mr-4 md:mr-6 ml-2 md:ml-0">Quiero mi sitio web</span>
+              <div className="bg-background rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-accent border border-accent/20 shrink-0">
+                <ArrowRight size={20} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300 md:w-6 md:h-6" />
               </div>
             </a>
             <a
               href="#projects"
-              className="bg-transparent border-2 border-foreground text-foreground px-8 py-4 rounded-full font-black text-sm uppercase tracking-wider hover:bg-foreground hover:text-background active:scale-95 transition-all cursor-pointer flex items-center gap-2 group"
+              className="bg-transparent border-2 border-foreground text-foreground px-6 py-3 md:px-8 md:py-4 rounded-full font-black text-sm uppercase tracking-wider hover:bg-foreground hover:text-background active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2 group w-full md:w-auto"
             >
               Ver proyectos <ArrowRight size={18} className="opacity-50 group-hover:opacity-100 transition-opacity" />
             </a>

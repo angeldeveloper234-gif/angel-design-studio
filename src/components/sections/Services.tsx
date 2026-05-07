@@ -6,15 +6,15 @@ import Image from "next/image";
 
 const services = [
   {
-    title: "Desarrollo",
-    subtitle: "Web",
-    tagline: "Sitio web que convierte",
-    description: "Diseñamos tu presencia digital desde cero: landing pages, sitios institucionales y portfolios que generan confianza y traen clientes. Rápidos, mobile-first y listos para posicionarse en Google.",
+    title: "Diseño Web",
+    subtitle: "Premium",
+    tagline: "Agencia de diseño web profesional",
+    description: "Creamos sitios web de alto impacto: landing pages, e-commerce y portfolios. Como agencia de diseño web líder, nos enfocamos en resultados rápidos, mobile-first y optimizados para SEO.",
     features: [
-      "Diseño único para tu rubro",
-      "Dominio y publicación incluidos",
-      "Optimizado para celular",
-      "Listo en menos de 7 días"
+      "Diseño web cerca de mi",
+      "Graphic design & branding",
+      "Optimizado para Google",
+      "Entrega en menos de 7 días"
     ],
     buttonText: "Quiero mi sitio web",
     icon: <Code className="w-6 h-6" />,
@@ -22,17 +22,17 @@ const services = [
     highlight: true,
   },
   {
-    title: "Automatizaciones",
-    subtitle: "con IA",
-    tagline: "Tu negocio trabajando solo",
-    description: "Implementamos asistentes con inteligencia artificial que atienden a tus clientes por WhatsApp las 24 horas, agendan citas, responden preguntas frecuentes y te mandan los datos organizados directo a tu celular.",
+    title: "Marketing",
+    subtitle: "Digital & IA",
+    tagline: "Estrategias de marketing digital",
+    description: "Implementamos soluciones de digital marketing y automatizaciones con IA. Desde chatbots para WhatsApp hasta posicionamiento de marca, ayudamos a que tu negocio trabaje solo y escale.",
     features: [
+      "Digital marketing estratégico",
+      "Automatización de procesos",
       "Chatbot con IA para WhatsApp",
-      "Respuestas automáticas personalizadas",
-      "Registro de clientes en tiempo real",
-      "Sin necesidad de estar pendiente"
+      "Diseño gráfico publicitario"
     ],
-    buttonText: "Quiero automatizar mi negocio",
+    buttonText: "Escalar mi negocio",
     icon: <Cpu className="w-6 h-6" />,
     image: "/services/ai-automation.png",
     highlight: false,
