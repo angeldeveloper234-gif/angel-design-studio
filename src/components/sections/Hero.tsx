@@ -68,12 +68,14 @@ export default function Hero() {
         >
           <div className="relative rounded-t-[4rem] overflow-hidden ">
             <Image
-              src="/mockup-adaptado-afinity.png"
+              src="/mockup-adaptado-afinity.webp"
               alt="Mockup premium de sitios web diseñados por Angel Design Studio"
               width={1600}
               height={900}
               priority
-              sizes="(max-width: 768px) 100vw, 1200px"
+              fetchPriority="high"
+              loading="eager"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 1200px"
               className="w-full h-auto object-cover opacity-95 group-hover:scale-[1.01] transition-transform duration-1000"
             />
             {/* Strong Gradient Overlay to hide bottom */}
