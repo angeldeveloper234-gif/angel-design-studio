@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
+import Script from "next/script";
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.angelstudio.design"),
@@ -93,7 +95,22 @@ export default function RootLayout({
       <head>
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,301,400,401,500,501,700,701,900,901,1,2&display=swap" rel="stylesheet" />
         <JsonLd />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-R65SM11F3M"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-R65SM11F3M');
+          `}
+        </Script>
       </head>
+
       <body className="font-sans antialiased overflow-x-hidden">
         <LenisProvider>
           <Navbar />
