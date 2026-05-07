@@ -8,10 +8,10 @@ import { FaInstagram, FaFacebookF } from "react-icons/fa6";
 
 const navLinks = [
   { name: "Inicio", href: "/" },
-  { name: "Servicios", href: "#servicios" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Proceso", href: "#proceso" },
-  { name: "Contacto", href: "#contacto" },
+  { name: "Servicios", href: "#services" },
+  { name: "Portfolio", href: "#projects" },
+  { name: "Proceso", href: "#process" },
+  { name: "Contacto", href: "#contact" },
 ];
 
 const socialLinks = [

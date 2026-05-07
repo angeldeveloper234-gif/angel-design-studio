@@ -9,8 +9,14 @@ import Process from "@/components/sections/Process";
 import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
+import { client } from "@/sanity/lib/client";
+import { projectsQuery, testimonialsQuery } from "@/sanity/lib/queries";
 
-export default function Home() {
+export default async function Home() {
+  const [projects, testimonials] = await Promise.all([
+    client.fetch(projectsQuery),
+    client.fetch(testimonialsQuery)
+  ]);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Hero />
@@ -18,8 +24,8 @@ export default function Home() {
       <MarketProblem />
       <Comparison />
       <Services />
-      <Projects />
-      <Testimonials />
+      <Projects projects={projects} />
+      <Testimonials testimonials={testimonials} />
       <Process />
       <FAQ />
       <Contact />

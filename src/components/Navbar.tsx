@@ -2,17 +2,19 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 import Image from "next/image";
 
 const navLinks = [
-  { name: "Servicios", href: "#servicios" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Proceso", href: "#proceso" },
+  { name: "Servicios", href: "#services" },
+  { name: "Portfolio", href: "#projects" },
+  { name: "Proceso", href: "#process" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   
   useEffect(() => {
@@ -22,6 +24,9 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Hide Navbar in Sanity Studio
+  if (pathname?.startsWith("/studio")) return null;
 
   return (
     <motion.header 
@@ -68,7 +73,7 @@ export default function Navbar() {
           </div>
           
           <Link 
-            href="#contacto"
+            href="#contact"
             className="bg-accent text-white px-7 py-3 rounded-full text-[11px] font-black uppercase tracking-[0.1em] hover:brightness-110 transition-all active:scale-95 shadow-lg shadow-accent/20 whitespace-nowrap"
           >
             Pide tu propuesta

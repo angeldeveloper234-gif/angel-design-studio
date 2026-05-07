@@ -83,7 +83,7 @@ export default function FAQ() {
                 <h4 className="text-2xl font-bold font-heading mb-3">¿Aún con dudas?</h4>
                 <p className="text-secondary text-sm mb-8 leading-relaxed">Estamos listos para escucharte. Resolvemos cualquier inquietud en tiempo real.</p>
                 <a 
-                  href="https://wa.me/1234567890" 
+                  href="https://wa.me/543873529421" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-full py-4 px-6 bg-white text-background hover:bg-accent hover:text-white font-bold rounded-2xl transition-all duration-300 active:scale-[0.98] shadow-lg"

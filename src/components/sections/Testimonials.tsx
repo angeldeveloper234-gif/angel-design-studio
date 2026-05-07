@@ -6,47 +6,74 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { urlForImage } from '@/sanity/lib/image';
+import type { Image as SanityImage } from 'sanity';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-const testimonials = [
+interface Testimonial {
+  _id: string;
+  name: string;
+  role: string;
+  location: string;
+  company: string;
+  quote: string;
+  image?: string;
+  photo?: SanityImage;
+  isLogo?: boolean;
+}
+
+const defaultTestimonials: Testimonial[] = [
   {
-    name: 'Carlos Mendoza',
-    role: 'Dueño, Constructora M',
-    location: 'CDMX, México',
-    company: 'Constructora M',
-    quote: 'Nos entregaron la web en una semana y empezamos a recibir consultas de clientes de inmediato.',
-    image: 'https://i.pravatar.cc/150?u=carlos'
+    _id: '1',
+    name: 'Dueño',
+    role: 'Fumcon',
+    location: 'México',
+    company: 'Fumcon',
+    quote: 'Siempre predispuestos y con una entrega de muy buena calidad. Estoy muy conforme con el resultado.',
+    image: 'https://fumcon.com.mx/fumcon-logo.png',
+    isLogo: true
   },
   {
-    name: 'Ana Silva',
-    role: 'Directora, Estudio Legal',
-    location: 'Monterrey, México',
-    company: 'Silva Abogados',
-    quote: 'El diseño es súper profesional. Captaron la seriedad que buscábamos pero con un toque moderno.',
-    image: 'https://i.pravatar.cc/150?u=ana'
+    _id: '2',
+    name: 'Jorge Guevara',
+    role: 'BigCat & PCP Internacional',
+    location: 'México',
+    company: 'BigCat',
+    quote: 'Están siempre a la altura de las expectativas. Entregan grandes resultados sin los procesos lentos de otras agencias.',
+    image: 'https://bigcat.mx/logo/BIG%20CAT%20-%20Control%20de%20plagas.png',
+    isLogo: true
   },
   {
-    name: 'Roberto Gómez',
-    role: 'Gerente, PanelSolar Tech',
-    location: 'Guadalajara, México',
-    company: 'PanelSolar Tech',
-    quote: 'La automatización de WhatsApp nos salvó la vida. Ahora los clientes se filtran solos.',
-    image: 'https://i.pravatar.cc/150?u=roberto'
+    _id: '3',
+    name: 'Pérez',
+    role: 'Dueño',
+    location: 'México',
+    company: 'Pérez & González Asociados',
+    quote: 'Nos entregaron algo muy profesional y sin vueltas innecesarias. Ahora nuestra presencia online refleja el nivel de nuestro estudio. Los recomendamos.',
+    image: 'https://nmnofwinjufyyykyaelc.supabase.co/storage/v1/object/sign/Perez%20Gonzalez%20Co.%20Abogados/logo-gonzales.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hNzRlMzZmMy0wZDFhLTQ5NWMtYWMwMS0zNjMzMDY0Y2YwZTIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQZXJleiBHb256YWxleiBDby4gQWJvZ2Fkb3MvbG9nby1nb256YWxlcy5wbmciLCJpYXQiOjE3NjkyNzg5MDcsImV4cCI6MTgwMDgxNDkwN30.uRkGpMw4Gfncw30tO4h22P32vEEIlCCYh0Nca6ZgHDg',
+    isLogo: true
   },
   {
-    name: 'Lucía Torres',
-    role: 'Fundadora, FitLife Gym',
-    location: 'Querétaro, México',
-    company: 'FitLife Gym',
-    quote: 'Increíble velocidad de carga. La gente puede ver los horarios y reservar desde el celular sin problema.',
-    image: 'https://i.pravatar.cc/150?u=lucia'
+    _id: '4',
+    name: 'Miguel',
+    role: 'Dueño',
+    location: 'México',
+    company: 'Villalba & Asociados',
+    quote: 'Profesionales, rápidos y con muy buen criterio estético. El sitio quedó exactamente como lo necesitábamos para proyectar confianza a nuestros clientes.',
+    image: 'https://banuelos-villalba-asociados.netlify.app/images/logo-white.svg',
+    isLogo: true
   }
 ];
 
-export default function Testimonials() {
+interface TestimonialsProps {
+  testimonials?: Testimonial[];
+}
+
+export default function Testimonials({ testimonials: sanityTestimonials }: TestimonialsProps) {
+  const testimonials = sanityTestimonials && sanityTestimonials.length > 0 ? sanityTestimonials : defaultTestimonials;
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -161,7 +188,7 @@ export default function Testimonials() {
                   className="testimonials-swiper !overflow-hidden pb-12"
                 >
                   {testimonials.map((item, index) => (
-                    <SwiperSlide key={index} className="h-auto px-2 sm:px-0">
+                    <SwiperSlide key={item._id || index} className="h-auto px-2 sm:px-0">
                       <motion.div
                         className="bg-surface/30 backdrop-blur-md rounded-[2rem] md:rounded-[4rem] p-6 md:p-14 h-full flex flex-col justify-between min-h-[340px] sm:min-h-[420px] md:min-h-[500px] border border-white/5 hover:border-accent/20 transition-all duration-700 relative group overflow-hidden"
                       >
@@ -193,11 +220,11 @@ export default function Testimonials() {
                         <div className="mt-8 md:mt-12 pt-6 md:pt-10 border-t border-white/5 flex items-center gap-4 md:gap-6 relative z-10">
                           <div className="w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl md:rounded-3xl overflow-hidden border border-white/10 shadow-2xl group-hover:border-accent/30 transition-colors duration-500 flex-shrink-0">
                             <Image
-                              src={item.image}
+                              src={(item.photo ? urlForImage(item.photo).url() : item.image) || ''}
                               alt={item.name}
                               width={80}
                               height={80}
-                              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                              className={`w-full h-full ${item.isLogo ? 'object-contain p-2 bg-white/5' : 'object-cover'} grayscale group-hover:grayscale-0 transition-all duration-700`}
                             />
                           </div>
                           <div className="flex flex-col min-w-0">

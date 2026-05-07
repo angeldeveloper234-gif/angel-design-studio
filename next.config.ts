@@ -2,10 +2,31 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+      {
+        protocol: "https",
         hostname: "i.pravatar.cc",
+      },
+      {
+        protocol: "https",
+        hostname: "fumcon.com.mx",
+      },
+      {
+        protocol: "https",
+        hostname: "bigcat.mx",
+      },
+      {
+        protocol: "https",
+        hostname: "nmnofwinjufyyykyaelc.supabase.co",
+      },
+      {
+        protocol: "https",
+        hostname: "banuelos-villalba-asociados.netlify.app",
       },
     ],
   },

@@ -5,7 +5,7 @@ import { Smartphone, History, Clock } from "lucide-react";
 
 export default function MarketProblem() {
   return (
-    <section className="py-24 px-4 md:px-8 bg-background">
+    <section className="py-24 px-4 md:px-8 bg-background min-h-[600px]">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Top Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">

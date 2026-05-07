@@ -3,7 +3,7 @@ import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://angeldesignstudio.com"),
+  metadataBase: new URL("https://www.angelstudio.design"),
   title: {
     default: "Angel Design Studio | Diseño Web & Branding de Alto Impacto",
     template: "%s | Angel Design Studio"
@@ -18,7 +18,9 @@ export const metadata: Metadata = {
     "marketing digital",
     "experiencia de usuario",
     "UI/UX",
-    "Angel Design Studio"
+    "Angel Design Studio",
+    "diseño web México",
+    "branding México"
   ],
   authors: [{ name: "Angel Design Studio" }],
   creator: "Angel Design Studio",
@@ -33,18 +35,18 @@ export const metadata: Metadata = {
     apple: "/favicon-angelstudiodesign.png",
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://www.angelstudio.design",
   },
   openGraph: {
     title: "Angel Design Studio | Diseño Web & Branding de Alto Impacto",
     description: "Transformamos tu visión en una presencia digital premium. Expertos en diseño web y branding.",
-    url: "https://angeldesignstudio.com",
+    url: "https://www.angelstudio.design",
     siteName: "Angel Design Studio",
     locale: "es_MX",
     type: "website",
     images: [
       {
-        url: "/hero-image.webp",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Angel Design Studio - Diseño Web & Branding",
@@ -55,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Angel Design Studio | Diseño Web & Branding de Alto Impacto",
     description: "Transformamos tu visión en una presencia digital premium.",
-    images: ["/hero-image.webp"],
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,

@@ -8,6 +8,7 @@ export const testimonial = defineType({
     defineField({ name: 'name', title: 'Name', type: 'string' }),
     defineField({ name: 'company', title: 'Company', type: 'string' }),
     defineField({ name: 'role', title: 'Role', type: 'string' }),
+    defineField({ name: 'location', title: 'Location', type: 'string' }),
     defineField({ name: 'quote', title: 'Quote', type: 'text' }),
     defineField({ name: 'photo', title: 'Photo', type: 'image', options: { hotspot: true } }),
     defineField({ 

@@ -3,15 +3,16 @@ import React from 'react';
 export default function JsonLd() {
   const businessSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
     "name": "Angel Design Studio",
-    "image": "https://angeldesignstudio.com/hero-image.webp",
-    "@id": "https://angeldesignstudio.com",
-    "url": "https://angeldesignstudio.com",
-    "telephone": "", // Add telephone if available
+    "image": "https://www.angelstudio.design/og-image.jpg",
+    "@id": "https://www.angelstudio.design",
+    "url": "https://www.angelstudio.design",
+    "telephone": "+543873529421",
+    "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "",
+      "streetAddress": "Salta, Argentina",
       "addressLocality": "Salta",
       "addressRegion": "Salta",
       "postalCode": "4400",
@@ -35,21 +36,47 @@ export default function JsonLd() {
       "closes": "18:00"
     },
     "sameAs": [
-      "https://www.instagram.com/angeldesignstudio", // Add real social links
-      "https://www.linkedin.com/company/angeldesignstudio"
-    ]
+      "https://www.instagram.com/angeldesignstudio",
+      "https://www.linkedin.com/company/angeldesignstudio",
+      "https://twitter.com/angeldesignstudio"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "itemOffered": [
+        {
+          "@type": "Service",
+          "name": "Diseño Web Premium",
+          "description": "Sitios web de alto impacto diseñados para convertir."
+        },
+        {
+          "@type": "Service",
+          "name": "Branding & Identidad Visual",
+          "description": "Creación de marcas memorables y profesionales."
+        },
+        {
+          "@type": "Service",
+          "name": "Desarrollo E-commerce",
+          "description": "Tiendas online optimizadas para ventas."
+        },
+        {
+          "@type": "Service",
+          "name": "SEO & Optimización",
+          "description": "Mejoramos tu visibilidad en buscadores."
+        }
+      ]
+    }
   };
 
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Angel Design Studio",
-    "url": "https://angeldesignstudio.com",
+    "url": "https://www.angelstudio.design",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://angeldesignstudio.com/?s={search_term_string}"
+        "urlTemplate": "https://www.angelstudio.design/?s={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }

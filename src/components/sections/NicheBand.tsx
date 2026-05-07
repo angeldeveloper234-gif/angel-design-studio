@@ -31,7 +31,7 @@ export default function NicheBand() {
   const duplicatedNiches = [...niches, ...niches, ...niches];
 
   return (
-    <section className="w-full bg-background py-12 md:py-16 border-b border-border-custom/5 relative overflow-hidden">
+    <section className="w-full bg-background py-12 md:py-16 border-b border-border-custom/5 relative overflow-hidden min-h-[200px]">
       {/* Premium Side Fades */}
       <div className="absolute left-0 top-0 bottom-0 w-24 md:w-64 bg-gradient-to-r from-background via-background/70 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-24 md:w-64 bg-gradient-to-l from-background via-background/70 to-transparent z-10 pointer-events-none" />

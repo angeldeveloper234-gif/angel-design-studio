@@ -84,15 +84,16 @@ export default function Services() {
                   <div className={`p-4 rounded-2xl ${service.highlight ? "bg-white/20 backdrop-blur-md" : "bg-background/50"}`}>
                     {service.icon}
                   </div>
-                  <motion.div 
-                    whileHover={{ scale: 1.1, rotate: 15 }}
-                    whileTap={{ scale: 0.95 }}
+                  <a 
+                    href="https://wa.me/543873529421"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`p-5 rounded-full cursor-pointer transition-all shadow-xl ${
                       service.highlight ? "bg-white text-accent" : "bg-accent text-white"
-                    }`}
+                    } hover:scale-110 active:scale-95 hover:rotate-12`}
                   >
                     <ArrowUpRight className="w-8 h-8" />
-                  </motion.div>
+                  </a>
                 </div>
                 <p className={`text-sm font-bold uppercase tracking-widest mb-4 ${service.highlight ? "text-white/60" : "text-accent"}`}>
                   {service.tagline}
@@ -115,8 +116,10 @@ export default function Services() {
                 <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl">
                   <Image 
                     src={service.image} 
-                    alt={service.subtitle}
+                    alt={`Servicio de ${service.title} ${service.subtitle} - Angel Design Studio`}
                     fill
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 600px"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
@@ -147,9 +150,14 @@ export default function Services() {
                   ))}
                 </div>
 
-                <button className={`w-full py-4 rounded-xl font-bold uppercase tracking-wider text-sm transition-all active:scale-95 flex items-center justify-center gap-2 group ${service.highlight ? "bg-white text-accent hover:bg-white/90" : "bg-accent text-white hover:bg-accent/90"}`}>
+                <a 
+                  href="https://wa.me/543873529421"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-4 rounded-xl font-bold uppercase tracking-wider text-sm transition-all active:scale-95 flex items-center justify-center gap-2 group ${service.highlight ? "bg-white text-accent hover:bg-white/90" : "bg-accent text-white hover:bg-accent/90"}`}
+                >
                   {service.buttonText} <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </button>
+                </a>
               </div>
             </motion.div>
           ))}
