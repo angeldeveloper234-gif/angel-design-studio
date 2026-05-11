@@ -411,26 +411,28 @@ export default function FumigationOnboardingModal({ isOpen, onClose, initialPlan
 
               {renderAccordionItem(3, "Complementos (Opcional)", (
                 <div className="mt-2 space-y-3">
-                  <div className={`p-4 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-colors ${selections.addons.emails > 0 ? 'bg-accent/5 border-accent/50' : 'bg-background/50 border-white/5 hover:border-white/20'}`}>
-                    <div className="flex items-start gap-3">
-                      <Mail className="shrink-0 text-secondary mt-1" size={20} />
-                      <div>
-                        <h4 className="font-bold text-foreground text-sm">Correos corporativos</h4>
-                        <p className="text-xs text-secondary">$150 MXN por casilla</p>
+                  {selections.planType !== 'D' && (
+                    <div className={`p-4 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-colors ${selections.addons.emails > 0 ? 'bg-accent/5 border-accent/50' : 'bg-background/50 border-white/5 hover:border-white/20'}`}>
+                      <div className="flex items-start gap-3">
+                        <Mail className="shrink-0 text-secondary mt-1" size={20} />
+                        <div>
+                          <h4 className="font-bold text-foreground text-sm">Correos corporativos</h4>
+                          <p className="text-xs text-secondary">$150 MXN por casilla</p>
+                        </div>
                       </div>
+                      <select 
+                        value={selections.addons.emails} 
+                        onChange={(e) => setSelections(prev => ({ ...prev, addons: { ...prev.addons, emails: parseInt(e.target.value) } }))}
+                        className="bg-surface border border-white/10 rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:border-accent"
+                      >
+                        <option value={0}>No necesito</option>
+                        <option value={1}>1 correo (+$150)</option>
+                        <option value={3}>3 correos (+$450)</option>
+                        <option value={5}>5 correos (+$750)</option>
+                        <option value={10}>10 correos (+$1,500)</option>
+                      </select>
                     </div>
-                    <select 
-                      value={selections.addons.emails} 
-                      onChange={(e) => setSelections(prev => ({ ...prev, addons: { ...prev.addons, emails: parseInt(e.target.value) } }))}
-                      className="bg-surface border border-white/10 rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:border-accent"
-                    >
-                      <option value={0}>No necesito</option>
-                      <option value={1}>1 correo (+$150)</option>
-                      <option value={3}>3 correos (+$450)</option>
-                      <option value={5}>5 correos (+$750)</option>
-                      <option value={10}>10 correos (+$1,500)</option>
-                    </select>
-                  </div>
+                  )}
 
                   {[
                     { id: 'domain', icon: Globe, title: 'Dominio alternativo (.com / .mx / .net)', desc: 'Si necesitás otro dominio además del .com.mx', price: 350 },
@@ -439,7 +441,14 @@ export default function FumigationOnboardingModal({ isOpen, onClose, initialPlan
                     { id: 'map', icon: Map, title: 'Mapa interactivo de zonas', desc: 'El cliente ingresa su colonia y sabe si tenés cobertura', price: 400 },
                     { id: 'form', icon: FileText, title: 'Formulario de cotización automático', desc: 'El cliente completa tipo de plaga, metros y recibe precio', price: 450 },
                     { id: 'ads', icon: Smartphone, title: 'Setup Google Ads', desc: 'Campaña inicial configurada para búsquedas en tu zona', price: 1100 },
-                  ].map((addon) => (
+                  ]
+                  .filter(addon => {
+                    if (selections.planType === 'D') {
+                      return ['branding', 'ads'].includes(addon.id);
+                    }
+                    return true;
+                  })
+                  .map((addon) => (
                     <label key={addon.id} className={`p-4 rounded-xl border flex items-center justify-between gap-4 cursor-pointer transition-colors ${selections.addons[addon.id as keyof typeof selections.addons] ? 'bg-accent/5 border-accent/50' : 'bg-background/50 border-white/5 hover:border-white/20'}`}>
                       <div className="flex items-start gap-3">
                         <addon.icon className={`shrink-0 mt-1 ${selections.addons[addon.id as keyof typeof selections.addons] ? 'text-accent' : 'text-secondary'}`} size={20} />
@@ -462,6 +471,16 @@ export default function FumigationOnboardingModal({ isOpen, onClose, initialPlan
                       </div>
                     </label>
                   ))}
+
+                  {selections.planType === 'D' && (
+                    <div className="p-4 rounded-xl border border-accent/20 bg-accent/5 flex items-start gap-3 mt-4">
+                      <Bot className="shrink-0 text-accent mt-1" size={20} />
+                      <div>
+                        <h4 className="font-bold text-accent text-sm">Flujo de Automatización</h4>
+                        <p className="text-xs text-secondary mt-1">Has elegido el plan de automatización de WhatsApp. Los complementos relacionados a desarrollo web (dominio, SEO, mapas, etc.) han sido ocultados ya que no aplican a este servicio.</p>
+                      </div>
+                    </div>
+                  )}
 
                   <div className="mt-8 pt-4 flex justify-end border-t border-white/5">
                     <button 
