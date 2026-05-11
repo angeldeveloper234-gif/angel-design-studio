@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 export default function Hero() {
   return (
     <section className="relative min-h-screen w-full bg-background overflow-hidden font-sans pt-20">
-      <div className="max-w-[1400px] mx-auto px-6 pt-32 pb-8 flex flex-col items-center text-center relative z-10 min-h-[800px]">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 pt-32 pb-8 flex flex-col items-center text-center relative z-10 min-h-[800px]">
         {/* Left Content */}
         <div className="z-20 flex flex-col items-center min-h-[400px]">
           <motion.h1
@@ -39,11 +39,11 @@ export default function Hero() {
               href="https://wa.me/543873529421"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center bg-accent text-background pl-6 pr-2 py-2 md:pl-8 rounded-full font-heading font-black text-base md:text-xl transition-all hover:brightness-110 active:scale-95 shadow-lg shadow-accent/20 cursor-pointer border border-accent w-full md:w-auto justify-between md:justify-start"
+              className="group relative flex items-center justify-center bg-accent text-background px-6 py-3 md:pl-8 md:pr-2 md:py-2 rounded-full font-heading font-black text-sm md:text-xl transition-all hover:brightness-110 active:scale-95 shadow-lg shadow-accent/20 cursor-pointer border border-accent w-full md:w-auto"
             >
-              <span className="mr-4 md:mr-6 ml-2 md:ml-0">Quiero mi sitio web</span>
-              <div className="bg-background rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-accent border border-accent/20 shrink-0">
-                <ArrowRight size={20} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300 md:w-6 md:h-6" />
+              <span className="mr-3 md:mr-6">Quiero mi sitio web</span>
+              <div className="bg-background rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center text-accent border border-accent/20 shrink-0">
+                <ArrowRight size={16} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300 md:w-6 md:h-6" />
               </div>
             </a>
             <a

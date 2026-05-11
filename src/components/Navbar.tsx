@@ -7,16 +7,28 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Image from "next/image";
 
-const navLinks = [
-  { name: "Servicios", href: "#services" },
-  { name: "Portfolio", href: "#projects" },
-  { name: "Proceso", href: "#process" },
+const defaultNavLinks = [
+  { name: "Fumigación", href: "/fumigacion" },
+  { name: "Servicios", href: "/#services" },
+  { name: "Portfolio", href: "/#projects" },
+  { name: "Proceso", href: "/#process" },
+];
+
+const fumigacionNavLinks = [
+  { name: "Servicios", href: "#servicios" },
+  { name: "Precios", href: "#precios" },
+  { name: "Portafolio", href: "#portafolio" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  const isFumigacion = pathname === '/fumigacion';
+  const currentNavLinks = isFumigacion ? fumigacionNavLinks : defaultNavLinks;
+  const ctaText = isFumigacion ? "Empezar" : "Pide tu propuesta";
+  const ctaHref = isFumigacion ? "#precios" : "/#contact";
   
   useEffect(() => {
     const handleScroll = () => {
@@ -43,9 +55,9 @@ export default function Navbar() {
         scrolled ? "opacity-100 bg-background/80 backdrop-blur-md border-b border-border-custom/10" : "opacity-0"
       }`} />
 
-      <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group relative z-10">
-          <div className="w-10 h-10 flex items-center justify-center">
+          <div className="w-10 h-10 flex items-center justify-center shrink-0">
             <Image 
               src="/favicon-angelstudiodesign.png" 
               alt="Angel Design Studio Logo" 
@@ -62,7 +74,7 @@ export default function Navbar() {
         {/* Nav Pill - The container described by the user */}
         <nav className="flex items-center bg-surface/50 backdrop-blur-xl rounded-full p-1 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-border-custom/10 transition-all duration-300">
           <div className="hidden md:flex items-center gap-1 px-4">
-            {navLinks.map((link) => (
+            {currentNavLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
@@ -74,10 +86,10 @@ export default function Navbar() {
           </div>
           
           <Link 
-            href="#contact"
-            className="bg-accent text-white px-5 py-2.5 md:px-7 md:py-3 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.05em] md:tracking-[0.1em] hover:brightness-110 transition-all active:scale-95 shadow-lg shadow-accent/20 whitespace-nowrap"
+            href={ctaHref}
+            className="bg-accent text-white px-4 py-2 md:px-7 md:py-3 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.05em] md:tracking-[0.1em] hover:brightness-110 transition-all active:scale-95 shadow-lg shadow-accent/20 whitespace-nowrap shrink-0"
           >
-            Pide tu propuesta
+            {ctaText}
           </Link>
 
           {/* Mobile Menu Button - inside the pill on mobile */}
@@ -108,9 +120,9 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -16, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute top-full left-0 right-0 mt-4 mx-6 p-6 bg-surface/95 backdrop-blur-xl border border-border-custom/20 rounded-[24px] shadow-2xl flex flex-col gap-2 md:hidden"
+            className="absolute top-full left-0 right-0 mt-4 mx-4 md:mx-6 p-6 bg-surface/95 backdrop-blur-xl border border-border-custom/20 rounded-[24px] shadow-2xl flex flex-col gap-2 md:hidden"
           >
-            {navLinks.map((link) => (
+            {currentNavLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}

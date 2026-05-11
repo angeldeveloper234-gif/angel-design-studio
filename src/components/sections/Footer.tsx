@@ -8,10 +8,11 @@ import { FaInstagram, FaFacebookF } from "react-icons/fa6";
 
 const navLinks = [
   { name: "Inicio", href: "/" },
-  { name: "Servicios", href: "#services" },
-  { name: "Portfolio", href: "#projects" },
-  { name: "Proceso", href: "#process" },
-  { name: "Contacto", href: "#contact" },
+  { name: "Fumigación", href: "/fumigacion" },
+  { name: "Servicios", href: "/#services" },
+  { name: "Portfolio", href: "/#projects" },
+  { name: "Proceso", href: "/#process" },
+  { name: "Contacto", href: "/#contact" },
 ];
 
 const socialLinks = [
@@ -110,7 +111,7 @@ export default function Footer() {
                 </p>
                 <div className="flex flex-col gap-4">
                   <Link 
-                    href="#contact"
+                    href="/#contact"
                     className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wider text-accent hover:gap-3 transition-all"
                   >
                     Agendar llamada <ArrowUpRight size={16} />
