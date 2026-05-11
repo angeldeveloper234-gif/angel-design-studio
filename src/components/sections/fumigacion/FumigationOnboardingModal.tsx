@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { X, Check, ArrowRight, Mail, Globe, Palette, Map, FileText, Megaphone, Smartphone, Building2, MonitorSmartphone, Bot, ChevronRight } from 'lucide-react';
+import { getDynamicWhatsAppNumber } from '@/hooks/useWhatsAppLink';
 
 type PlanType = 'A' | 'B' | 'C' | 'D';
 type ThemeType = 1 | 2 | 3 | 4;
@@ -119,7 +120,7 @@ export default function FumigationOnboardingModal({ isOpen, onClose, initialPlan
   const getTotalSetup = () => getBasePrice() + getAddonsTotal();
 
   const generateWhatsAppLink = () => {
-    const phoneNumber = "528135805470";
+    const phoneNumber = getDynamicWhatsAppNumber();
     let message = `*NUEVO PROYECTO WEB - FUMIGACIÓN* 🕷️\n\n`;
     message += `*Empresa:* ${selections.companyName || 'No especificado'}\n`;
     message += `*Ubicación:* ${selections.city || 'No especificada'}\n\n`;

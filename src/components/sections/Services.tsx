@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Code, Cpu } from "lucide-react";
 import Image from "next/image";
+import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
 
 const services = [
   {
@@ -40,6 +41,7 @@ const services = [
 ];
 
 export default function Services() {
+  const whatsappLink = useWhatsAppLink();
   return (
     <section id="services" className="py-24 px-4 md:px-8 bg-background">
       <div className="max-w-[1400px] mx-auto px-6 bg-surface/20 rounded-[3rem] p-8 md:p-16 border border-border-custom/10 relative overflow-hidden">
@@ -85,7 +87,7 @@ export default function Services() {
                     {service.icon}
                   </div>
                   <a 
-                    href="https://wa.me/543873529421"
+                    href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`p-5 rounded-full cursor-pointer transition-all shadow-xl ${
@@ -151,7 +153,7 @@ export default function Services() {
                 </div>
 
                 <a 
-                  href="https://wa.me/543873529421"
+                  href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`w-full py-4 rounded-xl font-bold uppercase tracking-wider text-sm transition-all active:scale-95 flex items-center justify-center gap-2 group ${service.highlight ? "bg-white text-accent hover:bg-white/90" : "bg-accent text-white hover:bg-accent/90"}`}

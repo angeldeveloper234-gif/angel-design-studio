@@ -3,8 +3,11 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
 
 export default function Hero() {
+  const whatsappLink = useWhatsAppLink();
+
   return (
     <section className="relative min-h-screen w-full bg-background overflow-hidden font-sans pt-20">
       <div className="max-w-[1400px] mx-auto px-4 md:px-6 pt-32 pb-8 flex flex-col items-center text-center relative z-10 min-h-[800px]">
@@ -36,7 +39,7 @@ export default function Hero() {
             className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 md:mb-16 w-full px-4 md:px-0 max-w-[320px] md:max-w-none mx-auto"
           >
             <a
-              href="https://wa.me/543873529421"
+              href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative flex items-center justify-center bg-accent text-background px-6 py-3 md:pl-8 md:pr-2 md:py-2 rounded-full font-heading font-black text-sm md:text-xl transition-all hover:brightness-110 active:scale-95 shadow-lg shadow-accent/20 cursor-pointer border border-accent w-full md:w-auto"

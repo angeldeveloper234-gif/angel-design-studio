@@ -42,9 +42,10 @@ body {
 
 /* Custom Scrollbar Styles */
 @layer base {
+  /* Global Webkit Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
   }
 
   ::-webkit-scrollbar-track {
@@ -53,44 +54,40 @@ body {
 
   ::-webkit-scrollbar-thumb {
     background: #4DA2E3;
-    border-radius: 100px;
     border: 2px solid #0D0D0D;
-    transition: all 0.3s ease;
+    border-radius: 100px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #6EB7ED; /* Lighter blue on hover */
+    background: #5eb1f2;
   }
 
-  /* Custom scrollbar utility for internal containers */
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #52585D; /* Surface color by default for internal */
-    border-radius: 100px;
-    border: 1px solid #0D0D0D;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #4DA2E3;
-  }
-
-  /* For Firefox */
+  /* Firefox Support */
   * {
     scrollbar-width: thin;
     scrollbar-color: #4DA2E3 #0D0D0D;
   }
+}
 
-  /* Selection color */
-  ::selection {
-    background: rgba(77, 162, 227, 0.3);
-    color: #FFFFFF;
-  }
+/* Specific class for internal scrollable containers (like the Onboarding Modal) */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #4DA2E3 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #4DA2E3;
+  border-radius: 100px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #5eb1f2;
 }

@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
 
 export default function Contact() {
+  const whatsappLink = useWhatsAppLink();
   const floatingCards = [
     {
       icon: "⚡",
@@ -144,7 +146,7 @@ export default function Contact() {
             className="flex flex-col items-center gap-6"
           >
             <a
-              href="https://wa.me/543873529421"
+              href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-center gap-3 px-8 py-5 bg-accent text-white rounded-2xl font-black text-lg shadow-xl hover:shadow-accent/40 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"

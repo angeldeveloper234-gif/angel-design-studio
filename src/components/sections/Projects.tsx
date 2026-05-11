@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Plus } from 'lucide-react';
 import { urlForImage } from '@/sanity/lib/image';
 import type { Image as SanityImage } from 'sanity';
+import { useWhatsAppLink } from '@/hooks/useWhatsAppLink';
 
 interface Project {
   _id: string;
@@ -41,6 +42,7 @@ interface ProjectProps {
 
 export default function Projects({ projects: sanityProjects }: ProjectProps) {
   const projects = sanityProjects && sanityProjects.length > 0 ? sanityProjects : defaultProjects;
+  const whatsappLink = useWhatsAppLink();
   return (
     <section id="projects" className="py-32 bg-background">
       <div className="max-w-[1400px] mx-auto px-6">
@@ -157,7 +159,7 @@ export default function Projects({ projects: sanityProjects }: ProjectProps) {
         </motion.p>
         
         <motion.a
-          href="https://wa.me/543873529421"
+          href={whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, y: 20 }}

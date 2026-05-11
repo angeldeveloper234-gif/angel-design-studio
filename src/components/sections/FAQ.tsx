@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import * as Accordion from "@radix-ui/react-accordion";
 import { useState } from "react";
+import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
 
 const faqData = [
   {
@@ -34,6 +35,7 @@ const faqData = [
 
 export default function FAQ() {
   const [value, setValue] = useState<string | undefined>(undefined);
+  const whatsappLink = useWhatsAppLink();
 
   return (
     <section id="faq" className="py-24 px-4 md:px-8 bg-background overflow-hidden relative">
@@ -87,7 +89,7 @@ export default function FAQ() {
                 <h4 className="text-2xl font-bold font-heading mb-3">¿Aún con dudas?</h4>
                 <p className="text-secondary text-sm mb-8 leading-relaxed">Estamos listos para escucharte. Resolvemos cualquier inquietud en tiempo real.</p>
                 <a 
-                  href="https://wa.me/543873529421" 
+                  href={whatsappLink} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-full py-4 px-6 bg-white text-background hover:bg-accent hover:text-white font-bold rounded-2xl transition-all duration-300 active:scale-[0.98] shadow-lg"
