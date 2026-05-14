@@ -29,9 +29,9 @@ export default function FumigationHero() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="font-heading text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-[-0.02em] text-foreground mb-8 md:mb-16 max-w-full lg:max-w-[25ch] mx-auto break-words"
           >
-            Tu competencia roba tus clientes mientras <br className="hidden md:block" />
+            Google Maps ya te manda clientes. Sin página web, esos clientes terminan <br className="hidden md:block" />
             <span className="text-accent relative inline-block">
-              tú fumigas
+              llamando a tu competencia
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-accent/30 rounded-full" />
             </span>
           </motion.h1>
@@ -42,7 +42,7 @@ export default function FumigationHero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-base md:text-xl text-foreground/80 mb-8 md:mb-12 max-w-2xl px-2 leading-relaxed"
           >
-            Diseñamos sitios web optimizados para búsquedas locales y automatizamos tu WhatsApp. Atiende emergencias, cotiza servicios y agenda visitas las 24 horas, sin descuidar tu trabajo de campo.
+            Muchos negocios de fumigación reciben consultas por Google Maps sin darse cuenta. Pero cuando ese cliente quiere saber más de tu servicio, busca tu nombre en Google. Si no encuentra una página profesional, le marca al que sí tiene. Nosotros construimos esa página en 3 a 7 días.
           </motion.p>
 
           <motion.div
@@ -55,7 +55,7 @@ export default function FumigationHero() {
               onClick={() => setIsModalOpen(true)}
               className="group relative flex items-center justify-center bg-accent text-background px-6 py-3 md:pl-8 md:pr-2 md:py-2 rounded-full font-heading font-black text-sm md:text-xl transition-all hover:brightness-110 active:scale-95 shadow-lg shadow-accent/20 cursor-pointer border border-accent w-full md:w-auto"
             >
-              <span className="mr-3 md:mr-6">Quiero Cotizar por WhatsApp</span>
+              <span className="mr-3 md:mr-6">Quiero Ver un Ejemplo Real</span>
               <div className="bg-background rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center text-accent border border-accent/20 shrink-0">
                 <ArrowRight size={16} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300 md:w-6 md:h-6" />
               </div>

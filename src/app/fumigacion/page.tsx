@@ -22,8 +22,8 @@ export default function FumigacionPage() {
       <FumigationHero />
       <FumigationProblem />
       <FumigationSuccess />
-      <FumigationAutomation />
       <FumigationPricing />
+      <FumigationAutomation />
       <FumigationServices />
       <FumigationComparison />
       <FumigationTestimonials />

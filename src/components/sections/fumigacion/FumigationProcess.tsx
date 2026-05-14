@@ -5,13 +5,13 @@ import { MessageCircle, FileText, Code2, Rocket } from "lucide-react";
 
 const steps = [
   {
-    title: "1. Cotización Express",
-    description: "Nos envías un WhatsApp. Te hacemos 3 preguntas clave sobre tu negocio y elegimos el plan ideal. Sin reuniones innecesarias.",
+    title: "1. Información Básica",
+    description: "Nos escribes por WhatsApp. Te hacemos 3 preguntas sobre tu negocio y te recomendamos el plan ideal.",
     icon: <MessageCircle className="w-6 h-6" />,
   },
   {
     title: "2. Envío de Material",
-    description: "Te pedimos tu logo, fotos de tus técnicos trabajando y certificaciones vigentes. Nosotros nos encargamos de redactar textos que vendan.",
+    description: "Te pedimos tu logo, fotos de tu equipo trabajando y certificaciones. Si no tienes, nosotros lo resolvemos.",
     icon: <FileText className="w-6 h-6" />,
   },
   {

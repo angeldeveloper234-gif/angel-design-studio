@@ -6,16 +6,16 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "¿Cuánto tarda en estar listo mi sitio?",
-    answer: "Entre 3 y 7 días hábiles desde que nos entregas la información básica (logo, servicios, fotos). Trabajamos rápido porque sabemos que necesitas captar clientes ya."
+    question: "¿Ya tengo página en Facebook / perfil en Maps, para qué quiero una web?",
+    answer: "Porque tu competencia sí la tiene. Cuando un cliente encuentra tu Maps y quiere asegurarse de que eres profesional, busca tu web. Si no existes, le marca al siguiente negocio en Maps que sí tiene un sitio que le dé confianza."
   },
   {
-    question: "¿El precio incluye dominio y hosting?",
-    answer: "Sí, todos nuestros planes de pago único incluyen el registro del dominio y el hosting inicial. El mantenimiento opcional posterior cubre estos gastos para que no te preocupes de nada."
+    question: "¿Yo no sé nada de tecnología, ustedes se encargan?",
+    answer: "De todo. Tú solo nos dices qué servicios haces (cucarachas, chinches, termitas, industrial) y nosotros redactamos, diseñamos, subimos y configuramos todo. Llave en mano en 3 a 7 días."
   },
   {
-    question: "¿Qué pasa si necesito cambios después de la entrega?",
-    answer: "Tienes un periodo de revisiones incluido. Después, puedes contratar nuestro mantenimiento mensual opcional (desde $20 USD) para cambios, actualizaciones, seguridad y soporte continuo."
+    question: "¿Cómo funciona el pago?",
+    answer: "Pagas 50% al iniciar y 50% al recibir tu página terminada. Después, el mantenimiento mensual cubre hosting, dominio, actualizaciones y soporte por WhatsApp. Sin contratos largos ni costos ocultos."
   }
 ];
 

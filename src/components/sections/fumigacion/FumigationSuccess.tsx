@@ -5,16 +5,18 @@ import { Quote, ArrowUpRight } from "lucide-react";
 
 const cases = [
   {
-    name: "FUMCON",
+    name: "Fumcon del Sureste — Yucatán y el Caribe",
     headline: "Presencia en 8 ciudades y mantenimiento asegurado.",
-    description: "Desarrollamos un sistema de respuesta rápida por zona geográfica para abarcar Yucatán y el Caribe. El negocio captó tanto volumen que decidieron pagar el año completo de mantenimiento por adelantado.",
+    description: "Presencia digital en 8 ciudades, sistema de respuesta rápida por zona geográfica. La página les generó tal volumen de consultas que decidieron pagar el año completo de mantenimiento por adelantado.",
     accent: "bg-blue-500",
+    url: "https://fumcon.com",
   },
   {
-    name: "BIGCAT",
+    name: "Big Cat Control de Plagas — Nivel Nacional",
     headline: "Cotizador en tiempo real y expansión operativa.",
-    description: "Creamos un sitio con validador de cobertura por código postal, 8 correos corporativos y presupuestos automáticos. Contrataron mantenimiento y SEO, y ya avanzan en un segundo proyecto para su empresa matriz PCP Internacional.",
+    description: "Sitio con validador de cobertura por código postal, 8 correos corporativos configurados y presupuestos organizados. Contrataron mantenimiento y SEO, y ya avanzan en un segundo proyecto para su empresa matriz PCP Internacional.",
     accent: "bg-orange-500",
+    url: "https://bigcat.mx",
   }
 ];
 
@@ -29,7 +31,7 @@ export default function FumigationSuccess() {
             viewport={{ once: true }}
             className="inline-block border border-accent/20 text-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6 bg-accent/5"
           >
-            Sistemas que facturan en el mundo real
+            Resultados reales con fumigadoras en México
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -37,7 +39,7 @@ export default function FumigationSuccess() {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-bold font-heading mb-6"
           >
-            No vendemos humo ni <span className="text-accent">plantillas</span>
+            No vendemos plantillas. Construimos páginas <span className="text-accent">que traen clientes</span>
           </motion.h2>
           <p className="text-secondary text-lg max-w-2xl mx-auto">
             Estos son los resultados económicos que hemos construido para empresas de control de plagas activas en México.
@@ -67,9 +69,15 @@ export default function FumigationSuccess() {
                   </div>
                 </div>
 
-                <p className="text-secondary text-lg leading-relaxed">
+                <p className="text-secondary text-lg leading-relaxed mb-6">
                   {item.description}
                 </p>
+
+                {item.url && (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-bold group/btn">
+                    Ver el sitio en vivo <ArrowUpRight size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}

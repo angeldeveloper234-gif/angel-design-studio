@@ -6,34 +6,29 @@ import { Check, X } from "lucide-react";
 export default function FumigationComparison() {
   const comparisonItems = [
     {
-      feature: "Especialización",
-      us: "Expertos en empresas de Control de Plagas.",
-      others: "Hacen webs para restaurantes, abogados, clínicas...",
+      feature: "Cuando alguien te busca en Google",
+      us: "Encuentra tu sitio con servicios, zonas y contacto directo.",
+      others: "No apareces. El cliente llama al que sí tiene página.",
     },
     {
-      feature: "Tiempo de entrega",
-      us: "3 a 7 días. Tu web trabajando para ti la próxima semana.",
-      others: "1 a 2 meses (y te cobran por reunión).",
+      feature: "Consultas de Google Maps",
+      us: "El cliente ve tu perfil, entra a tu web y te contacta informado.",
+      others: "El cliente ve tu perfil, busca más info, no te encuentra y se va.",
     },
     {
-      feature: "Automatización",
-      us: "Chatbot IA y asistente de llamadas opcional.",
-      others: "Un formulario de contacto que nadie responde.",
+      feature: "Fuera de horario",
+      us: "Tu página sigue recibiendo consultas con formulario o WhatsApp.",
+      others: "Pierdes cada llamada que entra mientras estás en campo.",
     },
     {
-      feature: "Diseño y Conversión",
-      us: "Mobile-first, botones de emergencia, enfocado en que el cliente llame.",
-      others: "Plantillas bonitas pero que no generan clientes.",
+      feature: "Credibilidad ante empresas",
+      us: "Sitio profesional con certificaciones y correo corporativo.",
+      others: '"Mándame WhatsApp" desde un número personal.',
     },
     {
-      feature: "Soporte",
-      us: "Atención directa por WhatsApp por los fundadores.",
-      others: "Tickets de soporte que tardan 48hs en responder.",
-    },
-    {
-      feature: "Costos Ocultos",
-      us: "0. Pagas el setup inicial y el mantenimiento es transparente.",
-      others: "Licencias, plugins, hosting premium, etc.",
+      feature: "Cotizaciones",
+      us: "El cliente ya llega filtrado por zona y tipo de servicio.",
+      others: "Cada lead es manual: preguntar plaga, zona, disponibilidad.",
     },
   ];
 
@@ -47,7 +42,7 @@ export default function FumigationComparison() {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-bold font-heading mb-6"
           >
-            ¿Por qué elegir a <span className="text-accent">Angel Design Studio</span>?
+            La diferencia entre tener página web y <span className="text-accent">no tenerla</span>
           </motion.h2>
         </div>
 
@@ -56,9 +51,9 @@ export default function FumigationComparison() {
           <div className="hidden md:grid grid-cols-[1fr_1.5fr_1.5fr] items-center mb-4">
             <div className="px-6 text-secondary uppercase tracking-[0.2em] text-[10px] font-black">Criterio</div>
             <div className="px-6 py-4 bg-accent/5 border-x border-t border-accent/20 rounded-t-[2rem] text-center">
-              <span className="text-accent text-xl font-black font-heading">Angel Design</span>
+              <span className="text-accent text-xl font-black font-heading">Con página web profesional</span>
             </div>
-            <div className="px-6 text-center text-secondary/30 font-bold uppercase tracking-widest text-[10px]">Agencias Tradicionales</div>
+            <div className="px-6 text-center text-secondary/30 font-bold uppercase tracking-widest text-[10px]">Sin página web</div>
           </div>
 
           {/* Comparison Rows */}
@@ -86,7 +81,7 @@ export default function FumigationComparison() {
                     {item.us}
                   </span>
                   {/* Subtle mobile indicator */}
-                  <div className="md:hidden absolute top-2 right-4 text-[8px] font-black text-accent/30 uppercase tracking-widest">Angel Design</div>
+                  <div className="md:hidden absolute top-2 right-4 text-[8px] font-black text-accent/30 uppercase tracking-widest">Con web profesional</div>
                 </div>
 
                 {/* Traditional Agency Column */}
@@ -98,7 +93,7 @@ export default function FumigationComparison() {
                     {item.others}
                   </span>
                   {/* Subtle mobile indicator */}
-                  <div className="md:hidden absolute top-2 right-4 text-[8px] font-black text-foreground/20 uppercase tracking-widest">Agencias Tradicionales</div>
+                  <div className="md:hidden absolute top-2 right-4 text-[8px] font-black text-foreground/20 uppercase tracking-widest">Sin web</div>
                 </div>
               </motion.div>
             ))}

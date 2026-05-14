@@ -11,16 +11,17 @@ const plans = [
     price: "$1,900",
     monthly: "$250",
     currency: "MXN",
-    target: "Para fumigadoras chicas o independientes que necesitan presencia digital profesional hoy mismo.",
+    target: "Para fumigadoras que necesitan presencia digital profesional ya. Tu página lista en 3 a 7 días.",
     features: [
-      "Landing Page de 1 sección de alta conversión",
-      "Botones de urgencia (WhatsApp y Llamada directa)",
-      "SEO Local básico para Google",
-      "Diseño Mobile-first optimizado",
+      "Landing page de alta conversión",
+      "Botones de emergencia (WhatsApp y llamada directa)",
+      "SEO Local básico para aparecer en Google",
+      "Diseño optimizado para celular",
       "Dominio profesional incluido"
     ],
-    cta: "Contratar Plan Urgencia",
+    cta: "Preguntar por este plan",
     highlight: false,
+    badge: "Lo esencial para empezar",
     delay: 0.1,
   },
   {
@@ -28,19 +29,19 @@ const plans = [
     price: "$3,900",
     monthly: "$350",
     currency: "MXN",
-    target: "Para negocios consolidados que buscan captar contratos comerciales de alto valor y destacar frente a la competencia.",
+    target: "Para negocios que buscan captar contratos comerciales de alto valor y posicionarse por encima de la competencia.",
     features: [
-      "Sitio web corporativo completo (Múltiples páginas)",
+      "Sitio web corporativo completo (múltiples páginas)",
       "Todo lo incluido en el Plan Urgencia",
-      "Galería de trabajos y control de plagas",
-      "Sección dedicada a certificaciones sanitarias",
-      "Formulario avanzado de cobertura por zona",
-      "SEO Local avanzado para dominar mapas",
-      "Configuración de correos corporativos"
+      "Galería de trabajos realizados",
+      "Sección de certificaciones sanitarias",
+      "Formulario de cobertura por zona",
+      "SEO Local avanzado para dominar resultados",
+      "Correos corporativos configurados"
     ],
-    cta: "Contratar Plan Autoridad",
+    cta: "Preguntar por este plan",
     highlight: true,
-    badge: "MÁS ELEGIDO",
+    badge: "El más elegido",
     delay: 0.2,
   },
   {
@@ -48,19 +49,20 @@ const plans = [
     price: "$5,100",
     monthly: "$500",
     currency: "MXN",
-    target: "Para dueños de fumigadoras que quieren automatizar su atención al 100% y delegar la captación en inteligencia artificial.",
+    target: "Para dueños que quieren que la página capte clientes y los atienda sin intervención manual.",
     features: [
       "Todo lo incluido en el Plan Autoridad",
       "Chatbot de WhatsApp operativo 24/7",
       "CRM automatizado conectado a Google Sheets",
-      "Flujo de filtrado por tipo de plaga y código postal",
-      "Acceso a Asistente AI de llamadas (Beta)",
+      "Filtrado por tipo de plaga y código postal",
+      "Asistente de IA para llamadas entrantes",
       "Agendamiento automático de cotizaciones",
       "Estrategia SEO proyectada a 3 meses",
-      "Sin costos extra por licencias de software externo"
+      "Sin costos extra por licencias de software"
     ],
-    cta: "Contratar Plan Dominio",
+    cta: "Preguntar por este plan",
     highlight: false,
+    badge: "Todo automatizado",
     delay: 0.3,
   }
 ];
@@ -87,7 +89,7 @@ export default function FumigationPricing() {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-bold font-heading mb-6 text-foreground"
           >
-            Inversión clara. <span className="text-accent">Sin costos sorpresa.</span>
+            Elige el plan que necesita tu fumigadora hoy.
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -96,7 +98,7 @@ export default function FumigationPricing() {
             transition={{ delay: 0.1 }}
             className="text-secondary text-lg md:text-xl max-w-3xl mx-auto"
           >
-            Nuestros planes incluyen el desarrollo inicial y un mantenimiento mensual para garantizar que tu sitio y automatizaciones nunca dejen de captar clientes.
+            Inversión clara. Sin costos sorpresa.
           </motion.p>
         </div>
 
@@ -203,7 +205,7 @@ export default function FumigationPricing() {
           transition={{ delay: 0.5 }}
           className="text-center mt-12 text-secondary/60 text-sm max-w-4xl mx-auto"
         >
-          <p>* Nota: Todos los precios están expresados en pesos mexicanos (MXN). El mantenimiento mensual es obligatorio para asegurar el correcto funcionamiento del hosting, dominio, chatbot y actualizaciones de seguridad. En el Plan Dominio, el costo mensual de mantenimiento puede variar según el volumen de mensajes y llamadas procesadas por la IA.</p>
+          <p>Todos los precios en pesos mexicanos. El mantenimiento mensual cubre hosting, dominio, actualizaciones de seguridad y soporte directo por WhatsApp.</p>
         </motion.div>
       </div>
 

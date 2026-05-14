@@ -28,7 +28,7 @@ export default function FumigationProblem() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-6xl font-bold font-heading leading-[1.1] tracking-tight"
             >
-              <span className="text-foreground">Cada llamada perdida o mensaje de WhatsApp en espera es dinero que va directo a la cuenta bancaria de otra fumigadora en tu ciudad.</span>
+              <span className="text-foreground">Cada consulta que llega por Maps y no puede conocer más de tu servicio es un cliente que termina llamando a otra fumigadora.</span>
             </motion.h2>
           </div>
           
@@ -65,7 +65,7 @@ export default function FumigationProblem() {
               </div>
               <h3 className="text-2xl font-bold font-heading text-foreground mb-3">Servicios perdidos por no contestar</h3>
               <p className="text-secondary font-medium leading-relaxed">
-                Estás aplicando químicos y el celular suena. Cuando te desocupas para devolver la llamada, el cliente ya cerró el contrato con la empresa que sí lo atendió al instante.
+                Estás aplicando producto y el celular suena. Cuando te desocupas para devolver la llamada, el cliente ya cerró con la empresa que sí lo atendió al instante. Una página web con botón de WhatsApp y formulario de contacto trabaja por ti mientras estás en campo.
               </p>
             </motion.div>
 
@@ -80,9 +80,9 @@ export default function FumigationProblem() {
               <div className="w-12 h-12 bg-accent/10 text-accent rounded-xl flex items-center justify-center mb-6">
                 <Search className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-bold font-heading text-foreground mb-3">Invisibilidad en emergencias locales</h3>
+              <h3 className="text-2xl font-bold font-heading text-foreground mb-3">Consultas de Maps que no convierten</h3>
               <p className="text-secondary font-medium leading-relaxed">
-                Si un restaurante tiene una plaga, buscará en Google Maps urgencias. Si no apareces primero con una web rápida, pierdes pólizas comerciales de alto margen.
+                Google Maps muestra tu negocio aunque tengas pocas o ninguna reseña. Cuando alguien te encuentra ahí y quiere saber más, busca tu nombre en Google. Si no aparece una página con tus servicios, zonas de cobertura y forma de contacto, ese cliente se va con la fumigadora que sí tiene sitio propio.
               </p>
             </motion.div>
 
@@ -110,7 +110,7 @@ export default function FumigationProblem() {
                 <History className="w-8 h-8 text-white" />
               </div>
               <p className="text-xl md:text-2xl text-secondary font-medium leading-relaxed max-w-md">
-                Preguntar el tipo de plaga, la zona y calcular precios manualmente toma horas. Para cuando logras enviar el costo, la urgencia del cliente ya desapareció.
+                Preguntar el tipo de plaga, la zona y calcular precios manualmente toma horas. Para cuando logras enviar el presupuesto, la urgencia del cliente ya desapareció y contactó a otro servicio.
               </p>
             </div>
 

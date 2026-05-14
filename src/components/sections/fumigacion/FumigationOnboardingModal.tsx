@@ -250,7 +250,7 @@ export default function FumigationOnboardingModal({ isOpen, onClose, initialPlan
           <div className="flex-1 flex flex-col h-full overflow-hidden bg-surface md:border border-white/10 md:rounded-2xl relative shadow-2xl">
             <div className="flex-1 overflow-y-auto custom-scrollbar p-4 md:p-10 lg:p-12" data-lenis-prevent="true">
               <div className="mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold font-heading text-foreground mb-2">Armá tu propuesta en 2 minutos</h2>
+                <h2 className="text-2xl md:text-3xl font-bold font-heading text-foreground mb-2">Arma tu propuesta en 2 minutos</h2>
                 <p className="text-secondary text-sm md:text-base">Sin formularios largos. Al final te conectamos directo por WhatsApp.</p>
               </div>
 
@@ -258,7 +258,7 @@ export default function FumigationOnboardingModal({ isOpen, onClose, initialPlan
               {renderAccordionItem(1, "Modalidad del Proyecto", (
                 <div className="grid gap-4 mt-2">
                   {[
-                    { id: 'A', icon: MonitorSmartphone, title: 'Necesito web rápida y lista', desc: 'Elegís uno de nuestros diseños pre-armados para fumigadoras. Online en 3-5 días.' },
+                    { id: 'A', icon: MonitorSmartphone, title: 'Necesito web rápida y lista', desc: 'Eliges uno de nuestros diseños pre-armados para fumigadoras. Online en 3-5 días.' },
                     { id: 'B', icon: Palette, title: 'Quiero un diseño propio y personalizado', desc: 'Diseño desde cero adaptado a tu marca. Más páginas, más secciones.' },
                     { id: 'C', icon: Building2, title: 'Tengo empresa con operación en varias ciudades', desc: 'Solución completa con automatizaciones, SEO y estrategia. Para escalar.' },
                     { id: 'D', icon: Bot, title: 'Solo quiero automatizar mi WhatsApp', desc: 'Chatbot IA que atiende, filtra y agenda clientes las 24hs.' },
@@ -435,10 +435,10 @@ export default function FumigationOnboardingModal({ isOpen, onClose, initialPlan
                   )}
 
                   {[
-                    { id: 'domain', icon: Globe, title: 'Dominio alternativo (.com / .mx / .net)', desc: 'Si necesitás otro dominio además del .com.mx', price: 350 },
-                    { id: 'branding', icon: Palette, title: 'Branding básico', desc: 'Te armamos identidad visual si no tenés', price: 900 },
+                    { id: 'domain', icon: Globe, title: 'Dominio alternativo (.com / .mx / .net)', desc: 'Si necesitas otro dominio además del .com.mx', price: 350 },
+                    { id: 'branding', icon: Palette, title: 'Branding básico', desc: 'Te armamos identidad visual si no tienes', price: 900 },
                     { id: 'seo', icon: Megaphone, title: 'SEO Local avanzado (3 meses)', desc: 'Para aparecer primero en Google Maps de tu ciudad', price: 1200 },
-                    { id: 'map', icon: Map, title: 'Mapa interactivo de zonas', desc: 'El cliente ingresa su colonia y sabe si tenés cobertura', price: 400 },
+                    { id: 'map', icon: Map, title: 'Mapa interactivo de zonas', desc: 'El cliente ingresa su colonia y sabe si tienes cobertura', price: 400 },
                     { id: 'form', icon: FileText, title: 'Formulario de cotización automático', desc: 'El cliente completa tipo de plaga, metros y recibe precio', price: 450 },
                     { id: 'ads', icon: Smartphone, title: 'Setup Google Ads', desc: 'Campaña inicial configurada para búsquedas en tu zona', price: 1100 },
                   ]
@@ -546,7 +546,7 @@ export default function FumigationOnboardingModal({ isOpen, onClose, initialPlan
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-secondary mb-2 uppercase tracking-widest">¿En qué ciudad / estado operás?</label>
+                      <label className="block text-sm font-bold text-secondary mb-2 uppercase tracking-widest">¿En qué ciudad / estado operas?</label>
                       <input 
                         type="text" 
                         value={selections.city}

@@ -23,10 +23,10 @@ export default function FumigationFinalCTA() {
             className="relative z-10"
           >
             <h2 className="text-4xl md:text-7xl font-black font-heading text-background mb-8 leading-[1.1] tracking-tight max-w-4xl">
-              Deja de Regalarle Servicios a tu Competencia
+              Google Maps Ya Te Manda Clientes. ¿Tu Negocio Está Listo Para Recibirlos?
             </h2>
             <p className="text-background/80 text-xl md:text-2xl font-medium max-w-2xl mx-auto mb-12">
-              Tomamos pocos clientes por mes para garantizar la entrega rápida de 3 a 7 días. Escribinos ahora y apartá tu lugar.
+              Tomamos pocos clientes por mes para garantizar la entrega rápida de 3 a 7 días. Escríbenos ahora y aparta tu lugar.
             </p>
             
             <div className="flex flex-col items-center gap-8">
