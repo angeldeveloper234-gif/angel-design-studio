@@ -43,7 +43,7 @@ export default function FumigationProcess() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold font-heading mb-6 text-foreground"
+            className="text-4xl md:text-5xl font-bold mb-6 text-foreground"
           >
             Tu Nueva Web en <span className="text-accent">4 Pasos Simples</span>
           </motion.h2>

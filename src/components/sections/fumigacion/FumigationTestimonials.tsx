@@ -20,14 +20,14 @@ const testimonials = [
 
 export default function FumigationTestimonials() {
   return (
-    <section id="testimonials" className="py-24 px-4 md:px-8 bg-surface/30 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6">
+    <section id="testimonials" className="py-24 w-full bg-surface/30 relative overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold font-heading mb-6 text-foreground"
+            className="text-3xl md:text-4xl font-bold mb-6 text-foreground"
           >
             Lo que dicen los <span className="text-accent">dueños de fumigadoras</span>
           </motion.h2>
@@ -41,7 +41,7 @@ export default function FumigationTestimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-background/50 backdrop-blur-sm p-10 rounded-[2.5rem] border border-border-custom/10 relative group hover:border-accent/30 transition-all"
+              className="bg-background p-10 rounded-[2.5rem] border border-border-custom/10 relative group hover:border-accent/30 transition-all shadow-xl shadow-black/5"
             >
               <Quote className="absolute top-8 right-8 w-12 h-12 text-accent/10 group-hover:text-accent/20 transition-colors" />
               
@@ -57,12 +57,12 @@ export default function FumigationTestimonials() {
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center border border-accent/30">
-                  <span className="text-accent font-bold font-heading">
+                  <span className="text-accent font-bold">
                     {testimonial.author.charAt(0)}
                   </span>
                 </div>
                 <div>
-                  <h4 className="text-foreground font-bold font-heading">{testimonial.author}</h4>
+                  <h4 className="text-foreground font-bold">{testimonial.author}</h4>
                   <p className="text-secondary text-sm">{testimonial.company} <span className="text-accent/50 mx-1">•</span> {testimonial.location}</p>
                 </div>
               </div>

@@ -73,7 +73,7 @@ export default function FumigationServices() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold font-heading mb-6"
+            className="text-4xl md:text-5xl font-bold mb-6"
           >
             El estándar mínimo para <br />
             <span className="text-accent">tu fumigadora</span>

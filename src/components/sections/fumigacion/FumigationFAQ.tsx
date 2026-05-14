@@ -30,7 +30,7 @@ export default function FumigationFAQ() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold font-heading mb-6 text-foreground"
+            className="text-3xl md:text-4xl font-bold mb-6 text-foreground"
           >
             Preguntas <span className="text-accent">Frecuentes</span>
           </motion.h2>
@@ -50,7 +50,7 @@ export default function FumigationFAQ() {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full flex items-center justify-between p-6 text-left"
               >
-                <h3 className="text-lg font-bold font-heading text-foreground pr-8">
+                <h3 className="text-lg font-bold text-foreground pr-8">
                   {faq.question}
                 </h3>
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center bg-background shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>

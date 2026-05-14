@@ -56,20 +56,37 @@ export default function Navbar() {
       }`} />
 
       <div className="max-w-[1400px] mx-auto px-4 md:px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group relative z-10">
-          <div className="w-10 h-10 flex items-center justify-center shrink-0">
-            <Image 
-              src="/favicon-angelstudiodesign.png" 
-              alt="Angel Design Studio Logo" 
-              width={40}
-              height={40}
-              className="w-full h-full object-contain transition-transform group-hover:scale-110 drop-shadow-md"
-            />
+        {isFumigacion ? (
+          <div className="flex items-center gap-2 group relative z-10">
+            <div className="w-10 h-10 flex items-center justify-center shrink-0">
+              <Image 
+                src="/favicon-angelstudiodesign.png" 
+                alt="Angel Design Studio Logo" 
+                width={40}
+                height={40}
+                className="w-full h-full object-contain drop-shadow-md"
+              />
+            </div>
+            <span className="hidden sm:block font-bold text-xl tracking-tight font-heading text-foreground">
+              Angel Design Studio
+            </span>
           </div>
-          <span className="hidden sm:block font-bold text-xl tracking-tight font-heading transition-colors duration-300 text-foreground">
-            Angel Design Studio
-          </span>
-        </Link>
+        ) : (
+          <Link href="/" className="flex items-center gap-2 group relative z-10">
+            <div className="w-10 h-10 flex items-center justify-center shrink-0">
+              <Image 
+                src="/favicon-angelstudiodesign.png" 
+                alt="Angel Design Studio Logo" 
+                width={40}
+                height={40}
+                className="w-full h-full object-contain transition-transform group-hover:scale-110 drop-shadow-md"
+              />
+            </div>
+            <span className="hidden sm:block font-bold text-xl tracking-tight font-heading transition-colors duration-300 text-foreground">
+              Angel Design Studio
+            </span>
+          </Link>
+        )}
 
         {/* Nav Pill - The container described by the user */}
         <nav className="flex items-center bg-surface/50 backdrop-blur-xl rounded-full p-1 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-border-custom/10 transition-all duration-300">

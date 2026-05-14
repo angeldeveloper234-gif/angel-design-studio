@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, X } from "lucide-react";
+import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
 import FumigationOnboardingModal from "./FumigationOnboardingModal";
 
 export default function FumigationFinalCTA() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const whatsappLink = useWhatsAppLink("¡Hola! Google Maps ya me manda clientes y quiero que mi negocio esté listo. ¿Me pueden ayudar con mi página web?");
 
   return (
     <section className="py-24 px-4 md:px-8 bg-background relative overflow-hidden">
@@ -22,7 +24,7 @@ export default function FumigationFinalCTA() {
             viewport={{ once: true }}
             className="relative z-10"
           >
-            <h2 className="text-4xl md:text-7xl font-black font-heading text-background mb-8 leading-[1.1] tracking-tight max-w-4xl">
+            <h2 className="text-4xl md:text-7xl font-black text-background mb-8 leading-[1.1] tracking-tight max-w-4xl">
               Google Maps Ya Te Manda Clientes. ¿Tu Negocio Está Listo Para Recibirlos?
             </h2>
             <p className="text-background/80 text-xl md:text-2xl font-medium max-w-2xl mx-auto mb-12">
@@ -30,15 +32,17 @@ export default function FumigationFinalCTA() {
             </p>
             
             <div className="flex flex-col items-center gap-8">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="group relative flex items-center bg-background text-accent pl-8 pr-2 py-2 rounded-full font-heading font-black text-xl md:text-3xl transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-black/20 cursor-pointer"
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center bg-background text-accent pl-8 pr-2 py-2 rounded-full font-black text-xl md:text-3xl transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-black/20 cursor-pointer"
               >
                 <span className="mr-8">Escribir por WhatsApp Ahora</span>
                 <div className="bg-accent rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center text-background border border-background/20 shrink-0">
                   <ArrowRight size={32} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                 </div>
-              </button>
+              </a>
 
               <div className="flex flex-col md:flex-row gap-6 md:gap-12 text-background font-bold text-lg">
                 <div className="flex items-center gap-2">

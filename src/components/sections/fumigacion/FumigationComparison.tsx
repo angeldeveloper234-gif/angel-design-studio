@@ -40,7 +40,7 @@ export default function FumigationComparison() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold font-heading mb-6"
+            className="text-4xl md:text-5xl font-bold mb-6"
           >
             La diferencia entre tener página web y <span className="text-accent">no tenerla</span>
           </motion.h2>
@@ -51,7 +51,7 @@ export default function FumigationComparison() {
           <div className="hidden md:grid grid-cols-[1fr_1.5fr_1.5fr] items-center mb-4">
             <div className="px-6 text-secondary uppercase tracking-[0.2em] text-[10px] font-black">Criterio</div>
             <div className="px-6 py-4 bg-accent/5 border-x border-t border-accent/20 rounded-t-[2rem] text-center">
-              <span className="text-accent text-xl font-black font-heading">Con página web profesional</span>
+              <span className="text-accent text-xl font-black">Con página web profesional</span>
             </div>
             <div className="px-6 text-center text-secondary/30 font-bold uppercase tracking-widest text-[10px]">Sin página web</div>
           </div>

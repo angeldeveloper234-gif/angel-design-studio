@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
+import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
 import FumigationOnboardingModal from "./FumigationOnboardingModal";
 
 const plans = [
@@ -71,12 +72,15 @@ export default function FumigationPricing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<'A' | 'B' | 'C' | 'D' | null>(null);
 
-  const openModalWithPlan = (planName: string) => {
-    if (planName === "Plan Urgencia") setSelectedPlan('A');
-    else if (planName === "Plan Autoridad") setSelectedPlan('B');
-    else if (planName === "Plan Dominio") setSelectedPlan('C');
-    else setSelectedPlan(null);
-    setIsModalOpen(true);
+  const whatsappUrgencia = useWhatsAppLink("¡Hola! Me interesa el *Plan Urgencia* para mi fumigadora. ¿Qué datos necesitan para empezar?");
+  const whatsappAutoridad = useWhatsAppLink("¡Hola! Me interesa el *Plan Autoridad* para mi fumigadora. Quiero posicionarme por encima de la competencia.");
+  const whatsappDominio = useWhatsAppLink("¡Hola! Me interesa el *Plan Dominio* para mi fumigadora. Quiero automatizar mi atención y captar clientes 24/7.");
+
+  const getPlanLink = (planName: string) => {
+    if (planName === "Plan Urgencia") return whatsappUrgencia;
+    if (planName === "Plan Autoridad") return whatsappAutoridad;
+    if (planName === "Plan Dominio") return whatsappDominio;
+    return whatsappUrgencia;
   };
 
   return (
@@ -117,28 +121,28 @@ export default function FumigationPricing() {
               } transition-all duration-300`}
             >
               {plan.badge && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-background px-4 py-1 rounded-full text-sm font-bold tracking-wider uppercase shadow-lg">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-background px-4 py-1 rounded-full text-[10px] md:text-xs font-black tracking-widest uppercase shadow-lg whitespace-nowrap text-center flex items-center justify-center min-w-[140px]">
                   {plan.badge}
                 </div>
               )}
               
               <div className="mb-8">
-                <h3 className="text-2xl font-bold font-heading text-foreground mb-4">{plan.name}</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-4">{plan.name}</h3>
                 <div className="flex flex-col gap-6 mb-8">
                   {/* Inversión Inicial Block */}
                   <div className="relative group/price">
-                    <div className="flex flex-col">
-                      <div className="flex items-center gap-2 mb-1">
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-center gap-2">
                         <div className="h-[1px] w-4 bg-accent/30" />
-                        <span className="text-[10px] font-bold text-accent uppercase tracking-[0.2em] font-mono">
+                        <span className="text-[10px] font-black text-accent uppercase tracking-[0.2em]">
                           Inversión Inicial
                         </span>
                       </div>
                       <div className="flex items-end gap-2">
-                        <span className="text-5xl md:text-6xl font-black font-heading text-foreground tracking-tighter">
+                        <span className="text-5xl md:text-6xl font-black text-foreground tracking-tighter leading-none">
                           {plan.price}
                         </span>
-                        <span className="text-secondary/60 font-bold text-sm mb-2">
+                        <span className="text-secondary/60 font-bold text-sm mb-1">
                           {plan.currency}
                         </span>
                       </div>
@@ -184,16 +188,18 @@ export default function FumigationPricing() {
                 </ul>
               </div>
 
-              <button
-                onClick={() => openModalWithPlan(plan.name)}
-                className={`w-full py-4 rounded-xl font-bold font-heading text-center transition-all ${
+              <a
+                href={getPlanLink(plan.name)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full py-4 rounded-xl font-bold text-center transition-all flex items-center justify-center ${
                   plan.highlight
                     ? 'bg-accent text-background hover:scale-[1.02] active:scale-95 shadow-xl shadow-accent/20'
                     : 'bg-surface border border-border-custom/20 text-foreground hover:border-accent/50 hover:bg-accent/5 active:scale-95'
                 }`}
               >
                 {plan.cta}
-              </button>
+              </a>
             </motion.div>
           ))}
         </div>

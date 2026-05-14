@@ -21,7 +21,7 @@ export default function FumigationAutomation() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-bold font-heading leading-tight"
+              className="text-4xl md:text-5xl font-bold leading-tight"
             >
               Opcionales para escalar tu atención
             </motion.h2>
@@ -47,7 +47,7 @@ export default function FumigationAutomation() {
             <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-accent/20 group-hover:rotate-6 transition-transform">
               <MessageSquare className="w-8 h-8 text-background" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-black font-heading mb-4">Chatbot Básico para WhatsApp</h3>
+            <h3 className="text-2xl md:text-3xl font-black mb-4">Chatbot Básico para WhatsApp</h3>
             <div className="text-secondary text-sm md:text-base leading-relaxed mb-8 flex-grow space-y-2">
               <p>Filtra clientes y responde preguntas frecuentes antes de que tú tomes la conversación.</p>
             </div>
@@ -72,7 +72,7 @@ export default function FumigationAutomation() {
                 <Cpu className="w-8 h-8 text-accent" />
               </div>
             </div>
-            <h3 className="text-2xl md:text-3xl font-black font-heading mb-4">Asistente IA para WhatsApp</h3>
+            <h3 className="text-2xl md:text-3xl font-black mb-4">Asistente IA para WhatsApp</h3>
             <p className="text-secondary text-sm md:text-base leading-relaxed mb-8 flex-grow">
               IA avanzada que agenda citas automáticamente en tu calendario, responde con naturalidad, guarda leads en tu base de datos y manda recordatorios. Todo por WhatsApp.
             </p>
@@ -100,7 +100,7 @@ export default function FumigationAutomation() {
                 NUEVO
               </div>
             </div>
-            <h3 className="text-2xl md:text-3xl font-black font-heading mb-4">Asistente Telefónico IA</h3>
+            <h3 className="text-2xl md:text-3xl font-black mb-4">Asistente Telefónico IA</h3>
             <p className="text-secondary text-sm md:text-base leading-relaxed mb-8 flex-grow">
               Se conecta a un número y actúa como recepcionista. Anota todo de forma profesional y con tono natural para dejarte los datos listos para cerrar el servicio.
             </p>
