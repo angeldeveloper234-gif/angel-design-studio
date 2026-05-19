@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import { MessageCircle, PenTool, CheckSquare, Rocket } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const steps = [
+const stepsEs = [
   {
     num: "1",
     title: "Hablamos por WhatsApp",
@@ -30,7 +31,36 @@ const steps = [
   },
 ];
 
+const stepsEn = [
+  {
+    num: "1",
+    title: "Chat via WhatsApp",
+    desc: "Tell us your idea quickly and directly. No long meetings or bureaucratic processes. 100% agile.",
+    icon: MessageCircle,
+  },
+  {
+    num: "2",
+    title: "Design the solution",
+    desc: "We create a premium visual prototype designed to maximize conversions and highlight your brand.",
+    icon: PenTool,
+  },
+  {
+    num: "3",
+    title: "Review and approve",
+    desc: "We present the design, adjust any necessary details, and you give us the final go-ahead.",
+    icon: CheckSquare,
+  },
+  {
+    num: "4",
+    title: "We launch",
+    desc: "We launch your ultra-fast website to the market, optimized to rank and generate results.",
+    icon: Rocket,
+  },
+];
+
 export default function Process() {
+  const { language, t } = useLanguage();
+  const steps = language === "es" ? stepsEs : stepsEn;
   return (
     <section id="process" className="py-24 bg-background">
       <div className="max-w-[1400px] mx-auto px-6 w-full">
@@ -42,7 +72,7 @@ export default function Process() {
             viewport={{ once: true }}
             className="inline-block border border-accent/20 text-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-4 bg-accent/5"
           >
-            Proceso Simple
+            {t("process.badge")}
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -51,8 +81,17 @@ export default function Process() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-[1.1] tracking-tight text-foreground"
           >
-            ¿Cuánto tarda? Nada.<br />
-            En <span className="text-accent">4 pasos</span> online.
+            {language === "es" ? (
+              <>
+                ¿Cuánto tarda? Nada.<br />
+                En <span className="text-accent">4 pasos</span> online.
+              </>
+            ) : (
+              <>
+                How long does it take? Nothing.<br />
+                In <span className="text-accent">4 steps</span> online.
+              </>
+            )}
           </motion.h2>
         </div>
 
@@ -84,7 +123,7 @@ export default function Process() {
                   <div className="mt-auto">
                     <div className="flex items-center gap-3 mb-3">
                       <span className="text-sm font-bold text-accent bg-accent/10 px-2 py-1 rounded-md">
-                        Paso {step.num}
+                        {language === "es" ? "Paso" : "Step"} {step.num}
                       </span>
                     </div>
                     <h3 className="text-xl md:text-2xl font-bold font-heading text-foreground mb-3">

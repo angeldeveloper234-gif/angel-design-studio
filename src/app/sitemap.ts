@@ -15,13 +15,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
+  // Fetch blog posts from Sanity via GROQ
+  const posts = await client.fetch(groq`*[_type == "post" && defined(slug.current)] { "slug": slug.current, _updatedAt }`);
+  
+  const postUrls = posts.map((post: { slug: string; _updatedAt: string }) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post._updatedAt),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
   return [
     {
       url: baseUrl,
       lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/fumigacion`,
+      lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 1,
+      priority: 0.9,
     },
     ...projectUrls,
+    ...postUrls,
   ];
 }

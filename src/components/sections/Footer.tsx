@@ -5,15 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { FaInstagram, FaFacebookF } from "react-icons/fa6";
-
-const navLinks = [
-  { name: "Inicio", href: "/" },
-  { name: "Fumigación", href: "/fumigacion" },
-  { name: "Servicios", href: "/#services" },
-  { name: "Portfolio", href: "/#projects" },
-  { name: "Proceso", href: "/#process" },
-  { name: "Contacto", href: "/#contact" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const socialLinks = [
   { name: "Instagram", href: "#", icon: FaInstagram },
@@ -21,14 +13,25 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const { language, t } = useLanguage();
   const currentYear = 2026;
   const [currentTime, setCurrentTime] = React.useState<string>("");
+
+  const currentNavLinks = [
+    { name: language === 'es' ? "Inicio" : "Home", href: "/" },
+    { name: "Fumigación", href: "/fumigacion" },
+    { name: t("nav.services"), href: "/#services" },
+    { name: t("nav.portfolio"), href: "/#projects" },
+    { name: t("nav.process"), href: "/#process" },
+    { name: t("nav.blog"), href: "/blog" },
+    { name: language === 'es' ? "Contacto" : "Contact", href: "/#contact" },
+  ];
 
   React.useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const formatter = new Intl.DateTimeFormat("es-MX", {
-        timeZone: "America/Mexico_City",
+      const formatter = new Intl.DateTimeFormat("es-AR", {
+        timeZone: "America/Argentina/Buenos_Aires",
         hour: "numeric",
         minute: "2-digit",
         hour12: true,
@@ -67,7 +70,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-secondary max-w-xs leading-relaxed mb-8">
-              Especialistas en diseñar y desarrollar presencia digital de alto impacto para negocios que buscan escalar.
+              {t("footer.desc")}
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -85,9 +88,11 @@ export default function Footer() {
 
           {/* Navigation Section */}
           <div>
-            <h4 className="font-bold text-lg mb-8 uppercase tracking-widest text-accent">Navegación</h4>
+            <h4 className="font-bold text-lg mb-8 uppercase tracking-widest text-accent">
+              {language === "es" ? "Navegación" : "Navigation"}
+            </h4>
             <ul className="space-y-4">
-              {navLinks.map((link) => (
+              {currentNavLinks.map((link) => (
                 <li key={link.name}>
                   <Link 
                     href={link.href}
@@ -103,18 +108,20 @@ export default function Footer() {
 
           {/* Contact Section */}
           <div>
-            <h4 className="font-bold text-lg mb-8 uppercase tracking-widest text-accent">Contacto</h4>
+            <h4 className="font-bold text-lg mb-8 uppercase tracking-widest text-accent">
+              {language === "es" ? "Contacto" : "Contact"}
+            </h4>
             <ul className="space-y-6">
               <li className="p-6 rounded-[2rem] bg-surface/50 border border-border-custom/10">
                 <p className="text-sm text-secondary mb-4">
-                  ¿Tienes un proyecto en mente? Hablemos hoy mismo.
+                  {language === "es" ? "¿Tienes un proyecto en mente? Hablemos hoy mismo." : "Have a project in mind? Let's talk today."}
                 </p>
                 <div className="flex flex-col gap-4">
                   <Link 
                     href="/#contact"
                     className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wider text-accent hover:gap-3 transition-all"
                   >
-                    Agendar llamada <ArrowUpRight size={16} />
+                    {language === "es" ? "Agendar llamada" : "Schedule a call"} <ArrowUpRight size={16} />
                   </Link>
                   <a 
                     href="mailto:hola@angelstudio.design" 
@@ -129,16 +136,26 @@ export default function Footer() {
 
           {/* Location Section */}
           <div className="lg:pl-8">
-            <h4 className="font-bold text-lg mb-8 uppercase tracking-widest text-accent">Ubicación</h4>
+            <h4 className="font-bold text-lg mb-8 uppercase tracking-widest text-accent">
+              {language === "es" ? "Ubicación" : "Location"}
+            </h4>
             <div className="mb-8">
-              <p className="text-foreground font-bold mb-1">Ciudad de México.</p>
+              <p className="text-foreground font-bold mb-1">{t("footer.location")}</p>
               <p className="text-secondary leading-relaxed">
-                Estrategias de <strong>diseño web</strong> y <strong>branding</strong> para todo México.
+                {language === "es" ? (
+                  <>
+                    Estrategias de <strong>diseño web</strong> y <strong>branding</strong> desde Salta, Argentina para el mundo.
+                  </>
+                ) : (
+                  <>
+                    Web design and branding strategies from Salta, Argentina to the world.
+                  </>
+                )}
               </p>
             </div>
             
             <div className="mb-8 p-4 rounded-2xl bg-surface border border-border-custom/10 inline-flex flex-col">
-              <p className="text-[10px] text-secondary/40 uppercase font-black tracking-[0.2em] mb-1">Hora Local (CDMX)</p>
+              <p className="text-[10px] text-secondary/40 uppercase font-black tracking-[0.2em] mb-1">{t("footer.timeLabel")}</p>
               <p className="text-2xl font-black text-accent tracking-tighter tabular-nums">
                 {currentTime || "00:00"}
               </p>
@@ -146,7 +163,7 @@ export default function Footer() {
 
             <div className="h-px w-full bg-border-custom/10 mb-8" />
             <p className="text-[10px] text-secondary/40 uppercase font-black tracking-[0.2em]">
-              Innovación Constante
+              {language === "es" ? "Innovación Constante" : "Constant Innovation"}
             </p>
           </div>
         </div>
@@ -155,10 +172,12 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-border-custom/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-secondary text-sm">
-            © {currentYear} Angel Design Studio. Todos los derechos reservados.
+            © {currentYear} Angel Design Studio. {t("footer.rights")}
           </p>
           <div className="flex gap-8 text-xs font-medium text-secondary/60 uppercase tracking-widest">
-            <Link href="#" className="hover:text-foreground transition-colors">Términos y Condiciones</Link>
+            <Link href="#" className="hover:text-foreground transition-colors">
+              {language === "es" ? "Términos y Condiciones" : "Terms & Conditions"}
+            </Link>
           </div>
         </div>
       </div>

@@ -5,6 +5,19 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Angel Design Studio",
+    "alternateName": [
+      "Angel Design",
+      "Ange Design",
+      "Angel Desing",
+      "AngelStudio.design",
+      "angelstudio design",
+      "diseño web salta",
+      "paginas web salta",
+      "diseño web argentina",
+      "diseño de paginas web",
+      "estudio de diseño",
+      "marketing digital salta"
+    ],
     "image": "https://www.angelstudio.design/og-image.jpg",
     "@id": "https://www.angelstudio.design",
     "url": "https://www.angelstudio.design",
@@ -12,16 +25,16 @@ export default function JsonLd() {
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Ciudad de México",
-      "addressLocality": "CDMX",
-      "addressRegion": "CDMX",
-      "postalCode": "01000",
-      "addressCountry": "MX"
+      "streetAddress": "Salta, Argentina",
+      "addressLocality": "Salta",
+      "addressRegion": "Salta",
+      "postalCode": "A4400",
+      "addressCountry": "AR"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 19.4326,
-      "longitude": -99.1332
+      "latitude": -24.78977,
+      "longitude": -65.41098
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -115,7 +128,7 @@ export default function JsonLd() {
         "name": "¿Incluye dominio?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "¡Sí! El primer año de dominio (.com o .mx) y hosting premium están incluidos en todos nuestros planes."
+          "text": "¡Sí! El primer año de dominio (.com o .com.ar) y hosting premium están incluidos en todos nuestros planes."
         }
       }
     ]

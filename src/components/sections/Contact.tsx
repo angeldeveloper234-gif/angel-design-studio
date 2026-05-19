@@ -4,10 +4,13 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Contact() {
+  const { language, t } = useLanguage();
   const whatsappLink = useWhatsAppLink();
-  const floatingCards = [
+  
+  const floatingCards = language === "es" ? [
     {
       icon: "⚡",
       value: "Entrega en 7 días",
@@ -41,6 +44,43 @@ export default function Contact() {
     {
       icon: "✅",
       value: "Sin plantillas genéricas",
+      delay: 1.2,
+      position: "bottom-[42%] md:bottom-[40%] right-[-4%] md:right-[1%] lg:right-[3%]",
+    },
+  ] : [
+    {
+      icon: "⚡",
+      value: "7-day delivery",
+      delay: 0,
+      position: "top-[5%] md:top-[10%] left-[-2%] md:left-[2%] lg:left-[5%]",
+    },
+    {
+      icon: "📱",
+      value: "Mobile first",
+      delay: 1,
+      position: "bottom-[8%] md:bottom-[15%] left-[0%] md:left-[4%] lg:left-[8%]",
+    },
+    {
+      icon: "🌐",
+      value: "Domain included",
+      delay: 0.5,
+      position: "top-[10%] md:top-[15%] right-[-2%] md:right-[2%] lg:right-[5%]",
+    },
+    {
+      icon: "💬",
+      value: "WhatsApp support",
+      delay: 1.5,
+      position: "bottom-[12%] md:bottom-[10%] right-[0%] md:right-[4%] lg:right-[8%]",
+    },
+    {
+      icon: "📈",
+      value: "Google ready",
+      delay: 0.8,
+      position: "top-[40%] md:top-[35%] left-[-4%] md:left-[1%] lg:left-[3%]",
+    },
+    {
+      icon: "✅",
+      value: "No generic templates",
       delay: 1.2,
       position: "bottom-[42%] md:bottom-[40%] right-[-4%] md:right-[1%] lg:right-[3%]",
     },
@@ -107,7 +147,7 @@ export default function Contact() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
             </span>
             <span className="text-[10px] font-bold text-accent tracking-[0.05em] uppercase">
-              Proyectos limitados • Quedan 2 cupos
+              {t("contact.badge")}
             </span>
           </motion.div>
  
@@ -119,10 +159,21 @@ export default function Contact() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.03em] leading-[1.1] mb-8 text-foreground"
           >
-            Deja de ser invisible. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent/60">
-              Construye tu éxito digital.
-            </span>
+            {language === "es" ? (
+              <>
+                Deja de ser invisible. <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent/60">
+                  Construye tu éxito digital.
+                </span>
+              </>
+            ) : (
+              <>
+                Stop being invisible. <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent/60">
+                  Build your digital success.
+                </span>
+              </>
+            )}
           </motion.h2>
  
           {/* Subheading */}
@@ -133,8 +184,7 @@ export default function Contact() {
             transition={{ delay: 0.1, duration: 0.6 }}
             className="text-base md:text-lg lg:text-xl text-secondary max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            Tu negocio merece un sitio que no solo se vea bien, sino que trabaje para ti. 
-            Hablemos hoy y despega tu presencia en tiempo récord.
+            {t("contact.subheading")}
           </motion.p>
  
           {/* CTA Button */}
@@ -152,17 +202,17 @@ export default function Contact() {
               className="group relative inline-flex items-center justify-center gap-3 px-8 py-5 bg-accent text-white rounded-2xl font-black text-lg shadow-xl hover:shadow-accent/40 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
             >
               <FaWhatsapp className="text-2xl" />
-              ¡Quiero empezar ahora!
+              {t("contact.button")}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
             </a>
             
             <div className="flex items-center gap-4 text-secondary/50">
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-                <span className="text-[10px] font-bold uppercase tracking-widest">Respuesta rápida</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest">{t("contact.fastResponse")}</span>
               </div>
               <div className="w-1 h-1 rounded-full bg-white/10"></div>
-              <span className="text-[10px] font-bold uppercase tracking-widest">Sin formularios</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest">{t("contact.noForms")}</span>
             </div>
           </motion.div>
         </div>

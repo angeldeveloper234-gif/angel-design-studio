@@ -2,8 +2,47 @@
 
 import { motion } from "framer-motion";
 import { XCircle, CheckCircle2 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Comparison() {
+  const { language, t } = useLanguage();
+
+  const oldAgencyItems = language === "es" 
+    ? [
+        "Tardan 4 a 8 semanas",
+        "Plantillas iguales para todos",
+        "Sitios lentos y pesados",
+        "Imágenes genéricas de internet",
+        "Solo el sitio y nada más",
+        "Soporte que no responde"
+      ]
+    : [
+        "Take 4 to 8 weeks",
+        "Same templates for everyone",
+        "Slow and heavy websites",
+        "Generic stock images",
+        "Just the website and nothing else",
+        "Support that doesn't answer"
+      ];
+
+  const ourStudioItems = language === "es"
+    ? [
+        "Entregamos en 3 a 7 días",
+        "Diseño único para tu rubro",
+        "Rápidos, modernos y optimizados",
+        "Recursos visuales de alta calidad",
+        "También automatizamos tu negocio",
+        "Acompañamiento directo por WhatsApp"
+      ]
+    : [
+        "Delivered in 3 to 7 days",
+        "Unique design for your industry",
+        "Fast, modern, and optimized",
+        "High-quality visual assets",
+        "We also automate your business",
+        "Direct support via WhatsApp"
+      ];
+
   return (
     <section className="py-24 px-4 md:px-8 bg-background">
       <div className="max-w-[1400px] mx-auto px-6">
@@ -15,7 +54,7 @@ export default function Comparison() {
             viewport={{ once: true }}
             className="inline-block border border-accent/20 text-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6 bg-accent/5"
           >
-            Por qué elegirnos
+            {t("comp.badge")}
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -24,7 +63,15 @@ export default function Comparison() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-[1.1] tracking-tight text-foreground max-w-3xl"
           >
-            Agencias tradicionales vs <span className="text-accent">Angel Design Studio</span>
+            {language === "es" ? (
+              <>
+                Agencias tradicionales vs <span className="text-accent">Angel Design Studio</span>
+              </>
+            ) : (
+              <>
+                Traditional agencies vs <span className="text-accent">Angel Design Studio</span>
+              </>
+            )}
           </motion.h2>
         </div>
 
@@ -41,17 +88,12 @@ export default function Comparison() {
             <div className="relative z-10 max-w-sm">
               <div className="flex items-center gap-3 mb-6">
                 <XCircle className="text-secondary/40 w-6 h-6" />
-                <h3 className="text-2xl font-bold font-heading text-secondary">Agencias tradicionales</h3>
+                <h3 className="text-2xl font-bold font-heading text-secondary">
+                  {language === "es" ? "Agencias tradicionales" : "Traditional agencies"}
+                </h3>
               </div>
               <ul className="space-y-4 text-secondary font-medium">
-                {[
-                  "Tardan 4 a 8 semanas",
-                  "Plantillas iguales para todos",
-                  "Sitios lentos y pesados",
-                  "Imágenes genéricas de internet",
-                  "Solo el sitio y nada más",
-                  "Soporte que no responde"
-                ].map((item, i) => (
+                {oldAgencyItems.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <XCircle className="w-5 h-5 text-secondary/40 shrink-0 mt-0.5" />
                     <span className="text-sm md:text-base leading-snug">{item}</span>
@@ -67,7 +109,7 @@ export default function Comparison() {
                  <div className="w-3/4 h-4 bg-surface rounded"></div>
                </div>
                <div className="w-72 h-56 bg-background border border-border-custom/10 rounded-3xl shadow-md rotate-[5deg] absolute -bottom-5 -right-5 flex flex-col p-6">
-                 <div className="text-xs text-secondary font-bold mb-2">Lentitud</div>
+                 <div className="text-xs text-secondary font-bold mb-2">{language === "es" ? "Lentitud" : "Slowness"}</div>
                  <div className="text-4xl font-bold text-secondary mb-4">98.00s</div>
                  <div className="flex gap-2">
                    <div className="w-12 h-8 bg-surface rounded-lg"></div>
@@ -91,14 +133,7 @@ export default function Comparison() {
                 <h3 className="text-2xl font-bold font-heading text-foreground">Angel Design Studio</h3>
               </div>
               <ul className="space-y-4 text-secondary font-medium relative z-10">
-                {[
-                  "Entregamos en 3 a 7 días",
-                  "Diseño único para tu rubro",
-                  "Rápidos, modernos y optimizados",
-                  "Recursos visuales de alta calidad",
-                  "También automatizamos tu negocio",
-                  "Acompañamiento directo por WhatsApp"
-                ].map((item, i) => (
+                {ourStudioItems.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                     <span className="text-sm md:text-base text-foreground leading-snug">{item}</span>
@@ -127,9 +162,13 @@ export default function Comparison() {
               
               {/* Tooltip */}
               <div className="absolute right-8 bottom-24 bg-background border border-border-custom/30 shadow-2xl rounded-2xl p-4 transform translate-y-4">
-                <div className="text-xs text-secondary font-medium mb-1">Conversión</div>
+                <div className="text-xs text-secondary font-medium mb-1">
+                  {language === "es" ? "Conversión" : "Conversion"}
+                </div>
                 <div className="text-2xl font-bold text-foreground">+350%</div>
-                <div className="text-xs font-bold text-accent mt-1">Con IA integrada</div>
+                <div className="text-xs font-bold text-accent mt-1">
+                  {language === "es" ? "Con IA integrada" : "With integrated AI"}
+                </div>
               </div>
             </div>
           </motion.div>

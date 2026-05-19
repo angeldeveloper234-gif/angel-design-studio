@@ -6,6 +6,7 @@ import { ArrowRight, Plus } from 'lucide-react';
 import { urlForImage } from '@/sanity/lib/image';
 import type { Image as SanityImage } from 'sanity';
 import { useWhatsAppLink } from '@/hooks/useWhatsAppLink';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface Project {
   _id: string;
@@ -17,7 +18,7 @@ interface Project {
   mainImage?: SanityImage;
 }
 
-const defaultProjects: Project[] = [
+const defaultProjectsEs: Project[] = [
   {
     _id: "1",
     title: "Luxory",
@@ -36,11 +37,32 @@ const defaultProjects: Project[] = [
   }
 ];
 
+const defaultProjectsEn: Project[] = [
+  {
+    _id: "1",
+    title: "Luxory",
+    description: "Elegant and minimalist website with golden details, combining simplicity with a premium corporate touch.",
+    industry: "Architecture",
+    technologies: ["CORPORATE SITE", "NEXT.JS"],
+    mainImage: undefined
+  },
+  {
+    _id: "2",
+    title: "Habita+",
+    description: "Minimalist and modern landing page with blue tones, focused on conveying professionalism and visual clarity.",
+    industry: "Real Estate",
+    technologies: ["LANDING PAGE", "CMS"],
+    mainImage: undefined
+  }
+];
+
 interface ProjectProps {
   projects?: Project[];
 }
 
 export default function Projects({ projects: sanityProjects }: ProjectProps) {
+  const { language, t } = useLanguage();
+  const defaultProjects = language === "es" ? defaultProjectsEs : defaultProjectsEn;
   const projects = sanityProjects && sanityProjects.length > 0 ? sanityProjects : defaultProjects;
   const whatsappLink = useWhatsAppLink();
   return (
@@ -56,7 +78,7 @@ export default function Projects({ projects: sanityProjects }: ProjectProps) {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border-custom/20 bg-surface/30 text-[10px] font-bold tracking-[0.2em] text-secondary uppercase mb-6"
           >
             <Plus size={10} className="text-accent" />
-            Proyectos
+            {t("projects.badge")}
           </motion.div>
           
           <motion.h2 
@@ -66,7 +88,9 @@ export default function Projects({ projects: sanityProjects }: ProjectProps) {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight leading-[1.1]"
           >
-            Webs entregadas que están generando resultados
+            {language === "es" 
+              ? "Webs entregadas que están generando resultados" 
+              : "Delivered websites that are generating results"}
           </motion.h2>
           
           <motion.p 
@@ -76,7 +100,9 @@ export default function Projects({ projects: sanityProjects }: ProjectProps) {
             transition={{ delay: 0.2 }}
             className="text-secondary text-lg md:text-xl max-w-xl leading-relaxed"
           >
-            Cada sitio fue diseñado para el rubro específico del negocio. No hay dos iguales.
+            {language === "es"
+              ? "Cada sitio fue diseñado para el rubro específico del negocio. No hay dos iguales."
+              : "Each site was designed for the specific business niche. No two are alike."}
           </motion.p>
         </div>
       </div>
@@ -120,7 +146,7 @@ export default function Projects({ projects: sanityProjects }: ProjectProps) {
                 {project.industry && (
                   <div className="mb-3">
                     <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-accent uppercase">
-                      Rubro: {project.industry}
+                      {language === "es" ? "Rubro" : "Niche"}: {project.industry}
                     </span>
                   </div>
                 )}
@@ -155,7 +181,9 @@ export default function Projects({ projects: sanityProjects }: ProjectProps) {
           viewport={{ once: true }}
           className="text-secondary text-lg md:text-xl leading-relaxed mb-8"
         >
-          ¿Querés ver cómo quedaría el sitio de tu negocio? Escribinos y te mostramos un ejemplo en minutos.
+          {language === "es"
+            ? "¿Querés ver cómo quedaría el sitio de tu negocio? Escribinos y te mostramos un ejemplo en minutos."
+            : "Want to see how your business website would look? Write to us and we'll show you an example in minutes."}
         </motion.p>
         
         <motion.a
@@ -168,7 +196,7 @@ export default function Projects({ projects: sanityProjects }: ProjectProps) {
           transition={{ delay: 0.1 }}
           className="bg-accent text-white px-8 py-4 rounded-full font-black text-sm uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-accent/20 cursor-pointer flex items-center gap-2 group"
         >
-          Ver mi ejemplo gratis <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          {language === "es" ? "Ver mi ejemplo gratis" : "Get my free sample"} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
         </motion.a>
       </div>
 

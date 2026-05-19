@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Smartphone, History, Clock } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function MarketProblem() {
+  const { language, t } = useLanguage();
+
   return (
     <section className="py-24 px-4 md:px-8 bg-background min-h-[600px]">
       <div className="max-w-[1400px] mx-auto px-6">
@@ -17,7 +20,7 @@ export default function MarketProblem() {
               viewport={{ once: true }}
               className="inline-block border border-accent/20 text-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-8 bg-accent/5"
             >
-              El Problema
+              {t("market.badge")}
             </motion.div>
             
             {/* Heading */}
@@ -28,8 +31,17 @@ export default function MarketProblem() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-6xl font-bold font-heading leading-[1.1] tracking-tight"
             >
-              <span className="text-secondary/60">El 90% de los sitios web de negocios en México</span> <br />
-              <span className="text-foreground">están desactualizados</span>
+              {language === "es" ? (
+                <>
+                  <span className="text-secondary/60">El 90% de los sitios web de negocios en Argentina</span> <br />
+                  <span className="text-foreground">están desactualizados o no convierten</span>
+                </>
+              ) : (
+                <>
+                  <span className="text-secondary/60">90% of business websites in Argentina</span> <br />
+                  <span className="text-foreground">are outdated or don't convert</span>
+                </>
+              )}
             </motion.h2>
           </div>
           
@@ -42,7 +54,9 @@ export default function MarketProblem() {
             className="max-w-xs"
           >
             <p className="text-secondary text-base md:text-lg leading-relaxed font-medium">
-              No dejes que una mala presencia digital frene el crecimiento de tu negocio.
+              {language === "es" 
+                ? "No dejes que una mala presencia digital frene el crecimiento de tu negocio."
+                : "Don't let a poor digital presence slow down your business growth."}
             </p>
           </motion.div>
         </div>
@@ -64,9 +78,9 @@ export default function MarketProblem() {
               <div className="w-12 h-12 bg-accent/10 text-accent rounded-xl flex items-center justify-center mb-6">
                 <Smartphone className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-bold font-heading text-foreground mb-3">Lentos en celular</h3>
+              <h3 className="text-2xl font-bold font-heading text-foreground mb-3">{t("market.card1.title")}</h3>
               <p className="text-secondary font-medium leading-relaxed">
-                Más del 60% de tus clientes te buscan desde el teléfono. Un sitio lento los manda directo a tu competencia.
+                {t("market.card1.desc")}
               </p>
             </motion.div>
 
@@ -81,9 +95,9 @@ export default function MarketProblem() {
               <div className="w-12 h-12 bg-accent/10 text-accent rounded-xl flex items-center justify-center mb-6">
                 <History className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-bold font-heading text-foreground mb-3">Diseño de hace 10 años</h3>
+              <h3 className="text-2xl font-bold font-heading text-foreground mb-3">{t("market.card2.title")}</h3>
               <p className="text-secondary font-medium leading-relaxed">
-                Las plantillas genéricas de WordPress no representan la calidad real de tu negocio. Tu sitio debería ser tu mejor vendedor.
+                {t("market.card2.desc")}
               </p>
             </motion.div>
 
@@ -111,14 +125,13 @@ export default function MarketProblem() {
                 <Clock className="w-8 h-8 text-white" />
               </div>
               <p className="text-xl md:text-2xl text-secondary font-medium leading-relaxed max-w-md">
-                Agencias que tardan 4 a 8 semanas para entregar algo que igual no convence. Tiempo y dinero perdidos.
+                {t("market.card3.desc")}
               </p>
             </div>
 
             <div className="relative z-10">
               <h3 className="text-4xl md:text-5xl font-bold font-heading leading-tight">
-                Entrega <br />
-                <span className="text-accent">interminable</span>
+                {t("market.card3.title")}
               </h3>
             </div>
           </motion.div>

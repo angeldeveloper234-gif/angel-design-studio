@@ -25,7 +25,9 @@ interface Testimonial {
   isLogo?: boolean;
 }
 
-const defaultTestimonials: Testimonial[] = [
+import { useLanguage } from '@/context/LanguageContext';
+
+const defaultTestimonialsEs: Testimonial[] = [
   {
     _id: '1',
     name: 'Dueño',
@@ -68,11 +70,56 @@ const defaultTestimonials: Testimonial[] = [
   }
 ];
 
+const defaultTestimonialsEn: Testimonial[] = [
+  {
+    _id: '1',
+    name: 'Owner',
+    role: 'Fumcon',
+    location: 'Mexico',
+    company: 'Fumcon',
+    quote: 'Always willing to help and delivering very high-quality work. I am extremely satisfied with the result.',
+    image: 'https://fumcon.com.mx/fumcon-logo.png',
+    isLogo: true
+  },
+  {
+    _id: '2',
+    name: 'Jorge Guevara',
+    role: 'BigCat & PCP International',
+    location: 'Mexico',
+    company: 'BigCat',
+    quote: 'They always rise to expectations. They deliver great results without the slow processes of other agencies.',
+    image: 'https://bigcat.mx/logo/BIG%20CAT%20-%20Control%20de%20plagas.png',
+    isLogo: true
+  },
+  {
+    _id: '3',
+    name: 'Perez',
+    role: 'Owner',
+    location: 'Mexico',
+    company: 'Perez & Gonzalez Associates',
+    quote: 'They delivered something highly professional with no unnecessary delays. Our online presence now reflects our firm\'s high standard. Highly recommended.',
+    image: 'https://nmnofwinjufyyykyaelc.supabase.co/storage/v1/object/sign/Perez%20Gonzalez%20Co.%20Abogados/logo-gonzales.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hNzRlMzZmMy0wZDFhLTQ5NWMtYWMwMS0zNjMzMDY0Y2YwZTIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQZXJleiBHb256YWxleiBDby4gQWJvZ2Fkb3MvbG9nby1nb256YWxlcy5wbmciLCJpYXQiOjE3NjkyNzg5MDcsImV4cCI6MTgwMDgxNDkwN30.uRkGpMw4Gfncw30tO4h22P32vEEIlCCYh0Nca6ZgHDg',
+    isLogo: true
+  },
+  {
+    _id: '4',
+    name: 'Miguel',
+    role: 'Owner',
+    location: 'Mexico',
+    company: 'Villalba & Associates',
+    quote: 'Professional, fast, and with excellent aesthetic judgment. The site turned out exactly how we needed it to build client trust.',
+    image: 'https://banuelos-villalba-asociados.netlify.app/images/logo-white.svg',
+    isLogo: true
+  }
+];
+
 interface TestimonialsProps {
   testimonials?: Testimonial[];
 }
 
 export default function Testimonials({ testimonials: sanityTestimonials }: TestimonialsProps) {
+  const { language, t } = useLanguage();
+  const defaultTestimonials = language === "es" ? defaultTestimonialsEs : defaultTestimonialsEn;
   const testimonials = sanityTestimonials && sanityTestimonials.length > 0 ? sanityTestimonials : defaultTestimonials;
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
@@ -98,7 +145,7 @@ export default function Testimonials({ testimonials: sanityTestimonials }: Testi
             >
               <div className="w-8 h-[1px] bg-accent" />
               <span className="text-[10px] md:text-xs font-bold tracking-[0.4em] text-accent uppercase block">
-                Testimonios
+                {t("testimonials.badge")}
               </span>
             </motion.div>
             <motion.h2 
@@ -107,8 +154,17 @@ export default function Testimonials({ testimonials: sanityTestimonials }: Testi
               transition={{ delay: 0.1 }}
               className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight text-foreground leading-[1.1] md:leading-[0.95]"
             >
-              Lo que dicen <br className="hidden md:block" />
-              <span className="text-secondary/60 font-light italic text-2xl sm:text-3xl md:text-6xl lg:text-8xl">nuestros clientes</span>
+              {language === "es" ? (
+                <>
+                  Lo que dicen <br className="hidden md:block" />
+                  <span className="text-secondary/60 font-light italic text-2xl sm:text-3xl md:text-6xl lg:text-8xl">nuestros clientes</span>
+                </>
+              ) : (
+                <>
+                  What <br className="hidden md:block" />
+                  <span className="text-secondary/60 font-light italic text-2xl sm:text-3xl md:text-6xl lg:text-8xl">our clients say</span>
+                </>
+              )}
             </motion.h2>
           </div>
 

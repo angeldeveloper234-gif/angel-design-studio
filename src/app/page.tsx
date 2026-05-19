@@ -4,6 +4,7 @@ import MarketProblem from "@/components/sections/MarketProblem";
 import Comparison from "@/components/sections/Comparison";
 import Services from "@/components/sections/Services";
 import Projects from "@/components/sections/Projects";
+import Coverage from "@/components/sections/Coverage";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import FAQ from "@/components/sections/FAQ";
@@ -25,6 +26,7 @@ export default async function Home() {
       <Comparison />
       <Services />
       <Projects projects={projects} />
+      <Coverage />
       <Testimonials testimonials={testimonials} />
       <Process />
       <FAQ />

@@ -4,9 +4,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
   const whatsappLink = useWhatsAppLink();
+  const { language, t } = useLanguage();
 
   return (
     <section className="relative min-h-screen w-full bg-background overflow-hidden font-sans pt-20">
@@ -19,7 +21,15 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="font-heading text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-[-0.02em] text-foreground mb-8 md:mb-16 max-w-full lg:max-w-[25ch] mx-auto break-words"
           >
-            Agencia de <span className="text-accent">diseño web</span> & branding de alto impacto en México
+            {language === "es" ? (
+              <>
+                Agencia de <span className="text-accent">diseño de páginas web</span> & branding de alto impacto en Salta, Argentina
+              </>
+            ) : (
+              <>
+                High-impact <span className="text-accent">web design</span> & branding agency in Salta, Argentina
+              </>
+            )}
           </motion.h1>
 
           <motion.p
@@ -28,8 +38,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-base md:text-xl text-foreground/80 mb-8 md:mb-12 max-w-2xl px-2"
           >
-            Expertos en <strong>diseño web</strong>, <strong>graphic design</strong> y <strong>marketing digital</strong>. <br className="hidden md:block" />
-            Diseño moderno, entrega rápida y resultados reales en México.
+            {t("hero.subtitle")}
           </motion.p>
 
           <motion.div
@@ -44,7 +53,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="group relative flex items-center justify-center bg-accent text-background px-6 py-3 md:pl-8 md:pr-2 md:py-2 rounded-full font-heading font-black text-sm md:text-xl transition-all hover:brightness-110 active:scale-95 shadow-lg shadow-accent/20 cursor-pointer border border-accent w-full md:w-auto"
             >
-              <span className="mr-3 md:mr-6">Quiero mi sitio web</span>
+              <span className="mr-3 md:mr-6">{t("hero.cta1")}</span>
               <div className="bg-background rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center text-accent border border-accent/20 shrink-0">
                 <ArrowRight size={16} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300 md:w-6 md:h-6" />
               </div>
@@ -53,7 +62,7 @@ export default function Hero() {
               href="#projects"
               className="bg-transparent border-2 border-foreground text-foreground px-6 py-3 md:px-8 md:py-4 rounded-full font-black text-sm uppercase tracking-wider hover:bg-foreground hover:text-background active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2 group w-full md:w-auto"
             >
-              Ver proyectos <ArrowRight size={18} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+              {t("hero.cta2")} <ArrowRight size={18} className="opacity-50 group-hover:opacity-100 transition-opacity" />
             </a>
           </motion.div>
 

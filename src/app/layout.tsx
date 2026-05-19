@@ -8,28 +8,31 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.angelstudio.design"),
   title: {
-    default: "Angel Design Studio | Agencia de Diseño Web & Automatización con AI",
+    default: "Angel Design Studio | Agencia de Diseño Web, Branding & Marketing Digital",
     template: "%s | Angel Design Studio"
   },
-  description: "En Angel Design Studio transformamos tu visión en una presencia digital premium. Expertos en diseño web profesional, automatización con AI y marketing digital de alto impacto en México.",
+  description: "Expertos en diseño web profesional, posicionamiento SEO, branding de identidad visual y marketing digital de alto impacto. Impulsa tu negocio con Angel Design Studio en Salta, Argentina para toda Latinoamérica.",
   keywords: [
     "angel design studio",
     "angel design",
-    "graphic design",
+    "ange design",
     "angel desing",
-    "digital marketing",
-    "marketing",
-    "angeldesign",
-    "agencia de",
-    "diseño web cerca de mi",
-    "design",
-    "diseño web profesional",
-    "agencia digital",
+    "diseño web salta",
+    "paginas web salta",
+    "diseño de paginas web salta",
+    "marketing digital salta",
+    "seo salta",
+    "diseño web argentina",
+    "paginas web argentina",
+    "desarrollo web argentina",
+    "agencia de diseño web",
     "estudio de diseño",
-    "branding México",
-    "desarrollo web CDMX",
-    "diseño de logotipos",
-    "posicionamiento SEO"
+    "marketing digital argentina",
+    "branding argentina",
+    "diseño de paginas web",
+    "creacion de paginas web",
+    "posicionamiento seo",
+    "diseño de logotipos"
   ],
   authors: [{ name: "Angel Design Studio" }],
   creator: "Angel Design Studio",
@@ -49,11 +52,11 @@ export const metadata: Metadata = {
     canonical: "https://www.angelstudio.design",
   },
   openGraph: {
-    title: "Angel Design Studio | Agencia de Diseño Web & Automatización con AI",
-    description: "Expertos en diseño web profesional, automatización con inteligencia artificial y marketing digital de alto impacto.",
+    title: "Angel Design Studio | Agencia de Diseño Web, Branding & Marketing Digital",
+    description: "Expertos en diseño web profesional, branding de marcas de primer nivel y marketing digital de alto impacto.",
     url: "https://www.angelstudio.design",
     siteName: "Angel Design Studio",
-    locale: "es_MX",
+    locale: "es_AR",
     type: "website",
     images: [
       {
@@ -85,6 +88,7 @@ export const metadata: Metadata = {
 
 import Navbar from "@/components/Navbar";
 import JsonLd from "@/components/JsonLd";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 export default function RootLayout({
   children,
@@ -101,10 +105,12 @@ export default function RootLayout({
 
       <body className="font-sans antialiased overflow-x-hidden">
         <GoogleAnalytics gaId="G-R65SM11F3M" />
-        <LenisProvider>
-          <Navbar />
-          {children}
-        </LenisProvider>
+        <LanguageProvider>
+          <LenisProvider>
+            <Navbar />
+            {children}
+          </LenisProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

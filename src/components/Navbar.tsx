@@ -4,30 +4,34 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-
 import Image from "next/image";
-
-const defaultNavLinks = [
-  { name: "Fumigación", href: "/fumigacion" },
-  { name: "Servicios", href: "/#services" },
-  { name: "Portfolio", href: "/#projects" },
-  { name: "Proceso", href: "/#process" },
-];
-
-const fumigacionNavLinks = [
-  { name: "Servicios", href: "#servicios" },
-  { name: "Precios", href: "#precios" },
-  { name: "Portafolio", href: "#portafolio" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
   
   const isFumigacion = pathname === '/fumigacion';
-  const currentNavLinks = isFumigacion ? fumigacionNavLinks : defaultNavLinks;
-  const ctaText = isFumigacion ? "Empezar" : "Pide tu propuesta";
+  
+  const currentNavLinks = isFumigacion 
+    ? [
+        { name: language === 'es' ? "Servicios" : "Services", href: "#servicios" },
+        { name: language === 'es' ? "Precios" : "Prices", href: "#precios" },
+        { name: language === 'es' ? "Portafolio" : "Portfolio", href: "#portafolio" },
+      ]
+    : [
+        { name: "Fumigación", href: "/fumigacion" },
+        { name: t("nav.services"), href: "/#services" },
+        { name: t("nav.portfolio"), href: "/#projects" },
+        { name: t("nav.process"), href: "/#process" },
+        { name: t("nav.blog"), href: "/blog" },
+      ];
+
+  const ctaText = isFumigacion 
+    ? (language === 'es' ? "Empezar" : "Start") 
+    : t("nav.cta");
   const ctaHref = isFumigacion ? "#precios" : "/#contact";
   
   useEffect(() => {
@@ -108,6 +112,24 @@ export default function Navbar() {
           >
             {ctaText}
           </Link>
+
+          {/* Language Switcher */}
+          <div className="flex items-center bg-surface/50 rounded-full border border-border-custom/10 p-0.5 ml-2 mr-1">
+            <button 
+              onClick={() => setLanguage('es')} 
+              className={`px-3 py-1.5 text-[11px] font-black rounded-full transition-all duration-300 ${language === 'es' ? 'bg-accent text-white shadow-md' : 'text-secondary hover:text-foreground'}`}
+              aria-label="Cambiar a Español"
+            >
+              ES
+            </button>
+            <button 
+              onClick={() => setLanguage('en')} 
+              className={`px-3 py-1.5 text-[11px] font-black rounded-full transition-all duration-300 ${language === 'en' ? 'bg-accent text-white shadow-md' : 'text-secondary hover:text-foreground'}`}
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+          </div>
 
           {/* Mobile Menu Button - inside the pill on mobile */}
           <button 

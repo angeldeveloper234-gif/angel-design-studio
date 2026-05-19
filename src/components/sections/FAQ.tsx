@@ -5,11 +5,12 @@ import { Plus, Minus } from "lucide-react";
 import * as Accordion from "@radix-ui/react-accordion";
 import { useState } from "react";
 import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
+import { useLanguage } from "@/context/LanguageContext";
 
-const faqData = [
+const faqDataEs = [
   {
     question: "¿Cuánto tarda?",
-    answer: "Entregamos tu sitio web funcional en menos de 1 semana, dependiendo de la rapidez con la que nos pases tu información (logo, textos, fotos). Somos la agencia más rápida del mercado porque no usamos procesos burocráticos.",
+    answer: "En Angel Design Studio (también conocido como Angel Design o por el error común Angel Desing) entregamos tu sitio web funcional en menos de 1 semana, dependiendo de la rapidez con la que nos pases tu información (logo, textos, fotos). Somos la agencia más rápida del mercado porque no usamos procesos burocráticos.",
   },
   {
     question: "¿Qué necesito darte?",
@@ -21,11 +22,11 @@ const faqData = [
   },
   {
     question: "¿Incluye dominio?",
-    answer: "¡Sí! El primer año de dominio (.com o .mx) y hosting premium de alta velocidad están incluidos en todos nuestros planes. Nos encargamos de toda la configuración técnica por ti.",
+    answer: "¡Sí! El primer año de dominio (.com o .com.ar) y hosting premium de alta velocidad están incluidos en todos nuestros planes. Nos encargamos de toda la configuración técnica por ti.",
   },
   {
-    question: "¿Buscas diseño web cerca de mi?",
-    answer: "Aunque estamos en Ciudad de México, trabajamos de forma remota para todo el país y el mundo. Al ser un estudio digital, podemos ofrecerte la misma calidad y atención personalizada sin importar tu ubicación física.",
+    question: "¿Buscas un design studio o agencia de digital marketing y web design cerca de mí?",
+    answer: "Aunque tenemos nuestra sede en Salta, Argentina, en Angel Design Studio (a veces buscado como ange design o angelstudio.design) trabajamos de forma remota para todo el país y el mundo. Al ser un design studio enfocado en digital marketing, podemos ofrecerte la misma calidad y atención personalizada sin importar tu ubicación física.",
   },
   {
     question: "¿Cómo cobran?",
@@ -33,7 +34,36 @@ const faqData = [
   },
 ];
 
+const faqDataEn = [
+  {
+    question: "How long does it take?",
+    answer: "At Angel Design Studio (also known as Angel Design or by the common typo Angel Desing) we deliver your functional website in less than 1 week, depending on how quickly you send us your information (logo, texts, photos). We are the fastest agency in the market because we do not use bureaucratic processes.",
+  },
+  {
+    question: "What do I need to give you?",
+    answer: "Basically your brand logo, photos of your projects or services, and the texts you want to include. If you don't have photos or texts, we can help you generate them with Artificial Intelligence so that they look amazing.",
+  },
+  {
+    question: "What if I want changes?",
+    answer: "We include an unlimited revisions phase during the design process. Once published, you have 30 days of free support for minor adjustments, ensuring everything works perfectly.",
+  },
+  {
+    question: "Does it include a domain?",
+    answer: "Yes! The first year of domain (.com or .com.ar) and high-speed premium hosting are included in all of our plans. We handle all the technical configuration for you.",
+  },
+  {
+    question: "Looking for a design studio or digital marketing and web design agency near me?",
+    answer: "Although we are based in Salta, Argentina, at Angel Design Studio (sometimes searched as ange design or angelstudio.design) we work remotely for the entire country and the world. Being a design studio focused on digital marketing, we can offer you the same quality and personalized attention regardless of your physical location.",
+  },
+  {
+    question: "How do you charge?",
+    answer: "We request a 50% deposit to start the project and the remaining 50% upon completion, once you are completely satisfied with the result and before the official launch.",
+  },
+];
+
 export default function FAQ() {
+  const { language, t } = useLanguage();
+  const faqData = language === "es" ? faqDataEs : faqDataEn;
   const [value, setValue] = useState<string | undefined>(undefined);
   const whatsappLink = useWhatsAppLink();
 
@@ -53,7 +83,7 @@ export default function FAQ() {
               viewport={{ once: true }}
               className="inline-block border border-accent/20 text-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6 bg-accent/5"
             >
-              Preguntas Frecuentes
+              {t("faq.badge")}
             </motion.div>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -62,7 +92,15 @@ export default function FAQ() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-5xl font-bold font-heading leading-[1.1] tracking-tight text-foreground mb-6"
             >
-              Todo lo que necesitas <span className="text-accent">saber</span>
+              {language === "es" ? (
+                <>
+                  Todo lo que necesitas <span className="text-accent">saber</span>
+                </>
+              ) : (
+                <>
+                  Everything you need to <span className="text-accent">know</span>
+                </>
+              )}
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -71,7 +109,7 @@ export default function FAQ() {
               transition={{ delay: 0.2 }}
               className="text-secondary font-medium leading-relaxed max-w-sm mb-10"
             >
-              Resolvemos tus dudas para que podamos empezar a escalar tu negocio hoy mismo.
+              {t("faq.subtitle")}
             </motion.p>
             
             {/* Contact CTA in FAQ */}
@@ -86,15 +124,15 @@ export default function FAQ() {
                 <div className="w-12 h-12 bg-white/5 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-white/10 group-hover:bg-accent transition-colors duration-500">
                    <Plus className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="text-2xl font-bold font-heading mb-3">¿Aún con dudas?</h4>
-                <p className="text-secondary text-sm mb-8 leading-relaxed">Estamos listos para escucharte. Resolvemos cualquier inquietud en tiempo real.</p>
+                <h4 className="text-2xl font-bold font-heading mb-3">{t("faq.box.title")}</h4>
+                <p className="text-secondary text-sm mb-8 leading-relaxed">{t("faq.box.desc")}</p>
                 <a 
                   href={whatsappLink} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-full py-4 px-6 bg-white text-background hover:bg-accent hover:text-white font-bold rounded-2xl transition-all duration-300 active:scale-[0.98] shadow-lg"
                 >
-                  Contactar por WhatsApp
+                  {t("faq.box.cta")}
                 </a>
               </div>
               {/* Animated Decorative element */}

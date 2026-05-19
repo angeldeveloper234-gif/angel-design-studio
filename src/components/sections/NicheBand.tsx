@@ -3,30 +3,21 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Bug, Hammer, Scale, Sun, Wind, Utensils, Dumbbell } from "lucide-react";
-
-/**
- * NicheBand Component
- * 
- * An infinite scrolling band displaying specialized niches/sectors.
- * Features:
- * - Seamless infinite loop using Framer Motion
- * - Responsive design (mobile/desktop)
- * - Modern typography (Satoshi)
- * - Gradient fades at the ends for a premium feel
- * - Hover interactions for visual feedback
- */
-
-const niches = [
-  { name: "Fumigaciones", icon: <Bug size={24} /> },
-  { name: "Construcción", icon: <Hammer size={24} /> },
-  { name: "Servicios Legales", icon: <Scale size={24} /> },
-  { name: "Paneles Solares", icon: <Sun size={24} /> },
-  { name: "Aire Acondicionado", icon: <Wind size={24} /> },
-  { name: "Restaurantes", icon: <Utensils size={24} /> },
-  { name: "Gimnasios", icon: <Dumbbell size={24} /> },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function NicheBand() {
+  const { t } = useLanguage();
+
+  const niches = [
+    { name: t("niche.pest"), icon: <Bug size={24} /> },
+    { name: t("niche.construction"), icon: <Hammer size={24} /> },
+    { name: t("niche.legal"), icon: <Scale size={24} /> },
+    { name: t("niche.solar"), icon: <Sun size={24} /> },
+    { name: t("niche.air"), icon: <Wind size={24} /> },
+    { name: t("niche.restaurant"), icon: <Utensils size={24} /> },
+    { name: t("niche.gym"), icon: <Dumbbell size={24} /> },
+  ];
+
   // Triple the niches to ensure enough content for the seamless scroll
   const duplicatedNiches = [...niches, ...niches, ...niches];
 
@@ -46,7 +37,7 @@ export default function NicheBand() {
         >
           <div className="h-[1px] w-8 bg-border-custom/20" />
           <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-secondary/60">
-            Expertos por Industria
+            {t("niche.badge")}
           </p>
           <div className="h-[1px] w-8 bg-border-custom/20" />
         </motion.div>

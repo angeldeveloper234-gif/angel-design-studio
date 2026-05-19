@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Code, Cpu } from "lucide-react";
 import Image from "next/image";
 import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
+import { useLanguage } from "@/context/LanguageContext";
 
-const services = [
+const servicesEs = [
   {
     title: "Diseño Web",
     subtitle: "Premium",
@@ -40,7 +41,44 @@ const services = [
   },
 ];
 
+const servicesEn = [
+  {
+    title: "Web Design",
+    subtitle: "Premium",
+    tagline: "Professional web design agency",
+    description: "We create high-impact websites: landing pages, e-commerce, and portfolios. As a leading web design agency, we focus on fast results, mobile-first design, and SEO optimization.",
+    features: [
+      "Web design near me",
+      "Graphic design & branding",
+      "Google-optimized",
+      "Delivery in less than 7 days"
+    ],
+    buttonText: "I want my website",
+    icon: <Code className="w-6 h-6" />,
+    image: "/services/web-dev.png",
+    highlight: true,
+  },
+  {
+    title: "Marketing",
+    subtitle: "Digital & AI",
+    tagline: "Digital marketing strategies",
+    description: "We implement digital marketing solutions and AI automation. From WhatsApp chatbots to brand positioning, we help your business run on autopilot and scale.",
+    features: [
+      "Strategic digital marketing",
+      "Process automation",
+      "AI Chatbot for WhatsApp",
+      "Advertising graphic design"
+    ],
+    buttonText: "Scale my business",
+    icon: <Cpu className="w-6 h-6" />,
+    image: "/services/ai-automation.png",
+    highlight: false,
+  },
+];
+
 export default function Services() {
+  const { language, t } = useLanguage();
+  const services = language === "es" ? servicesEs : servicesEn;
   const whatsappLink = useWhatsAppLink();
   return (
     <section id="services" className="py-24 px-4 md:px-8 bg-background">
@@ -56,11 +94,19 @@ export default function Services() {
             viewport={{ once: true }}
             className="inline-block border border-accent/20 text-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6 bg-accent/5"
           >
-            Servicios
+            {t("services.badge")}
           </motion.div>
           <div className="max-w-3xl">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading tracking-tight leading-[1.1] text-foreground">
-              Todo lo que tu negocio necesita para <span className="text-accent">crecer online</span>
+              {language === "es" ? (
+                <>
+                  Todo lo que tu negocio necesita para <span className="text-accent">crecer online</span>
+                </>
+              ) : (
+                <>
+                  Everything your business needs to <span className="text-accent">grow online</span>
+                </>
+              )}
             </h2>
           </div>
         </div>
@@ -130,7 +176,7 @@ export default function Services() {
                   <div className={`absolute bottom-6 left-6 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest backdrop-blur-md ${
                     service.highlight ? "bg-white/20 text-white" : "bg-background/40 text-accent"
                   }`}>
-                    Proyecto Elite
+                    {language === "es" ? "Proyecto Elite" : "Elite Project"}
                   </div>
                 </div>
               </div>
@@ -142,7 +188,7 @@ export default function Services() {
                 
                 <div className="space-y-3 mb-8">
                   <p className={`text-xs font-bold uppercase tracking-wider mb-2 ${service.highlight ? "text-white/50" : "text-secondary/50"}`}>
-                    Lo que incluye:
+                    {language === "es" ? "Lo que incluye:" : "What's included:"}
                   </p>
                   {service.features.map((feature, i) => (
                     <div key={i} className="flex items-center gap-3">

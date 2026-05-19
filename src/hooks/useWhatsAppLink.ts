@@ -15,7 +15,14 @@ export const useWhatsAppLink = (message?: string) => {
   useEffect(() => {
     try {
       const urlParams = new URLSearchParams(window.location.search);
-      const waParam = urlParams.get('wa');
+      let waParam = urlParams.get('wa');
+      
+      if (waParam) {
+        localStorage.setItem('wa_number', waParam);
+      } else {
+        waParam = localStorage.getItem('wa_number');
+      }
+      
       const defaultNumber = CONTACT_INFO.phone;
       const numberToUse = waParam || defaultNumber;
       
@@ -37,7 +44,12 @@ export const getDynamicWhatsAppNumber = () => {
   if (typeof window !== 'undefined') {
     try {
       const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get('wa') || defaultNumber;
+      const waParam = urlParams.get('wa');
+      if (waParam) {
+        localStorage.setItem('wa_number', waParam);
+        return waParam;
+      }
+      return localStorage.getItem('wa_number') || defaultNumber;
     } catch (e) {
       return defaultNumber;
     }
