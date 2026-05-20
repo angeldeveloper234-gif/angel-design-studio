@@ -130,14 +130,14 @@ export default function Testimonials({ testimonials: sanityTestimonials }: Testi
   }, []);
 
   return (
-    <section id="testimonials" className="py-16 md:py-32 bg-background overflow-hidden relative w-full">
+    <section id="testimonials" className="py-24 px-4 md:px-8 bg-background overflow-hidden relative w-full">
       {/* Background Decor - Constrained to prevent DOM stretching */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] aspect-square bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="container-custom relative z-10 px-0 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-20 gap-8 px-6 md:px-0">
-          <div className="space-y-4 md:space-y-6 max-w-3xl">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-8">
+          <div className="space-y-4 max-w-3xl">
             <motion.div 
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -145,24 +145,24 @@ export default function Testimonials({ testimonials: sanityTestimonials }: Testi
             >
               <div className="w-8 h-[1px] bg-accent" />
               <span className="text-[10px] md:text-xs font-bold tracking-[0.4em] text-accent uppercase block">
-                {t("testimonials.badge")}
+                {t("test.badge")}
               </span>
             </motion.div>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight text-foreground leading-[1.1] md:leading-[0.95]"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]"
             >
               {language === "es" ? (
                 <>
                   Lo que dicen <br className="hidden md:block" />
-                  <span className="text-secondary/60 font-light italic text-2xl sm:text-3xl md:text-6xl lg:text-8xl">nuestros clientes</span>
+                  <span className="text-secondary/60 font-light italic">nuestros clientes</span>
                 </>
               ) : (
                 <>
                   What <br className="hidden md:block" />
-                  <span className="text-secondary/60 font-light italic text-2xl sm:text-3xl md:text-6xl lg:text-8xl">our clients say</span>
+                  <span className="text-secondary/60 font-light italic">our clients say</span>
                 </>
               )}
             </motion.h2>
@@ -172,14 +172,14 @@ export default function Testimonials({ testimonials: sanityTestimonials }: Testi
           <div className="hidden sm:flex gap-3 md:gap-4">
             <button
               ref={prevRef}
-              className="w-12 h-12 md:w-20 md:h-20 rounded-full border border-border-custom/20 flex items-center justify-center text-foreground hover:bg-surface hover:border-accent/40 transition-all duration-300 active:scale-90 disabled:opacity-20 cursor-pointer"
+              className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-border-custom/20 flex items-center justify-center text-foreground hover:bg-surface hover:border-accent/40 transition-all duration-300 active:scale-90 disabled:opacity-20 cursor-pointer"
               aria-label="Previous testimonial"
             >
               <ArrowLeft size={20} className="md:w-6 md:h-6" />
             </button>
             <button
               ref={nextRef}
-              className="w-12 h-12 md:w-20 md:h-20 rounded-full bg-accent flex items-center justify-center text-white hover:brightness-110 hover:shadow-2xl hover:shadow-accent/40 transition-all duration-300 active:scale-90 disabled:opacity-20 cursor-pointer"
+              className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-accent flex items-center justify-center text-white hover:brightness-110 hover:shadow-2xl hover:shadow-accent/40 transition-all duration-300 active:scale-90 disabled:opacity-20 cursor-pointer"
               aria-label="Next testimonial"
             >
               <ArrowRight size={20} className="md:w-6 md:h-6" />
@@ -246,12 +246,12 @@ export default function Testimonials({ testimonials: sanityTestimonials }: Testi
                   {testimonials.map((item, index) => (
                     <SwiperSlide key={item._id || index} className="h-auto px-2 sm:px-0">
                       <motion.div
-                        className="bg-surface/30 backdrop-blur-md rounded-[2rem] md:rounded-[4rem] p-6 md:p-14 h-full flex flex-col justify-between min-h-[340px] sm:min-h-[420px] md:min-h-[500px] border border-white/5 hover:border-accent/20 transition-all duration-700 relative group overflow-hidden"
+                        className="bg-surface/30 backdrop-blur-md rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 h-full flex flex-col justify-between min-h-[280px] sm:min-h-[320px] md:min-h-[360px] border border-white/5 hover:border-accent/20 transition-all duration-700 relative group overflow-hidden"
                       >
                         {/* Decorative Quote Icon in background */}
-                        <Quote size={80} className="absolute -top-4 -right-4 text-white/[0.03] rotate-12 group-hover:text-accent/[0.05] transition-colors duration-700 md:size-[180px] md:-top-10 md:-right-10" />
+                        <Quote size={60} className="absolute -top-4 -right-4 text-white/[0.03] rotate-12 group-hover:text-accent/[0.05] transition-colors duration-700 md:size-[120px] md:-top-6 md:-right-6" />
 
-                        <div className="space-y-6 md:space-y-10 relative z-10">
+                        <div className="space-y-4 md:space-y-6 relative z-10">
                           {/* Top: Header info */}
                           <div className="flex justify-between items-center">
                             <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-background/40 rounded-full border border-white/5 backdrop-blur-xl">
@@ -267,24 +267,24 @@ export default function Testimonials({ testimonials: sanityTestimonials }: Testi
                           </div>
 
                           {/* Testimonial Text */}
-                          <p className="text-base sm:text-xl md:text-3xl lg:text-4xl font-medium text-foreground leading-[1.4] md:leading-[1.2] tracking-tight">
+                          <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-foreground leading-[1.4] md:leading-[1.3] tracking-tight">
                             &quot;{item.quote}&quot;
                           </p>
                         </div>
 
                         {/* Footer: User Details */}
-                        <div className="mt-8 md:mt-12 pt-6 md:pt-10 border-t border-white/5 flex items-center gap-4 md:gap-6 relative z-10">
-                          <div className="w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl md:rounded-3xl overflow-hidden border border-white/10 shadow-2xl group-hover:border-accent/30 transition-colors duration-500 flex-shrink-0">
+                        <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-white/5 flex items-center gap-4 md:gap-5 relative z-10">
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl overflow-hidden border border-white/10 shadow-2xl group-hover:border-accent/30 transition-colors duration-500 flex-shrink-0">
                             <Image
                               src={(item.photo ? urlForImage(item.photo).url() : item.image) || ''}
                               alt={item.name}
-                              width={80}
-                              height={80}
+                              width={64}
+                              height={64}
                               className={`w-full h-full ${item.isLogo ? 'object-contain p-2 bg-white/5' : 'object-cover'} grayscale group-hover:grayscale-0 transition-all duration-700`}
                             />
                           </div>
                           <div className="flex flex-col min-w-0">
-                            <span className="text-base sm:text-lg md:text-2xl font-bold text-foreground tracking-tight truncate">{item.name}</span>
+                            <span className="text-base sm:text-lg md:text-xl font-bold text-foreground tracking-tight truncate">{item.name}</span>
                             <div className="flex flex-col md:flex-row md:items-center gap-0.5 md:gap-3 mt-0.5">
                               <span className="text-[9px] md:text-xs text-secondary font-medium uppercase tracking-wider truncate">
                                 {item.role}
@@ -302,7 +302,7 @@ export default function Testimonials({ testimonials: sanityTestimonials }: Testi
                 </Swiper>
               </motion.div>
             ) : (
-              <div className="h-[340px] md:h-[500px] w-full bg-surface/10 rounded-[2rem] md:rounded-[4rem] animate-pulse mx-4 md:mx-0" />
+              <div className="h-[280px] md:h-[360px] w-full bg-surface/10 rounded-[2rem] md:rounded-[2.5rem] animate-pulse mx-4 md:mx-0" />
             )}
           </AnimatePresence>
         </div>
