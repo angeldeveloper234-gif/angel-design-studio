@@ -11,11 +11,12 @@ import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import { client } from "@/sanity/lib/client";
-import { projectsQuery, testimonialsQuery } from "@/sanity/lib/queries";
+import { testimonialsQuery } from "@/sanity/lib/queries";
+import { getMergedProjects } from "@/lib/projects";
 
 export default async function Home() {
   const [projects, testimonials] = await Promise.all([
-    client.fetch(projectsQuery),
+    getMergedProjects(),
     client.fetch(testimonialsQuery)
   ]);
   return (

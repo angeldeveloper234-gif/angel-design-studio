@@ -23,11 +23,11 @@ export default function Hero() {
           >
             {language === "es" ? (
               <>
-                Agencia de <span className="text-accent">diseño de páginas web</span> & branding de alto impacto en Salta, Argentina
+                Agencia de <span className="text-accent">diseño de páginas web</span> & sistemas de ventas con IA para toda Latinoamérica
               </>
             ) : (
               <>
-                High-impact <span className="text-accent">web design</span> & branding agency in Salta, Argentina
+                High-impact <span className="text-accent">web design</span> & AI sales systems agency for Latin America
               </>
             )}
           </motion.h1>

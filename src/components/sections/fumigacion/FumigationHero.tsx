@@ -20,7 +20,7 @@ export default function FumigationHero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center justify-center flex-wrap gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent mb-8 font-bold text-xs md:text-sm tracking-widest uppercase text-center"
+            className="flex items-center justify-center flex-wrap gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent mb-8 font-bold text-xs md:text-sm tracking-wider uppercase text-center"
           >
             <ShieldCheck size={16} className="shrink-0" /> <span className="max-w-[280px] md:max-w-none">Especialistas en el sector de Fumigación</span>
           </motion.div>
@@ -65,8 +65,8 @@ export default function FumigationHero() {
               </div>
             </a>
             <a
-              href="#pricing"
-              className="bg-transparent border-2 border-foreground text-foreground px-6 py-3 md:px-8 md:py-4 rounded-full font-black text-sm uppercase tracking-wider hover:bg-foreground hover:text-background active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2 group w-full md:w-auto"
+              href="#precios"
+              className="bg-transparent border-2 border-foreground text-foreground px-6 py-3 md:px-8 md:py-4 rounded-full font-black text-sm uppercase tracking-wide hover:bg-foreground hover:text-background active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2 group w-full md:w-auto"
             >
               Ver Planes y Precios <ArrowRight size={18} className="opacity-50 group-hover:opacity-100 transition-opacity" />
             </a>
@@ -81,15 +81,15 @@ export default function FumigationHero() {
           >
             <div className="flex flex-col items-center text-center">
               <span className="text-2xl md:text-3xl font-black text-accent">90%</span>
-              <span className="text-xs md:text-sm text-secondary font-bold uppercase tracking-widest mt-1">en móviles</span>
+              <span className="text-xs md:text-sm text-secondary font-bold uppercase tracking-wider mt-1">en móviles</span>
             </div>
             <div className="flex flex-col items-center text-center">
               <span className="text-2xl md:text-3xl font-black text-accent">24/7</span>
-              <span className="text-xs md:text-sm text-secondary font-bold uppercase tracking-widest mt-1">atención automática</span>
+              <span className="text-xs md:text-sm text-secondary font-bold uppercase tracking-wider mt-1">atención automática</span>
             </div>
             <div className="hidden md:flex flex-col items-center text-center">
               <span className="text-2xl md:text-3xl font-black text-accent">3 a 7</span>
-              <span className="text-xs md:text-sm text-secondary font-bold uppercase tracking-widest mt-1">días hábiles</span>
+              <span className="text-xs md:text-sm text-secondary font-bold uppercase tracking-wider mt-1">días hábiles</span>
             </div>
           </motion.div>
         </div>

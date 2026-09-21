@@ -1,22 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Code, Cpu } from "lucide-react";
+import { ArrowUpRight, Code, Cpu, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
 import { useLanguage } from "@/context/LanguageContext";
 
 const servicesEs = [
   {
-    title: "Diseño Web",
-    subtitle: "Premium",
-    tagline: "Agencia de diseño web profesional",
-    description: "Creamos sitios web de alto impacto: landing pages, e-commerce y portfolios. Como agencia de diseño web líder, nos enfocamos en resultados rápidos, mobile-first y optimizados para SEO.",
+    title: "Sitios Web",
+    subtitle: "de Alta Conversión",
+    tagline: "Arquitectura Next.js Mobile-First",
+    description: "Creamos páginas web y landing pages ultra veloces en Next.js. Diseñadas para convertir visitantes en clientes directos de WhatsApp en menos de 7 días, sin plantillas lentas.",
     features: [
-      "Diseño web cerca de mi",
-      "Graphic design & branding",
-      "Optimizado para Google",
-      "Entrega en menos de 7 días"
+      "Landing pages y webs corporativas",
+      "Velocidad de carga 95+ (Google PageSpeed)",
+      "Botón WhatsApp sticky optimizado",
+      "Entrega lista en menos de 7 días"
     ],
     buttonText: "Quiero mi sitio web",
     icon: <Code className="w-6 h-6" />,
@@ -24,34 +24,50 @@ const servicesEs = [
     highlight: true,
   },
   {
-    title: "Marketing",
-    subtitle: "Digital & IA",
-    tagline: "Estrategias de marketing digital",
-    description: "Implementamos soluciones de digital marketing y automatizaciones con IA. Desde chatbots para WhatsApp hasta posicionamiento de marca, ayudamos a que tu negocio trabaje solo y escale.",
+    title: "Asistente IA",
+    subtitle: "WhatsApp + CRM",
+    tagline: "Automatización con TinoAI",
+    description: "Implementamos agentes inteligentes con IA que atienden a tus prospectos 24/7 por texto y notas de voz. Califican leads, cotizan en segundos y sincronizan todo en tu CRM para no perder ventas.",
     features: [
-      "Digital marketing estratégico",
-      "Automatización de procesos",
-      "Chatbot con IA para WhatsApp",
-      "Diseño gráfico publicitario"
+      "Atención 24/7 por texto y notas de voz",
+      "Calificación instantánea de clientes",
+      "Sincronización automática con Google Sheets / CRM",
+      "Handoff inteligente a tu equipo comercial"
     ],
-    buttonText: "Escalar mi negocio",
+    buttonText: "Automatizar mi negocio",
     icon: <Cpu className="w-6 h-6" />,
     image: "/services/ai-automation.png",
+    highlight: false,
+  },
+  {
+    title: "SEO Local",
+    subtitle: "& Google Maps",
+    tagline: "Dominá las búsquedas de tu ciudad",
+    description: "Optimizamos tu presencia en Google Business Profile y búsquedas locales con Schema LocalBusiness. Hacemos que los clientes de tu zona te encuentren antes que a tu competencia.",
+    features: [
+      "Auditoría y optimización de Google Maps",
+      "Schema LocalBusiness estructurado",
+      "Arquitectura para rankear por servicio y ciudad",
+      "Mayor captación de llamadas y visitas"
+    ],
+    buttonText: "Posicionar mi negocio",
+    icon: <MapPin className="w-6 h-6" />,
+    image: "/services/web-dev.png",
     highlight: false,
   },
 ];
 
 const servicesEn = [
   {
-    title: "Web Design",
-    subtitle: "Premium",
-    tagline: "Professional web design agency",
-    description: "We create high-impact websites: landing pages, e-commerce, and portfolios. As a leading web design agency, we focus on fast results, mobile-first design, and SEO optimization.",
+    title: "High-Converting",
+    subtitle: "Websites",
+    tagline: "Mobile-First Next.js Architecture",
+    description: "We build lightning-fast websites and landing pages in Next.js. Specifically engineered to turn visitors into paying WhatsApp leads in under 7 days.",
     features: [
-      "Web design near me",
-      "Graphic design & branding",
-      "Google-optimized",
-      "Delivery in less than 7 days"
+      "Landing pages & corporate websites",
+      "Extreme speed (95+ Google PageSpeed)",
+      "Optimized sticky WhatsApp CTA",
+      "Fast delivery in under 7 days"
     ],
     buttonText: "I want my website",
     icon: <Code className="w-6 h-6" />,
@@ -59,19 +75,35 @@ const servicesEn = [
     highlight: true,
   },
   {
-    title: "Marketing",
-    subtitle: "Digital & AI",
-    tagline: "Digital marketing strategies",
-    description: "We implement digital marketing solutions and AI automation. From WhatsApp chatbots to brand positioning, we help your business run on autopilot and scale.",
+    title: "AI Assistant",
+    subtitle: "WhatsApp + CRM",
+    tagline: "Automation powered by TinoAI",
+    description: "Deploy smart AI agents that answer inquiries 24/7 via text and voice messages. They pre-qualify leads, quote in seconds, and automatically log deals into your CRM.",
     features: [
-      "Strategic digital marketing",
-      "Process automation",
-      "AI Chatbot for WhatsApp",
-      "Advertising graphic design"
+      "24/7 text and audio voice note support",
+      "Instant lead qualification & quoting",
+      "Direct Google Sheets / CRM synchronization",
+      "Seamless handoff to human sales reps"
     ],
-    buttonText: "Scale my business",
+    buttonText: "Automate my business",
     icon: <Cpu className="w-6 h-6" />,
     image: "/services/ai-automation.png",
+    highlight: false,
+  },
+  {
+    title: "Local SEO",
+    subtitle: "& Google Maps",
+    tagline: "Dominate search in your city",
+    description: "Position your business on Google Business Profile and local search results with structured LocalBusiness Schema. Capture high-intent customers looking for your services nearby.",
+    features: [
+      "Google Business Profile setup & audit",
+      "Rich LocalBusiness Schema markup",
+      "Targeted city + service ranking layout",
+      "More direct phone calls and bookings"
+    ],
+    buttonText: "Rank my business",
+    icon: <MapPin className="w-6 h-6" />,
+    image: "/services/web-dev.png",
     highlight: false,
   },
 ];
@@ -112,7 +144,7 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
           {services.map((service, index) => (
             <motion.div
               key={index}

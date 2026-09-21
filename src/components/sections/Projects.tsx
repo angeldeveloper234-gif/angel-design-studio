@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight, Plus } from 'lucide-react';
+import { ArrowRight, Plus, ExternalLink } from 'lucide-react';
 import { urlForImage } from '@/sanity/lib/image';
 import type { Image as SanityImage } from 'sanity';
 import { useWhatsAppLink } from '@/hooks/useWhatsAppLink';
@@ -15,7 +15,20 @@ interface Project {
   industry?: string;
   technologies?: string[];
   tags?: string[];
-  mainImage?: SanityImage;
+  mainImage?: SanityImage | string | any;
+  url?: string;
+  slug?: string;
+}
+
+function getProjectImageUrl(image: any): string {
+  if (!image) return '';
+  if (typeof image === 'string') return image;
+  if (image.asset?.url) return image.asset.url;
+  try {
+    return urlForImage(image as SanityImage)?.url() || '';
+  } catch {
+    return '';
+  }
 }
 
 const defaultProjectsEs: Project[] = [
@@ -121,15 +134,28 @@ export default function Projects({ projects: sanityProjects }: ProjectProps) {
             <div className="relative overflow-hidden rounded-[2.5rem] border border-border-custom/10 bg-surface p-3 transition-all duration-500 hover:border-accent/30">
               {/* Image Section */}
               <div className="aspect-[16/10] w-full rounded-[2rem] bg-gradient-to-br from-background to-surface relative overflow-hidden mb-2">
-                {project.mainImage ? (
-                  <Image 
-                    src={urlForImage(project.mainImage).url() || ''} 
-                    alt={`Diseño web para ${project.industry || 'negocios'} - ${project.title} | Angel Design Studio`}
-                    fill
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  />
+                {getProjectImageUrl(project.mainImage) ? (
+                  project.url ? (
+                    <a href={project.url} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                      <Image 
+                        src={getProjectImageUrl(project.mainImage)} 
+                        alt={`Diseño web para ${project.industry || 'negocios'} - ${project.title} | Angel Design Studio`}
+                        fill
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </a>
+                  ) : (
+                    <Image 
+                      src={getProjectImageUrl(project.mainImage)} 
+                      alt={`Diseño web para ${project.industry || 'negocios'} - ${project.title} | Angel Design Studio`}
+                      fill
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+                  )
                 ) : (
                   <>
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(77,162,227,0.05),transparent)]" />
@@ -150,9 +176,28 @@ export default function Projects({ projects: sanityProjects }: ProjectProps) {
                     </span>
                   </div>
                 )}
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 tracking-tight group-hover:text-accent transition-colors">
-                  {project.title}
-                </h3>
+                <div className="flex items-start justify-between gap-4 mb-3">
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight group-hover:text-accent transition-colors">
+                    {project.url ? (
+                      <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-2">
+                        {project.title}
+                      </a>
+                    ) : (
+                      project.title
+                    )}
+                  </h3>
+                  {project.url && (
+                    <a 
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 rounded-full border border-border-custom/20 bg-background text-secondary hover:text-accent hover:border-accent/40 transition-colors shrink-0"
+                      title={language === 'es' ? 'Ver sitio en vivo' : 'Visit live site'}
+                    >
+                      <ExternalLink size={18} />
+                    </a>
+                  )}
+                </div>
                 <p className="text-secondary text-base md:text-lg leading-relaxed mb-8 line-clamp-2">
                   {project.description}
                 </p>

@@ -36,7 +36,7 @@ export default function FumigationSuccess() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-block border border-accent/20 text-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6 bg-accent/5"
+            className="inline-block border border-accent/20 text-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase mb-6 bg-accent/5"
           >
             Resultados reales con fumigadoras en México
           </motion.div>

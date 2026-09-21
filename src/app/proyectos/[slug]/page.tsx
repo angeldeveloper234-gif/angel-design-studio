@@ -1,62 +1,49 @@
 import { Metadata } from 'next';
-import { client } from '@/sanity/lib/client';
-import { groq } from 'next-sanity';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { getAllProjectSlugs, getProjectBySlug } from '@/lib/projects';
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  const slugs = await client.fetch(groq`*[_type == "project" && defined(slug.current)].slug.current`);
+  const slugs = await getAllProjectSlugs();
   return slugs.map((slug: string) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const project = await client.fetch(
-    groq`*[_type == "project" && slug.current == $slug][0] {
-      title,
-      description,
-      "image": mainImage.asset->url
-    }`,
-    { slug }
-  );
+  const project = await getProjectBySlug(slug);
 
   if (!project) return {};
 
+  const imageUrl = typeof project.mainImage === 'string' ? project.mainImage : project.mainImage?.asset?.url || '';
+
   return {
-    title: project.title,
+    title: `${project.title} | Angel Design Studio`,
     description: project.description,
     openGraph: {
       title: project.title,
       description: project.description,
-      images: project.image ? [{ url: project.image }] : [],
+      images: imageUrl ? [{ url: imageUrl }] : [],
     },
     twitter: {
       card: 'summary_large_image',
       title: project.title,
       description: project.description,
-      images: project.image ? [project.image] : [],
+      images: imageUrl ? [imageUrl] : [],
     },
   };
 }
 
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
-  const project = await client.fetch(
-    groq`*[_type == "project" && slug.current == $slug][0] {
-      title,
-      description,
-      "image": mainImage.asset->url,
-      technologies,
-      url
-    }`,
-    { slug }
-  );
+  const project = await getProjectBySlug(slug);
 
   if (!project) notFound();
+
+  const imageUrl = typeof project.mainImage === 'string' ? project.mainImage : project.mainImage?.asset?.url || '';
 
   return (
     <main className="min-h-screen pt-32 pb-20 px-6">
@@ -64,10 +51,10 @@ export default async function ProjectPage({ params }: Props) {
         <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter">
           {project.title}
         </h1>
-        {project.image && (
+        {imageUrl && (
           <div className="relative aspect-video mb-12 rounded-2xl overflow-hidden border border-white/10">
             <Image
-              src={project.image}
+              src={imageUrl}
               alt={project.title}
               fill
               className="object-cover"

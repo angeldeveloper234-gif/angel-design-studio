@@ -8,8 +8,9 @@
   --color-foreground: #FFFFFF;
   --color-secondary: #9CA7B0;
   --color-accent: #4DA2E3;
-  --color-surface: #52585D;
-  --color-border-custom: #7A8085;
+  --color-surface: #121315;
+  --color-card: #181A1D;
+  --color-border-custom: #222529;
 }
 
 :root {

@@ -15,7 +15,7 @@ export default function FumigationProblem() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-block border border-accent/20 text-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-8 bg-accent/5"
+              className="inline-block border border-accent/20 text-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase mb-8 bg-accent/5"
             >
               EL COSTO OCULTO DE ESTAR EN CAMPO
             </motion.div>
