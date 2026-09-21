@@ -1,38 +1,40 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.angelstudio.design"),
+  metadataBase: new URL("https://angelstudiodigital.online"),
   title: {
-    default: "Angel Design Studio | Agencia de Diseño Web, Branding & Marketing Digital",
+    default: "Angel Design Studio | Agencia de Diseño Web, Branding & Sistemas con IA",
     template: "%s | Angel Design Studio"
   },
-  description: "Expertos en diseño web profesional, posicionamiento SEO, branding de identidad visual y marketing digital de alto impacto. Impulsa tu negocio con Angel Design Studio en Salta, Argentina para toda Latinoamérica.",
+  description: "Expertos en diseño web profesional, posicionamiento SEO local, branding y automatizaciones de venta con IA. Impulsa tu negocio con Angel Design Studio para México, Colombia, Chile, Argentina y toda Latinoamérica.",
   keywords: [
     "angel design studio",
     "angel design",
-    "ange design",
-    "angel desing",
-    "diseño web salta",
-    "paginas web salta",
-    "diseño de paginas web salta",
-    "marketing digital salta",
-    "seo salta",
-    "diseño web argentina",
-    "paginas web argentina",
-    "desarrollo web argentina",
     "agencia de diseño web",
-    "estudio de diseño",
-    "marketing digital argentina",
-    "branding argentina",
     "diseño de paginas web",
     "creacion de paginas web",
+    "desarrollo web profesional",
+    "automatizacion whatsapp ia",
+    "asistente virtual whatsapp",
+    "seo local google maps",
     "posicionamiento seo",
-    "diseño de logotipos"
+    "diseño web mexico",
+    "diseño web colombia",
+    "diseño web chile",
+    "diseño web argentina",
+    "branding para empresas",
+    "landing pages de alta conversion"
   ],
   authors: [{ name: "Angel Design Studio" }],
   creator: "Angel Design Studio",
@@ -49,14 +51,14 @@ export const metadata: Metadata = {
     apple: "/favicon-angelstudiodesign.png",
   },
   alternates: {
-    canonical: "https://www.angelstudio.design",
+    canonical: "https://angelstudiodigital.online",
   },
   openGraph: {
-    title: "Angel Design Studio | Agencia de Diseño Web, Branding & Marketing Digital",
-    description: "Expertos en diseño web profesional, branding de marcas de primer nivel y marketing digital de alto impacto.",
-    url: "https://www.angelstudio.design",
+    title: "Angel Design Studio | Agencia de Diseño Web, Branding & Sistemas con IA",
+    description: "Expertos en diseño web profesional, posicionamiento SEO local y automatizaciones de venta con IA para toda Latinoamérica.",
+    url: "https://angelstudiodigital.online",
     siteName: "Angel Design Studio",
-    locale: "es_AR",
+    locale: "es_419",
     type: "website",
     images: [
       {

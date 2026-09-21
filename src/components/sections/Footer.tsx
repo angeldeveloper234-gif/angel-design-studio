@@ -124,10 +124,10 @@ export default function Footer() {
                     {language === "es" ? "Agendar llamada" : "Schedule a call"} <ArrowUpRight size={16} />
                   </Link>
                   <a 
-                    href="mailto:hola@angelstudio.design" 
+                    href="mailto:hola@angelstudiodigital.online" 
                     className="text-sm font-medium text-secondary hover:text-accent transition-colors flex items-center gap-2"
                   >
-                    hola@angelstudio.design
+                    hola@angelstudiodigital.online
                   </a>
                 </div>
               </li>
@@ -137,18 +137,20 @@ export default function Footer() {
           {/* Location Section */}
           <div className="lg:pl-8">
             <h4 className="font-bold text-lg mb-8 uppercase tracking-widest text-accent">
-              {language === "es" ? "Ubicación" : "Location"}
+              {language === "es" ? "Cobertura" : "Coverage"}
             </h4>
             <div className="mb-8">
-              <p className="text-foreground font-bold mb-1">{t("footer.location")}</p>
+              <p className="text-foreground font-bold mb-1">
+                {language === "es" ? "Operación Remota Internacional" : "International Remote Operations"}
+              </p>
               <p className="text-secondary leading-relaxed">
                 {language === "es" ? (
                   <>
-                    Estrategias de <strong>diseño web</strong> y <strong>branding</strong> desde Salta, Argentina para el mundo.
+                    Estrategias de <strong>diseño web</strong> y <strong>sistemas de IA</strong> para México, Colombia, Chile, Argentina y toda la región.
                   </>
                 ) : (
                   <>
-                    Web design and branding strategies from Salta, Argentina to the world.
+                    High-impact <strong>web design</strong> and <strong>AI systems</strong> for businesses across Latin America.
                   </>
                 )}
               </p>

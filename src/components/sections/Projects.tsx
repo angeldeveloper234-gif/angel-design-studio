@@ -227,7 +227,7 @@ export default function Projects({ projects: sanityProjects }: ProjectProps) {
           className="text-secondary text-lg md:text-xl leading-relaxed mb-8"
         >
           {language === "es"
-            ? "¿Querés ver cómo quedaría el sitio de tu negocio? Escribinos y te mostramos un ejemplo en minutos."
+            ? "¿Quieres ver cómo quedaría el sitio de tu negocio? Escríbenos y te mostramos un ejemplo en minutos."
             : "Want to see how your business website would look? Write to us and we'll show you an example in minutes."}
         </motion.p>
         

@@ -1,109 +1,127 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
+import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
-  const whatsappLink = useWhatsAppLink();
-  const { language, t } = useLanguage();
+  const { language } = useLanguage();
 
   return (
-    <section className="relative min-h-screen w-full bg-background overflow-hidden font-sans pt-20">
-      <div className="max-w-[1400px] mx-auto px-4 md:px-6 pt-32 pb-8 flex flex-col items-center text-center relative z-10 min-h-[800px]">
-        {/* Left Content */}
-        <div className="z-20 flex flex-col items-center min-h-[400px]">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="font-heading text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-[-0.02em] text-foreground mb-8 md:mb-16 max-w-full lg:max-w-[25ch] mx-auto break-words"
-          >
-            {language === "es" ? (
-              <>
-                Agencia de <span className="text-accent">diseño de páginas web</span> & sistemas de ventas con IA para toda Latinoamérica
-              </>
-            ) : (
-              <>
-                High-impact <span className="text-accent">web design</span> & AI sales systems agency for Latin America
-              </>
-            )}
-          </motion.h1>
+    <section className="relative w-full min-h-[100svh] lg:h-[100svh] bg-[#030712] text-white overflow-hidden flex flex-col justify-between select-none">
+      {/* Radiant Deep Blue Degrade & Mesh Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Rich vibrant blue gradient base */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `
+              radial-gradient(ellipse 90% 70% at 50% 45%, #1d4ed8 0%, #1e3a8a 35%, #0c1c4d 65%, #030712 100%)
+            `,
+          }}
+        />
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-base md:text-xl text-foreground/80 mb-8 md:mb-12 max-w-2xl px-2"
-          >
-            {t("hero.subtitle")}
-          </motion.p>
+        {/* Electric cyan-blue luminous beam at center-top */}
+        <div
+          className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[85vw] h-[60vw] max-w-[1200px] max-h-[750px] rounded-full blur-[110px] opacity-75 mix-blend-screen"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, rgba(56, 189, 248, 0.6) 0%, rgba(37, 99, 235, 0.5) 45%, rgba(29, 78, 216, 0.2) 70%, transparent 85%)",
+          }}
+        />
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 md:mb-16 w-full px-4 md:px-0 max-w-[320px] md:max-w-none mx-auto"
-          >
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex items-center justify-center bg-accent text-background px-6 py-3 md:pl-8 md:pr-2 md:py-2 rounded-full font-heading font-black text-sm md:text-xl transition-all hover:brightness-110 active:scale-95 shadow-lg shadow-accent/20 cursor-pointer border border-accent w-full md:w-auto"
-            >
-              <span className="mr-3 md:mr-6">{t("hero.cta1")}</span>
-              <div className="bg-background rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center text-accent border border-accent/20 shrink-0">
-                <ArrowRight size={16} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300 md:w-6 md:h-6" />
-              </div>
-            </a>
-            <a
-              href="#projects"
-              className="bg-transparent border-2 border-foreground text-foreground px-6 py-3 md:px-8 md:py-4 rounded-full font-black text-sm uppercase tracking-wider hover:bg-foreground hover:text-background active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2 group w-full md:w-auto"
-            >
-              {t("hero.cta2")} <ArrowRight size={18} className="opacity-50 group-hover:opacity-100 transition-opacity" />
-            </a>
-          </motion.div>
+        {/* Ambient royal glow right side */}
+        <div
+          className="absolute top-[35%] -right-[10%] w-[65vw] h-[65vw] max-w-[850px] max-h-[850px] rounded-full blur-[130px] opacity-60 mix-blend-screen"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(14, 165, 233, 0.7) 0%, rgba(30, 64, 175, 0.5) 50%, transparent 75%)",
+          }}
+        />
 
-
-        </div>
-
-
-
-        {/* Hero Image Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-6xl mx-auto mt-0 md:mt-4 -mb-12 md:-mb-48 group min-h-[300px] md:min-h-[600px]"
-        >
-          <div className="relative rounded-t-[4rem] overflow-hidden ">
-            <Image
-              src="/mockup-adaptado-afinity.webp"
-              alt="Mockup premium de sitios web diseñados por Angel Design Studio"
-              width={1600}
-              height={900}
-              priority
-              fetchPriority="high"
-              loading="eager"
-              quality={60}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 1200px"
-              className="w-full h-auto object-cover opacity-95 group-hover:scale-[1.01] transition-transform duration-1000"
-            />
-            {/* Strong Gradient Overlay to hide bottom */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
-          </div>
-
-          {/* Enhanced Glow */}
-          <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full h-full bg-accent/20 rounded-full blur-[140px] -z-10" />
-        </motion.div>
+        {/* Subtle subtle depth gradient at the very top and bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#030712]/80" />
       </div>
 
-      {/* Decorative Gradients */}
-      <div className="absolute top-0 right-0 w-[50vw] h-[100vh] bg-gradient-to-l from-accent/5 to-transparent -z-10" />
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px] -translate-x-1/2 -z-10" />
-      <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[1200px] h-[400px] bg-accent/10 rounded-full blur-[160px] -z-10" />
+      {/* Main Content: Header-aware viewport layout */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 pt-24 sm:pt-30 lg:pt-28 pb-8 sm:pb-10 flex-1 flex flex-col justify-between overflow-x-hidden">
+        
+        {/* Massive Typographic Headline — Pure White, Framer UI/UX Agency Aesthetic */}
+        <div className="w-full my-auto py-6 sm:py-8 lg:py-10">
+          <div className="w-full flex flex-col">
+            {/* Top Line: Left Aligned */}
+            <div className="w-full text-left">
+              <h1 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-[8.5vw] xl:text-[8vw] font-black uppercase tracking-[-0.04em] leading-[0.88] text-white drop-shadow-[0_15px_50px_rgba(0,0,0,0.8)]">
+                ANGEL DESIGN
+              </h1>
+            </div>
+
+            {/* Bottom Line: Right Aligned (staggered composition) */}
+            <div className="w-full text-right mt-1 sm:mt-2 md:mt-3">
+              <span className="inline-block text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-[8.5vw] xl:text-[8vw] font-black uppercase tracking-[-0.04em] leading-[0.88] text-white drop-shadow-[0_15px_50px_rgba(0,0,0,0.8)]">
+                STUDIO
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Split Bar: Short Copy + Scroll on Left, 3 Stat Blocks on Right */}
+        <div className="w-full flex flex-col md:flex-row items-start md:items-end justify-between gap-6 md:gap-8 pt-6 border-t border-white/20">
+          {/* Left Column: Short Paragraph Copy + Scroll Down Anchor */}
+          <div className="flex flex-col max-w-md">
+            <p className="text-sm sm:text-[15px] text-white/95 font-normal leading-relaxed mb-3 drop-shadow-sm">
+              {language === "es"
+                ? "Diseño web de alta conversión, automatizaciones inteligentes y sistemas digitales para escalar tu negocio en toda Latinoamérica."
+                : "High-converting web design, smart automations, and digital systems built to scale your business across Latin America."}
+            </p>
+
+            <a
+              href="#services"
+              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-white transition-colors group select-none"
+            >
+              <span className="border-b border-white/40 group-hover:border-white pb-0.5 transition-colors">
+                Scroll Down
+              </span>
+              <span className="transition-transform group-hover:translate-y-1">
+                ↓
+              </span>
+            </a>
+          </div>
+
+          {/* Right Column: 3 Metric Data Blocks */}
+          <div className="grid grid-cols-3 gap-2 sm:gap-8 md:gap-12 lg:gap-14 w-full sm:w-auto shrink-0">
+            {/* Stat 1: Países */}
+            <div className="flex flex-col">
+              <span className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none mb-1 drop-shadow-md">
+                +4
+              </span>
+              <span className="text-[11px] sm:text-sm text-neutral-200 font-medium leading-tight">
+                {language === "es" ? "Países activos" : "Active Countries"}
+              </span>
+            </div>
+
+            {/* Stat 2: Proyectos */}
+            <div className="flex flex-col">
+              <span className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none mb-1 drop-shadow-md">
+                +10
+              </span>
+              <span className="text-[11px] sm:text-sm text-neutral-200 font-medium leading-tight">
+                {language === "es" ? "Proyectos listos" : "Delivered"}
+              </span>
+            </div>
+
+            {/* Stat 3: Entrega récord */}
+            <div className="flex flex-col">
+              <span className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none mb-1 drop-shadow-md whitespace-nowrap">
+                &lt; 7 Días
+              </span>
+              <span className="text-[11px] sm:text-sm text-neutral-200 font-medium leading-tight">
+                {language === "es" ? "Entrega récord" : "Record Delivery"}
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
   );
 }

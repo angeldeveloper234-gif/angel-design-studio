@@ -2,19 +2,18 @@ import { MetadataRoute } from "next";
 import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
 import { staticBlogPosts } from "@/constants/blogData";
+import { getAllProjectSlugs } from "@/lib/projects";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://www.angelstudio.design";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://angelstudiodigital.online";
   
-  // 1. Fetch de proyectos desde Sanity
+  // 1. Fetch de todos los slugs de proyectos (Sanity + nuevos verificados)
   let projectUrls: MetadataRoute.Sitemap = [];
   try {
-    const projects = await client.fetch(
-      groq`*[_type == "project" && defined(slug.current)] { "slug": slug.current, _updatedAt }`
-    );
-    projectUrls = projects.map((project: { slug: string; _updatedAt: string }) => ({
-      url: `${baseUrl}/proyectos/${project.slug}`,
-      lastModified: new Date(project._updatedAt),
+    const slugs = await getAllProjectSlugs();
+    projectUrls = slugs.map((slug) => ({
+      url: `${baseUrl}/proyectos/${slug}`,
+      lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.8,
     }));

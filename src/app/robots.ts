@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/studio/"],
     },
-    sitemap: "https://www.angelstudio.design/sitemap.xml",
+    sitemap: "https://angelstudiodigital.online/sitemap.xml",
   };
 }

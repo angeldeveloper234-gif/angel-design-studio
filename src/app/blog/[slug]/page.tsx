@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${post.title} | Blog Angel Design Studio`,
       description: post.excerpt,
       type: "article",
-      url: `https://www.angelstudio.design/blog/${post.slug}`,
+      url: `https://angelstudiodigital.online/blog/${post.slug}`,
       images: imageUrl ? [{ url: imageUrl }] : [],
     },
     twitter: {

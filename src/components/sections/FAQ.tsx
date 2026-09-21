@@ -22,11 +22,11 @@ const faqDataEs = [
   },
   {
     question: "¿Incluye dominio?",
-    answer: "¡Sí! El primer año de dominio (.com o .com.ar) y hosting premium de alta velocidad están incluidos en todos nuestros planes. Nos encargamos de toda la configuración técnica por ti.",
+    answer: "¡Sí! El primer año de dominio (.com) y hosting premium de alta velocidad están incluidos en todos nuestros planes. Nos encargamos de toda la configuración técnica por ti.",
   },
   {
     question: "¿Buscas un design studio o agencia de digital marketing y web design cerca de mí?",
-    answer: "Aunque tenemos nuestra sede en Salta, Argentina, en Angel Design Studio (a veces buscado como ange design o angelstudio.design) trabajamos de forma remota para todo el país y el mundo. Al ser un design studio enfocado en digital marketing, podemos ofrecerte la misma calidad y atención personalizada sin importar tu ubicación física.",
+    answer: "En Angel Design Studio trabajamos de forma 100% remota para empresas en México, Colombia, Chile, Argentina y toda Latinoamérica. Al ser un estudio enfocado en diseño web y sistemas con IA, podemos ofrecerte la misma calidad, velocidad y atención personalizada sin importar tu ciudad o país.",
   },
   {
     question: "¿Cómo cobran?",
@@ -49,11 +49,11 @@ const faqDataEn = [
   },
   {
     question: "Does it include a domain?",
-    answer: "Yes! The first year of domain (.com or .com.ar) and high-speed premium hosting are included in all of our plans. We handle all the technical configuration for you.",
+    answer: "Yes! The first year of domain (.com) and high-speed premium hosting are included in all of our plans. We handle all the technical configuration for you.",
   },
   {
     question: "Looking for a design studio or digital marketing and web design agency near me?",
-    answer: "Although we are based in Salta, Argentina, at Angel Design Studio (sometimes searched as ange design or angelstudio.design) we work remotely for the entire country and the world. Being a design studio focused on digital marketing, we can offer you the same quality and personalized attention regardless of your physical location.",
+    answer: "At Angel Design Studio we work 100% remotely for businesses across Mexico, Colombia, Chile, Argentina, and all of Latin America. Being a modern design studio focused on web design and AI systems, we offer high-level execution and dedicated support regardless of your physical location.",
   },
   {
     question: "How do you charge?",

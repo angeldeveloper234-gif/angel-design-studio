@@ -7,30 +7,20 @@ export default function JsonLd() {
     "name": "Angel Design Studio",
     "alternateName": [
       "Angel Design",
-      "Ange Design",
-      "Angel Desing",
-      "AngelStudio.design",
-      "angelstudio design",
-      "diseño web salta",
-      "paginas web salta",
-      "diseño web argentina",
+      "AngelStudio",
+      "Angel Studio Digital",
+      "angelstudiodigital.online",
+      "agencia de diseño web",
       "diseño de paginas web",
-      "estudio de diseño",
-      "marketing digital salta"
+      "automatizacion whatsapp ia",
+      "seo local google maps"
     ],
-    "image": "https://www.angelstudio.design/og-image.jpg",
-    "@id": "https://www.angelstudio.design",
-    "url": "https://www.angelstudio.design",
+    "image": "https://angelstudiodigital.online/og-image.jpg",
+    "@id": "https://angelstudiodigital.online",
+    "url": "https://angelstudiodigital.online",
     "telephone": "+543873529421",
     "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Salta, Argentina",
-      "addressLocality": "Salta",
-      "addressRegion": "Salta",
-      "postalCode": "A4400",
-      "addressCountry": "AR"
-    },
+    "areaServed": ["MX", "CO", "CL", "AR", "Latinoamérica"],
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": -24.78977,
@@ -84,12 +74,12 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Angel Design Studio",
-    "url": "https://www.angelstudio.design",
+    "url": "https://angelstudiodigital.online",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://www.angelstudio.design/?s={search_term_string}"
+        "urlTemplate": "https://angelstudiodigital.online/?s={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }

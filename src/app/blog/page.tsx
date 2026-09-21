@@ -19,12 +19,12 @@ export const metadata: Metadata = {
     "digital marketing"
   ],
   alternates: {
-    canonical: "https://www.angelstudio.design/blog",
+    canonical: "https://angelstudiodigital.online/blog",
   },
   openGraph: {
     title: "Blog & Recursos de Diseño Web y SEO | Angel Design Studio",
     description: "Aprende de digital marketing, web design, y posicionamiento SEO. Estrategias de Angel Design Studio para captar leads en Google.",
-    url: "https://www.angelstudio.design/blog",
+    url: "https://angelstudiodigital.online/blog",
     type: "website",
   }
 };

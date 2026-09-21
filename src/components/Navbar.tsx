@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
@@ -12,28 +13,34 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
-  
-  const isFumigacion = pathname === '/fumigacion';
-  
-  const currentNavLinks = isFumigacion 
+
+  const isFumigacion = pathname === "/fumigacion";
+
+  const currentNavLinks = isFumigacion
     ? [
-        { name: language === 'es' ? "Servicios" : "Services", href: "#servicios" },
-        { name: language === 'es' ? "Precios" : "Prices", href: "#precios" },
-        { name: language === 'es' ? "Portafolio" : "Portfolio", href: "#portafolio" },
+        { name: language === "es" ? "Servicios" : "Services", href: "#servicios" },
+        { name: language === "es" ? "Precios" : "Prices", href: "#precios" },
+        { name: language === "es" ? "Portafolio" : "Portfolio", href: "#portafolio" },
       ]
     : [
-        { name: "Fumigación", href: "/fumigacion" },
-        { name: t("nav.services"), href: "/#services" },
-        { name: t("nav.portfolio"), href: "/#projects" },
-        { name: t("nav.process"), href: "/#process" },
-        { name: t("nav.blog"), href: "/blog" },
+        { name: language === "es" ? "Inicio" : "Home", href: "/" },
+        { name: language === "es" ? "Servicios" : "Services", href: "/#services" },
+        { name: language === "es" ? "Portafolio" : "Portfolio", href: "/#projects" },
+        { name: language === "es" ? "Proceso" : "Process", href: "/#process" },
+        { name: "FAQ", href: "/#faq" },
+        { name: "Blog", href: "/blog" },
       ];
 
-  const ctaText = isFumigacion 
-    ? (language === 'es' ? "Empezar" : "Start") 
-    : t("nav.cta");
+  const ctaText = isFumigacion
+    ? language === "es"
+      ? "Empezar"
+      : "Start"
+    : language === "es"
+    ? "Contactar"
+    : "Contact Us";
+
   const ctaHref = isFumigacion ? "#precios" : "/#contact";
-  
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -46,134 +53,130 @@ export default function Navbar() {
   if (pathname?.startsWith("/studio")) return null;
 
   return (
-    <motion.header 
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-[100] w-full transition-all duration-500 ${
-        scrolled ? "py-4" : "py-6"
+    <header
+      className={`fixed top-0 left-0 right-0 z-[100] w-full transition-all duration-300 ${
+        scrolled
+          ? "py-3 bg-black/60 backdrop-blur-xl border-b border-white/10 shadow-2xl"
+          : "py-5 bg-transparent"
       }`}
     >
-      {/* Optional: subtle background gradient when scrolled to ensure visibility */}
-      <div className={`absolute inset-0 transition-opacity duration-500 -z-10 ${
-        scrolled ? "opacity-100 bg-background/80 backdrop-blur-md border-b border-border-custom/10" : "opacity-0"
-      }`} />
-
-      <div className="max-w-[1400px] mx-auto px-4 md:px-6 flex items-center justify-between">
-        {isFumigacion ? (
-          <div className="flex items-center gap-2 group relative z-10">
-            <div className="w-10 h-10 flex items-center justify-center shrink-0">
-              <Image 
-                src="/favicon-angelstudiodesign.png" 
-                alt="Angel Design Studio Logo" 
-                width={40}
-                height={40}
-                className="w-full h-full object-contain drop-shadow-md"
-              />
-            </div>
-            <span className="hidden sm:block font-bold text-xl tracking-tight font-heading text-foreground">
-              Angel Design Studio
-            </span>
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between">
+        {/* Brand / Logo */}
+        <Link
+          href={isFumigacion ? "/fumigacion" : "/"}
+          className="flex items-center gap-2 group relative z-10 shrink-0"
+        >
+          <div className="w-7 h-7 sm:w-8 sm:h-8 relative flex items-center justify-center shrink-0">
+            <Image
+              src="/logo-icon-white.svg"
+              alt="Angel Design Studio Logo"
+              width={32}
+              height={32}
+              priority
+              className="w-full h-full object-contain transition-transform group-hover:scale-105"
+            />
           </div>
-        ) : (
-          <Link href="/" className="flex items-center gap-2 group relative z-10">
-            <div className="w-10 h-10 flex items-center justify-center shrink-0">
-              <Image 
-                src="/favicon-angelstudiodesign.png" 
-                alt="Angel Design Studio Logo" 
-                width={40}
-                height={40}
-                className="w-full h-full object-contain transition-transform group-hover:scale-110 drop-shadow-md"
-              />
-            </div>
-            <span className="hidden sm:block font-bold text-xl tracking-tight font-heading transition-colors duration-300 text-foreground">
-              Angel Design Studio
-            </span>
-          </Link>
-        )}
+          <span className="font-heading font-black text-sm sm:text-lg lg:text-xl tracking-tight text-white select-none whitespace-nowrap">
+            <span className="sm:hidden">Angel Studio</span>
+            <span className="hidden sm:inline">Angel Design Studio</span>
+          </span>
+        </Link>
 
-        {/* Nav Pill - The container described by the user */}
-        <nav className="flex items-center bg-surface/50 backdrop-blur-xl rounded-full p-1 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-border-custom/10 transition-all duration-300">
-          <div className="hidden md:flex items-center gap-1 px-4">
-            {currentNavLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="px-5 py-2.5 text-[13px] font-bold text-secondary hover:text-foreground transition-all rounded-full hover:bg-white/5 uppercase tracking-wider"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-          
-          <Link 
+        {/* Center Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-7 lg:gap-9">
+          {currentNavLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-sm font-medium text-white/80 hover:text-white transition-colors tracking-wide"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Right Action: Pill CTA + Language Switcher + Mobile Toggle */}
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* Pill CTA Button (Framer style: pure white pill with black text & arrow) */}
+          <Link
             href={ctaHref}
-            className="bg-accent text-white px-4 py-2 md:px-7 md:py-3 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.05em] md:tracking-[0.1em] hover:brightness-110 transition-all active:scale-95 shadow-lg shadow-accent/20 whitespace-nowrap shrink-0"
+            className="hidden sm:inline-flex items-center gap-1.5 bg-white text-black hover:bg-neutral-200 px-5 py-2.5 rounded-full text-sm font-bold tracking-tight transition-all duration-200 shadow-md active:scale-95 whitespace-nowrap"
           >
-            {ctaText}
+            <span>{ctaText}</span>
+            <ArrowUpRight size={16} className="stroke-[2.5]" />
           </Link>
 
-          {/* Language Switcher */}
-          <div className="flex items-center bg-surface/50 rounded-full border border-border-custom/10 p-0.5 ml-2 mr-1">
-            <button 
-              onClick={() => setLanguage('es')} 
-              className={`px-3 py-1.5 text-[11px] font-black rounded-full transition-all duration-300 ${language === 'es' ? 'bg-accent text-white shadow-md' : 'text-secondary hover:text-foreground'}`}
+          {/* Minimalist Language Switcher */}
+          <div className="flex items-center bg-white/10 backdrop-blur-md border border-white/15 rounded-full p-0.5 text-[11px] font-bold">
+            <button
+              onClick={() => setLanguage("es")}
+              className={`px-2.5 py-1 rounded-full transition-all duration-200 ${
+                language === "es"
+                  ? "bg-white text-black shadow-sm"
+                  : "text-white/70 hover:text-white"
+              }`}
               aria-label="Cambiar a Español"
             >
               ES
             </button>
-            <button 
-              onClick={() => setLanguage('en')} 
-              className={`px-3 py-1.5 text-[11px] font-black rounded-full transition-all duration-300 ${language === 'en' ? 'bg-accent text-white shadow-md' : 'text-secondary hover:text-foreground'}`}
+            <button
+              onClick={() => setLanguage("en")}
+              className={`px-2.5 py-1 rounded-full transition-all duration-200 ${
+                language === "en"
+                  ? "bg-white text-black shadow-sm"
+                  : "text-white/70 hover:text-white"
+              }`}
               aria-label="Switch to English"
             >
               EN
             </button>
           </div>
 
-          {/* Mobile Menu Button - inside the pill on mobile */}
-          <button 
-            className="md:hidden p-3 ml-1 text-foreground"
+          {/* Mobile Menu Button */}
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-white/90 hover:text-white transition-colors"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            ) : (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
-                <line x1="4" y1="12" x2="20" y2="12"></line>
-                <line x1="4" y1="6" x2="20" y2="6"></line>
-                <line x1="4" y1="18" x2="20" y2="18"></line>
-              </svg>
-            )}
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
-        </nav>
+        </div>
       </div>
+
+      {/* Mobile Navigation Dropdown */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -16, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -16, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute top-full left-0 right-0 mt-4 mx-4 md:mx-6 p-6 bg-surface/95 backdrop-blur-xl border border-border-custom/20 rounded-[24px] shadow-2xl flex flex-col gap-2 md:hidden"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden absolute top-full left-0 right-0 mx-4 mt-3 p-6 bg-[#080d1e]/95 backdrop-blur-2xl border border-white/15 rounded-3xl shadow-2xl flex flex-col gap-4 z-50"
           >
-            {currentNavLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-[16px] font-bold text-foreground py-3 border-b border-border-custom/10 tracking-wide uppercase transition-colors hover:text-accent"
-              >
-                {link.name}
-              </Link>
-            ))}
+            <div className="flex flex-col gap-1">
+              {currentNavLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-base font-semibold text-white/90 hover:text-white py-3 border-b border-white/10 tracking-wide transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+
+            <Link
+              href={ctaHref}
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-2 w-full flex items-center justify-center gap-2 bg-white text-black py-3.5 rounded-full font-bold text-sm tracking-wide shadow-lg active:scale-95"
+            >
+              <span>{ctaText}</span>
+              <ArrowUpRight size={18} className="stroke-[2.5]" />
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }
