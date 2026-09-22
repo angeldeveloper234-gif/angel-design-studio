@@ -33,12 +33,12 @@ export default function MarketProblem() {
             >
               {language === "es" ? (
                 <>
-                  <span className="text-secondary/60">El 90% de los sitios web de negocios en Argentina</span> <br />
-                  <span className="text-foreground">están desactualizados o no convierten</span>
+                  <span className="text-secondary/60">El 90% de las páginas web de negocios</span> <br />
+                  <span className="text-foreground">están desactualizadas o no convierten</span>
                 </>
               ) : (
                 <>
-                  <span className="text-secondary/60">90% of business websites in Argentina</span> <br />
+                  <span className="text-secondary/60">90% of business websites</span> <br />
                   <span className="text-foreground">are outdated or don't convert</span>
                 </>
               )}

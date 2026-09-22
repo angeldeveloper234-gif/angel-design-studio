@@ -111,22 +111,18 @@ const translations = {
     "faq.q3": "¿Qué pasa si quiero cambios?",
     "faq.a3": "Incluimos una fase de revisiones ilimitadas durante el proceso de diseño. Una vez publicada, tienes 30 días de soporte gratuito para ajustes menores, asegurando que todo funcione a la perfección.",
     "faq.q4": "¿Incluye dominio?",
-    "faq.a4": "¡Sí! El primer año de dominio (.com o .com.ar) y hosting premium de alta velocidad están incluidos en todos nuestros planes. Nos encargamos de toda la configuración técnica por ti.",
+    "faq.a4": "¡Sí! El primer año de dominio y hosting premium de alta velocidad están incluidos en todos nuestros planes. Nos encargamos de toda la configuración técnica por ti.",
     "faq.q5": "¿Buscas un design studio o agencia de digital marketing y web design cerca de mí?",
-    "faq.a5": "Aunque nuestro centro de desarrollo principal está en Argentina, en Angel Design Studio (a veces buscado como ange design o angelstudio.design) operamos de forma 100% remota para toda Latinoamérica. Esto nos permite contar con talento de primer nivel y ofrecer la misma calidad y atención personalizada sin importar tu ubicación física.",
+    "faq.a5": "En Angel Design Studio operamos de forma 100% remota para empresas en México, Colombia, Chile, Argentina y toda Latinoamérica. Al ser un estudio enfocado en diseño web y sistemas con IA, podemos ofrecerte la misma calidad, velocidad y atención personalizada sin importar tu ciudad o país.",
     "faq.q6": "¿Cómo cobran?",
     "faq.a6": "Solicitamos un 50% de anticipo para iniciar el proyecto y el 50% restante al finalizar, una vez que estés totalmente satisfecho con el resultado y antes del lanzamiento oficial.",
 
     // Contact
-    "contact.badge": "Contacto",
-    "contact.title": "Trabajemos juntos",
-    "contact.subtitle": "Cuéntanos sobre tu proyecto y te enviaremos una propuesta personalizada en menos de 24 horas.",
-    "contact.subheading": "Consigue un sitio web de alta conversión que trabaje para ti las 24 horas del día. Sin formularios aburridos, directo a WhatsApp.",
-    "contact.button": "Hablar por WhatsApp",
-    "contact.fastResponse": "Respuesta rápida",
-    "contact.noForms": "Sin formularios",
-    "contact.form.name": "Nombre Completo",
-    "contact.form.name.ph": "Tu nombre...",
+    "contact.badge": "Hablemos de tu Proyecto",
+    "contact.title": "¿Listo para tener un sitio web que realmente facture?",
+    "contact.desc": "Diseñamos una solución a medida para tu empresa con foco en conversión, velocidad y posicionamiento en Google. Déjanos tus datos y te contactamos en menos de 24 horas.",
+    "contact.form.name": "Tu Nombre o Empresa",
+    "contact.form.name.ph": "Ej. Juan Pérez / Empresa S.A.",
     "contact.form.email": "Correo Electrónico",
     "contact.form.email.ph": "tu@email.com",
     "contact.form.message": "Mensaje",
@@ -136,7 +132,7 @@ const translations = {
     // Footer
     "footer.location": "Latinoamérica",
     "footer.desc": "Estrategias de diseño web, posicionamiento SEO y branding de exportación para México, Colombia, Chile, Argentina y toda la región.",
-    "footer.timeLabel": "Hora Local (Buenos Aires HQ)",
+    "footer.timeLabel": "Hora de Operaciones (GMT-3)",
     "footer.rights": "Todos los derechos reservados."
   },
   en: {
@@ -239,22 +235,18 @@ const translations = {
     "faq.q3": "What if I want changes?",
     "faq.a3": "We include an unlimited revisions phase during the design process. Once published, you have 30 days of free support for minor adjustments, ensuring everything works perfectly.",
     "faq.q4": "Does it include a domain?",
-    "faq.a4": "Yes! The first year of domain (.com or .com.ar) and premium high-speed hosting are included in all our plans. We handle all the technical configuration for you.",
+    "faq.a4": "Yes! The first year of domain and premium high-speed hosting are included in all our plans. We handle all the technical configuration for you.",
     "faq.q5": "Looking for a design studio or digital marketing and web design agency near me?",
-    "faq.a5": "Although our main development center is based in Argentina, at Angel Design Studio (sometimes searched as ange design or angelstudio.design) we work 100% remotely for all of Latin America. This allows us to have top-tier talent and offer the same quality and personalized attention regardless of your physical location.",
+    "faq.a5": "At Angel Design Studio we work 100% remotely for businesses across Mexico, Colombia, Chile, Argentina, and all of Latin America. Being a modern design studio focused on web design and AI systems, we offer high-level execution, speed, and dedicated support regardless of your physical location.",
     "faq.q6": "How do you charge?",
     "faq.a6": "We request a 50% deposit to start the project and the remaining 50% upon completion, once you are fully satisfied with the result and before the official launch.",
 
     // Contact
-    "contact.badge": "Contact",
-    "contact.title": "Let's work together",
-    "contact.subtitle": "Tell us about your project and we will send you a personalized proposal in less than 24 hours.",
-    "contact.subheading": "Get a high-converting website that works for you 24/7. No boring forms, straight to WhatsApp.",
-    "contact.button": "Chat on WhatsApp",
-    "contact.fastResponse": "Fast response",
-    "contact.noForms": "No forms",
-    "contact.form.name": "Full Name",
-    "contact.form.name.ph": "Your name...",
+    "contact.badge": "Let's Talk About Your Project",
+    "contact.title": "Ready for a website that actually generates sales?",
+    "contact.desc": "We design a tailored solution for your company focused on conversion, speed, and Google rankings. Leave your details and we will reach out in less than 24 hours.",
+    "contact.form.name": "Your Name or Company",
+    "contact.form.name.ph": "e.g. John Doe / Company LLC",
     "contact.form.email": "Email Address",
     "contact.form.email.ph": "you@email.com",
     "contact.form.message": "Message",
@@ -264,7 +256,7 @@ const translations = {
     // Footer
     "footer.location": "Latin America",
     "footer.desc": "High-impact web design, SEO positioning, and branding strategies for Mexico, Colombia, Chile, Argentina, and across the region.",
-    "footer.timeLabel": "Local Time (Buenos Aires HQ)",
+    "footer.timeLabel": "Support Hours (GMT-3)",
     "footer.rights": "All rights reserved."
   }
 };
